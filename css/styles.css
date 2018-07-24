@@ -6,11 +6,11 @@
     --accent_dark: #B5DFCA;
     --light: #f2f2f2;
     --dark: #617073;
-    --darker:rgb(81, 94, 96);
+    --darker: rgb(81, 94, 96);
 }
 
 body {
-     /* reset default values */
+    /* reset default values */
     /*Crete Round, Roboto Slab, Zilla Slab, Raleway*/
     box-sizing: border-box;
     background-color: var(--light);
@@ -18,10 +18,11 @@ body {
     overflow-x: auto;
     overflow-y: scroll;
 }
+
 html {
     color: var(--dark);
     font-size: 10px;
-    font-family: 'Montserrat','Ubuntu', sans-serif;
+    font-family: 'Montserrat', 'Ubuntu', sans-serif;
     height: 100%;
     background: var(--light);
 }
@@ -29,65 +30,107 @@ html {
 h1 {
     font-size: 25px;
     text-align: left;
-        font-family: 'Bitter', serif;
+    font-family: 'Bitter', serif;
 }
+
 .main-nav > ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-        font-family: 'Bitter', serif;
+    font-family: 'Bitter', serif;
 }
+
+.main-nav a, .main-nav label {
+    width: 100%;
+    height: 100%;
+        cursor: pointer; 
+}
+.main-nav ul {
+    display: flex;
+    align-content: flex-end;
+}
+.main-nav li {
+        transform: rotate(270deg);
+    transform-origin: center center 0;
+    padding: 10px
+}
+.main-nav label::before {
+    height:50px;
+    width: 100px;
+    background-color:#555;
+}
+.main-nav a:hover, .main-nav label:focus {
+    color: aquamarine;
+}
+.main-nav a.active, main-nav label:checked{
+    color: salmon;
+}
+
 h3 {
     color: var(--darker);
     margin: 5px;
-        font-family: 'Bitter', serif;
+    font-family: 'Bitter', serif;
 }
 
 a {
     text-decoration: none;
     color: var(--dark);
 }
+
 h4 {
     margin: 0;
-        font-family: 'Bitter', serif;
+    font-family: 'Bitter', serif;
 }
 
-div {
+div {}
 
-}
 .section {
     min-width: 300px;
     width: 450px;
+    display: none;
 }
-.description{
+input:checked + .section {
+    display: block;
+}
+input.toggle-section {
+    opacity: 0;
+    width: 0;
+    height:0;
+}
+.description {
     font-size: 10px;
     padding: 0;
 }
-.description li+li{
-  padding: 5px 0 0;
+
+.description li + li {
+    padding: 5px 0 0;
 }
+
 ul.description {
     margin: 5px;
     margin-left: 20px;
 }
-ul {
+
+ul, input.toggle-section {
     margin: 0;
     padding: 0;
 }
-#experience > ul > li{
+
+#experience > ul > li {
     list-style-type: none;
 }
-.experience-header, .experience-info {
+
+.experience-header,
+.experience-info {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
 }
+
 .title {
-font-weight: bold;       
+    font-weight: bold;
 }
-.location {
-    
-}
-.time {
-    
-}
+
+.location {}
+
+.time {}

@@ -18,17 +18,15 @@
         <h1>Kristianna Elbert</h1>
         <nav class="main-nav">
             <ul>
-                <li><a href="#">Experience</a></li>
-                <li><a href="#">Education</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><label for="experience">Experience</label></li>
+                <li><label for="education">Education</label></li>
+                <li><label for="about">About</label></li>
+                <li><label for="contact">Contact</label></li>
             </ul>
         </nav>
     </header>
-
-    <h2>Resume</h2>
-
-    <div id="experience" class="section">
+    <input id="experience" type="radio" class="toggle-section" name="radio-section">
+    <div class="section">
         <h3>Experience</h3>
         <ul>
             <li>
@@ -94,42 +92,42 @@
                 </li>
         </ul>
 
-    <div id="skills">
-        <h3>Skills</h3>
-        <h4>Programming</h4>
-        <ul>
-            <li>Java</li>
-            <li>JavaScript, TypeScript</li>
-            <li>C#</li>
-            <li>C++</li>
-            <li>Matlab</li>
-            <li>SQL</li>
-        </ul>
-        <h4>Related Languages</h4>
-        <ul>
-            <li>Arduino</li>
-            <li>HTML & CSS</li>
-        </ul>
-        <h4>3D Modelling</h4>
-        <ul>
-            <li>Fusion360</li>
-            <li>AutoDesk Inventor</li>
-            <li>3DS Max</li>
-            <li>SolidWorks</li>
-            <li>AutoCAD</li>
-            <li>Mudbox</li>
-        </ul>
-        <h4>Additional Skills</h4>
-        <ul>
-            <li>Adobe Illustrator</li>
-            <li>Hand Milling</li>
-            <li>CAM and CNC</li>
-            <li>Soldering</li>
-        </ul>
+        <div id="skills">
+            <h3>Skills</h3>
+            <h4>Programming</h4>
+            <ul>
+                <li>Java</li>
+                <li>JavaScript, TypeScript</li>
+                <li>C#</li>
+                <li>C++</li>
+                <li>Matlab</li>
+                <li>SQL</li>
+            </ul>
+            <h4>Related Languages</h4>
+            <ul>
+                <li>Arduino</li>
+                <li>HTML & CSS</li>
+            </ul>
+            <h4>3D Modelling</h4>
+            <ul>
+                <li>Fusion360</li>
+                <li>AutoDesk Inventor</li>
+                <li>3DS Max</li>
+                <li>SolidWorks</li>
+                <li>AutoCAD</li>
+                <li>Mudbox</li>
+            </ul>
+            <h4>Additional Skills</h4>
+            <ul>
+                <li>Adobe Illustrator</li>
+                <li>Hand Milling</li>
+                <li>CAM and CNC</li>
+                <li>Soldering</li>
+            </ul>
+        </div>
     </div>
-            </div>
-
-    <div id="education" class="section">
+    <input id="education" type="radio" class="toggle-section" name="radio-section">
+    <div class="section">
         <h3 id="education">Education</h3>
         <h4>Duke University</h4>
         <p class="location">Durham, NC</p>
@@ -155,57 +153,61 @@
             <li>Database Systems</li>
         </ul>
 
-    <div id="extracurriculars">
-        <h3>Extracurriculars</h3>
-        <h4>Leadership</h4>
-        <ul>
-            <li>Duke University Marching Band
-                <p class="description">Treasurer, Piccolo</p>
-            </li>
-            <li>Duke Electric Vehicles
-                <p class="description">Co-Lead for Driver Strategy and Prototype Electric Driver</p>
-            </li>
-            <li>Design for America
-                <p class="description">Secretary, Co-Team Lead</p>
-            </li>
-        </ul>
-        <h4>Volunteering</h4>
-        <ul>
-            <li>Females Excelling More in Math, Engineering, and Science
-                <p class="description">Volunteer with elementary through high-school aged girls</p>
-            </li>
-            <li>Girls Engineering Change
-                <p class="description">Teach young women to solder and inspire them to pursue engineering degrees</p>
-            </li>
-            <li>Westfield Historical Society</li>
-        </ul>
-    </div>
+        <div id="extracurriculars">
+            <h3>Extracurriculars</h3>
+            <h4>Leadership</h4>
+            <ul>
+                <li>Duke University Marching Band
+                    <p class="description">Treasurer, Piccolo</p>
+                </li>
+                <li>Duke Electric Vehicles
+                    <p class="description">Co-Lead for Driver Strategy and Prototype Electric Driver</p>
+                </li>
+                <li>Design for America
+                    <p class="description">Secretary, Co-Team Lead</p>
+                </li>
+            </ul>
+            <h4>Volunteering</h4>
+            <ul>
+                <li>Females Excelling More in Math, Engineering, and Science
+                    <p class="description">Volunteer with elementary through high-school aged girls</p>
+                </li>
+                <li>Girls Engineering Change
+                    <p class="description">Teach young women to solder and inspire them to pursue engineering degrees</p>
+                </li>
+                <li>Westfield Historical Society</li>
+            </ul>
+        </div>
 
-    <div id="awards">
-        <h3>Awards & Recognition</h3>
-        <ul>
-            <li><span class="time">2017</span>Duke Technology Scholar</li>
-            <li><span class="time">2017</span>Shell Eco-Marathon
-                <p>1st Place</p>
-                <p class="description">Duke Electric Vehicles Team, Porotype Electric</p>
-            </li>
-            <li><span class="time">2016</span>Duke ChangeWorks Startup Challenge
-                <p>1st Place</p>
-                <p class="description">CodeStory: An interactive narrative adventure to teach children to code. Worked as modelling lead and front=-end developer.</p>
-            </li>
-            <li><span class="time">2016</span>HackDuke: Code for Good
-                <p>Novice Prize</p>
-                <p class="description">ADD and ADHD Diagnosis with Oculus Rift</p>
-            </li>
-        </ul>
+        <div id="awards">
+            <h3>Awards & Recognition</h3>
+            <ul>
+                <li><span class="time">2017</span>Duke Technology Scholar</li>
+                <li><span class="time">2017</span>Shell Eco-Marathon
+                    <p>1st Place</p>
+                    <p class="description">Duke Electric Vehicles Team, Porotype Electric</p>
+                </li>
+                <li><span class="time">2016</span>Duke ChangeWorks Startup Challenge
+                    <p>1st Place</p>
+                    <p class="description">CodeStory: An interactive narrative adventure to teach children to code. Worked as modelling lead and front=-end developer.</p>
+                </li>
+                <li><span class="time">2016</span>HackDuke: Code for Good
+                    <p>Novice Prize</p>
+                    <p class="description">ADD and ADHD Diagnosis with Oculus Rift</p>
+                </li>
+            </ul>
+        </div>
     </div>
-            </div>
-
+    <input id="about" type="radio" class="toggle-section" name="radio-section">
+    <div class="section">
+        <h3>About</h3>
+    </div>
+    <input id="contact" type="radio" class="toggle-section" name="radio-section">
     <div id="contact" class="section">
-        <h3></h3>
+        <h3>Let's Get In Contact</h3>
     </div>
 
 </body>
-    <footer></footer>
+<footer></footer>
 
 </html>
