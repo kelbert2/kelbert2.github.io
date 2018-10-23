@@ -1,0 +1,64 @@
+[
+  {
+    "company": "PrecisionLender",
+    "who":"PrecisionLender is a fintech company that makes lending software for banks so that lending rates are generated objectively, and based on more than just credit score, freeing bankers up to do what they do best: cultivate relationships with their clients."
+    "role": "Software Engineering Intern, Product Dev",
+    "startTime": "June 2018",
+    "endTime": "August 2018",
+    "location": "Cary, NC",
+    "description": [
+      "Designed and implemented a full stack web app to deliver real time NLP-driven insights based on user queries to PrecisionLender's AI client.",
+      "Created wireframes of the UI which was then developed using TypeScript, Knockout.js, HTML, and CSS to be a responsive, dynamic, and accessible experience. Used AJAX calls to retrieve JSON files that were parsed and reformatted in the C# backend."
+    ]
+  },
+  {
+    "company": "Carbon",
+    "who": "Carbon is a 3D printing company that sets itself apart with its incredible speed and mass-production applications."
+    "role": "Software Engineering Intern, Life Sciences",
+    "startTime": "June 2017",
+    "endTime": "August 2017",
+    "location": "Redwood City, CA",
+    "description": [
+      "Implemented a supply chain dashboard that reduced client wait time for sample parts by 33%. Written primarily in Java and VBA.",
+      "Developed a full stack Excel dashboard to enable engineers to rapidly process and visualize 3D printing statistics from any individual Carbon printer.",
+      "Generated and produced low-cost, high-resolution parts from client submitted 3D files. Optimized client designs to decrease cost and production time. Validated part accuracy and material consistency."
+    ]
+  },
+  {
+    "company": "Duke Innovation Co-Lab",
+    "who":"The Co-Lab started out as Duke's makerspace, with CNC mills, laser cutters, and a few 3D printers, and has transformed into a resource for students, professors, and employees across Duke University and Duke Hopsital. It is now the largest 3D printing bank in higher education, a teaching resource, and a design studio that employees students to work with clients to build them production-level parts for their purposes."
+    "role": "DesignHub Services Founding Member and Technical Consultant",
+    "startTime": "Feb 2016",
+    "endTime": "Current",
+    "location": "Durham, NC",
+    "description": [
+      "Designed and constructed creative engineering solutions. Lead a wide range of clients through the design process from concept to product. These clients consist of students, Duke Hospital staff, and University Researchers. Notable past projects include third world organ transport devices and machinery parts.",
+      "Organized and taught courses on CAD, 3D printing, and CNC machining.",
+      "Oversaw the world’s largest 3D printing bank in higher education."
+    ]
+  },
+  {
+    "company": "Ulla Bus Stop Kiosk",
+    "who":""
+    "role": "Lead Modeller and Software Engineer",
+    "startTime": "Jan 2017",
+    "endTime": "Current",
+    "location": "Durham, NC",
+    "description": [
+      "Developed an interface to relay transit data from a real-time tracking API to an Arduino-driven %countdown display, allowing students to view bus arrival times.",
+      "Created a simulation that allows manufacturers to test the impact of changing materials on the longevity of the countdown display. Constructed a functional prototype."
+    ]
+  },
+  {
+    "company": "Fathom",
+    "who":"Fathom, formerly BioMetrics, is a revolutionary company that creates microsensors to track athlete progress and keep them from injuring themselves."
+    "role": "Software Engineering Intern",
+    "startTime": "Aug 2016",
+    "endTime": "Nov 2016",
+    "location": "Durham, NC",
+    "description": [
+      "Built a framework to collect and accumulate force measurements and time series data from impact sensors embedded in an athlete insole.",
+      "Wrote Google Sheets scripts to aggregate and curate millions of athlete training and recovery data points to inform injury prevention strategies."
+    ]
+  }
+]
