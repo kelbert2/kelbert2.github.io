@@ -9,6 +9,15 @@
     --darker: rgb(81, 94, 96);
 }
 
+@viewport {
+    width: device-width;
+    zoom: 1.0;
+}
+
+@-ms-viewport {
+    width: device-width;
+}
+
 body {
     /* reset default values */
     /*Crete Round, Roboto Slab, Zilla Slab, Raleway*/
@@ -17,64 +26,277 @@ body {
     vertical-align: baseline;
     overflow-x: auto;
     overflow-y: scroll;
+    height: 100vh;
+    margin: 0px;
 }
 
 html {
     color: var(--dark);
-    font-size: 10px;
+    font-size: 12px;
     font-family: 'Montserrat', 'Ubuntu', sans-serif;
     height: 100%;
     background: var(--light);
 }
 
+* {
+    scroll-behavior: smooth;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-weight: bold;
+    width: 100%;
+    margin: 2px;
+
+}
+
+#contact li {
+    margin: 2px 5px;
+    min-width: 30%;
+    font-size: 10px;
+    opacity: 1;
+    animation: leftToRight 4s linear;
+    -ms-animation: leftToRight 4s linear;
+    -webkit-animation: leftToRight 4s linear;
+}
+
+/*leftToRight Animation*/
+
+@-moz-keyframes leftToRight {
+    0% {
+        opacity: 0
+    }
+    5% {
+        opacity: 0;
+        -moz-transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        -moz-transform: translateX(0px);
+    }
+}
+
+@-webkit-keyframes leftToRight {
+    0% {
+        opacity: 0
+    }
+    5% {
+        opacity: 0;
+        -webkit-transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0px);
+    }
+}
+
+/*maybe try to get some easing instead of the 0 and 5%*/
+
+@-ms-keyframes leftToRight {
+    0% {
+        opacity: 0
+    }
+    5% {
+        opacity: 0;
+        -ms-transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        -ms-transform: translateX(0px);
+    }
+}
+
+#contact li:nth-child(1) {
+    animation-delay: 4s;
+    -ms-animation-delay: 4s;
+    -webkit-animation-delay: 4s;
+}
+
+#contact li:nth-child(2) {
+    animation-delay: 3s;
+    -ms-animation-delay: 3s;
+    -webkit-animation-delay: 3s;
+}
+
+#contact li:nth-child(3) {
+    animation-delay: 2s;
+    -ms-animation-delay: 2s;
+    -webkit-animation-delay: 2s;
+}
+
+#contact li:nth-child(4) {
+    animation-delay: 1s;
+    -ms-animation-delay: 1s;
+    -webkit-animation-delay: 1s;
+}
+
+/*
+#contact li:nth-child(4){
+	animation-delay: 1.5s;
+	-ms-animation-delay: 1.5s;
+	-webkit-animation-delay: 1.5s;
+}
+*/
+
 h1 {
     font-size: 25px;
     text-align: left;
     font-family: 'Bitter', serif;
+    margin: 15px;
 }
 
-.main-nav > ul {
+/*Begin Nav-Bar -------------------------------------------------------------*/
+
+/*
+.main-nav nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+*/
+
+.main-nav ul {
     list-style-type: none;
-    margin: 0;
+    list-style: none;
+    list-style-position: inside;
+    margin-left: 10px;
     padding: 0;
     font-family: 'Bitter', serif;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 90%;
 }
 
-.main-nav a, .main-nav label {
+.main-nav a,
+.main-nav label {
     width: 100%;
     height: 100%;
-        cursor: pointer; 
+    cursor: pointer;
 }
-.main-nav ul {
-    display: flex;
-    align-content: flex-end;
-}
+
+/*
 .main-nav li {
-        transform: rotate(270deg);
+    transform: rotate(270deg);
     transform-origin: center center 0;
-    padding: 10px
+    padding: 10px;
 }
+*/
+
+.main-nav li {
+    position: relative;
+    /* so that pseudoelements are positioned relatively to their "li"s*/
+    padding: 5px 0 5px 5px;
+    z-index: 1;
+}
+
+.main-nav li:hover {
+    padding-left: 50%;
+}
+
+.main-nav li:before {
+    content: '';
+    /*    position: absolute;*/
+    float: left;
+    min-width: 30%;
+    border-bottom: solid 2px #000;
+    /*    top: 50%;*/
+    z-index: -1;
+}
+
+/*margin-left: -20px;
+    margin-right: 10px;
+right: 100%;
+*/
+
 .main-nav label::before {
-    height:50px;
+    height: 50px;
     width: 100px;
-    background-color:#555;
+    background-color: #555;
 }
-.main-nav a:hover, .main-nav label:focus {
+
+.main-nav a:hover,
+.main-nav label:focus {
     color: aquamarine;
 }
-.main-nav a.active, main-nav label:checked{
+
+.main-nav a.active,
+main-nav label:checked {
     color: salmon;
 }
 
-h3 {
+/* End Nav-Bar ------------------------------------------------------------- */
+
+section {
+    margin: 10px;
+    display: none;
+}
+
+section > h2,
+header,
+.line {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+h2 {
     color: var(--darker);
     margin: 5px;
     font-family: 'Bitter', serif;
 }
 
+/* Links ----------------------------------- */
+
 a {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
     text-decoration: none;
-    color: var(--dark);
+    color: var(--darker);
+}
+
+a:visited {
+    color: var(--accent_dark);
+}
+
+a:hover,
+a:focus {
+    color: var(--accent_light);
+}
+
+a::after {
+    content: "";
+    /*position: absolute;*/
+    /*left: 50%;*/
+    /*bottom: 0;*/
+    width: 100%;
+    height: 2px;
+    display: block;
+    background: var(--accent_light);
+    opacity: 0;
+
+    -webkit-transform: translateY(5px);
+    -moz-transform: translateY(5px);
+    transform: translateY(5px);
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+a:hover::after,
+a:focus::after {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    transform: translateY(0px);
 }
 
 h4 {
@@ -82,27 +304,26 @@ h4 {
     font-family: 'Bitter', serif;
 }
 
-div {}
-
-.section {
-    min-width: 300px;
-    width: 450px;
-    display: none;
-}
 input:checked + .section {
     display: block;
 }
+
 input.toggle-section {
     opacity: 0;
     width: 0;
-    height:0;
+    height: 0;
 }
+
 .description {
     font-size: 10px;
     padding: 0;
 }
 
-.description li + li {
+li {
+    list-style-type: none;
+}
+
+li + li {
     padding: 5px 0 0;
 }
 
@@ -111,13 +332,10 @@ ul.description {
     margin-left: 20px;
 }
 
-ul, input.toggle-section {
+ul,
+input.toggle-section {
     margin: 0;
     padding: 0;
-}
-
-#experience > ul > li {
-    list-style-type: none;
 }
 
 .experience-header,
@@ -134,3 +352,122 @@ ul, input.toggle-section {
 .location {}
 
 .time {}
+
+.ani-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ani-list > li {
+    min-width: 50%;
+    display: flex;
+    align-items: baseline;
+}
+
+.ani-list,
+.desc-list {
+    margin: 15px;
+}
+
+.ani-list > li::before,
+.ani-list > li::before,
+.desc-list::before,
+.description > li::before {
+    content: '';
+    display: inline-block;
+    margin-left: -2.5em;
+    margin-right: 1em;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background: none;
+    position: relative;
+    vertical-align: middle;
+
+    box-shadow: inset 0 0 0 0.15em var(--main_dark);
+
+    -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
+    -webkit-transform: scale(.8);
+    -moz-transition: -moz-transform 0.2s, opacity 0.2s;
+    -moz-transform: scale(.8);
+    -ms-transform: scale(.8);
+    transition: transform 0.2s, opacity 0.2s;
+    transform: scale(.8);
+}
+
+.line {
+    background-color: var(--dark);
+    position: relative;
+    align-self: flex-end;
+}
+
+.line-vertical {
+    width: 3px;
+    height: 50%;
+    animation: 5s expandFromBottom;
+    transform-origin: 0 50%;
+}
+
+.line-bottom {
+    height: 3px;
+    width: 90%;
+    margin-bottom: 5%;
+    animation: 5s expandFromCenter;
+    margin: 0 5% 0 5%;
+    transform-origin: 50% 50%;
+}
+
+/*
+ -webkit-transition: width 5s ease-in;
+    -moz-transition: width 5s ease-in;
+    -o-transition: width 5s ease-in;
+    transition: width 5s ease-in;
+.line-bottom:hover {
+    width: 90%;
+}*/
+
+@keyframes expandFromCenter {
+    from {
+        width: 0%;
+        margin: 0 50% 0 50%;
+        background-color: var(--accent_dark);
+    }
+    to {
+        width: 90%;
+        margin: 0 5% 0 5%;
+        background-color: var(--dark);
+    }
+}
+
+@-webkit-keyframes expandFromCenter {
+    from {
+        width: 0%;
+        background-color: var(--accent_dark);
+    }
+    to {
+        width: 90%;
+        background-color: var(--dark);
+    }
+}
+
+@keyframes expandFromBottom {
+    from {
+        height: 0%;
+        background-color: var(--accent_dark);
+    }
+    to {
+        height: 50%;
+        background-color: var(--dark);
+    }
+}
+
+@-webkit-keyframes expandFromBottom {
+    from {
+        height: 0%;
+        background-color: var(--accent_dark);
+    }
+    to {
+        height: 50%;
+        background-color: var(--dark);
+    }
+}
