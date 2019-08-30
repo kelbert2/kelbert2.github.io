@@ -56,44 +56,101 @@ header {
     margin: 2px 5px;
     min-width: 30%;
     font-size: 10px;
-    opacity: 1;
-    animation: leftToRight 4s linear;
-    -ms-animation: leftToRight 4s linear;
-    -webkit-animation: leftToRight 4s linear;
+
+    -webkit-animation: fadeIn 1s ease-in, leftToRight 4s ease-in-out;
+    -moz-animation: fadeIn 1s ease-in, leftToRight 4s ease-in-out;
+    -ms-animation: fadeIn 1s ease-in, leftToRight 4s ease-in-out;
+    -o-animation: fadeIn 1s ease-in, leftToRight 4s ease-in-out;
+    animation: fadeIn 1s ease-in, leftToRight 4s ease-in-out;
+
+    /*
+    transition: transform 4s ease-in-out, opacity .3s ease-in;
+    -mos-transition: transform 4s ease-in-out, opacity .3s ease-in;
+    -webkit-transition: transform 4s ease-in-out, opacity .3s ease-in;
+    -ms-transition: transform 4s ease-in-out, opacity .3s ease-in;
+
+    transform: translateX(50px);
+    -moz-transform: translateX(50px);
+    -webkit-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+*/
 }
 
 /*leftToRight Animation*/
 
-@-moz-keyframes leftToRight {
-    0% {
-        opacity: 0
-    }
-    5% {
+@keyframes fadeIn {
+    from {
         opacity: 0;
-        -moz-transform: translateX(-50px);
     }
-    100% {
+    to {
         opacity: 1;
-        -moz-transform: translateX(0px);
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes leftToRight {
+    from {
+        transform: translateX(-50px);
+    }
+    to {
+        transform: translateX(0px);
     }
 }
 
 @-webkit-keyframes leftToRight {
-    0% {
-        opacity: 0
-    }
-    5% {
-        opacity: 0;
+    from {
         -webkit-transform: translateX(-50px);
     }
-    100% {
-        opacity: 1;
+    to {
         -webkit-transform: translateX(0px);
     }
 }
 
-/*maybe try to get some easing instead of the 0 and 5%*/
+@-moz-keyframes leftToRight {
+    from {
+        -moz-transform: translateX(-50px);
+    }
+    to {
+        -moz-transform: translateX(0px);
+    }
+}
 
+/*
 @-ms-keyframes leftToRight {
     0% {
         opacity: 0
@@ -107,6 +164,21 @@ header {
         -ms-transform: translateX(0px);
     }
 }
+
+@-o-keyframes leftToRight {
+    0% {
+        opacity: 0
+    }
+    5% {
+        opacity: 0;
+        -o-transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        -o-transform: translateX(0px);
+    }
+}
+*/
 
 #contact li:nth-child(1) {
     animation-delay: 4s;
@@ -161,8 +233,8 @@ h1 {
 .main-nav ul {
     list-style-type: none;
     list-style: none;
-    list-style-position: inside;
-    margin-left: 10px;
+    /*    list-style-position: inside;*/
+    margin: 0;
     padding: 0;
     font-family: 'Bitter', serif;
     display: flex;
@@ -192,27 +264,65 @@ h1 {
     /* so that pseudoelements are positioned relatively to their "li"s*/
     padding: 5px 0 5px 5px;
     z-index: 1;
+    width: 100%;
 }
 
-.main-nav li:hover {
-    padding-left: 50%;
+.main-nav li a {
+    display: flex;
+    /*    justify-content: flex-start;*/
+    /*    align-content: stretch;*/
+    align-items: center;
+    /*    width: 100%;*/
+    /*    flex-wrap: nowrap;*/
 }
 
+.bullet {
+    background-color: var(--dark);
+    /*    float: left;*/
+    height: 3px;
+    min-width: 30%;
+    margin: 5px;
+    flex: 2 1 50%;
+}
+
+.main-nav li a::after {
+    content: '';
+    /*    min-width: 10%;*/
+    /*         width: 100%;*/
+    height: 2px;
+    display: block;
+    background: none;
+    /*    opacity: 0;*/
+    flex: 2 2 10%;
+}
+
+.main-nav li:hover a::after {
+    width: 0;
+    background: #000;
+}
+
+.main-nav li::hover .bullet {
+    width: 80%;
+}
+
+/*
 .main-nav li:before {
     content: '';
-    /*    position: absolute;*/
+    position: absolute;
     float: left;
     min-width: 30%;
     border-bottom: solid 2px #000;
-    /*    top: 50%;*/
+   top: 50%;
     z-index: -1;
 }
+*/
 
 /*margin-left: -20px;
     margin-right: 10px;
 right: 100%;
 */
 
+/*
 .main-nav label::before {
     height: 50px;
     width: 100px;
@@ -228,6 +338,7 @@ right: 100%;
 main-nav label:checked {
     color: salmon;
 }
+*/
 
 /* End Nav-Bar ------------------------------------------------------------- */
 
@@ -256,8 +367,8 @@ h2 {
 /* Links ----------------------------------- */
 
 a {
-    width: 100%;
-    height: 100%;
+    /*    width: 100%;*/
+    /*    height: 100%;*/
     cursor: pointer;
     text-decoration: none;
     color: var(--darker);
@@ -272,12 +383,20 @@ a:focus {
     color: var(--accent_light);
 }
 
+/*
 a::after {
-    content: "";
-    /*position: absolute;*/
-    /*left: 50%;*/
-    /*bottom: 0;*/
-    width: 100%;
+    content: '';
+*/
+
+/*position: absolute;*/
+
+/*left: 50%;*/
+
+/*bottom: 0;*/
+
+/*    width: 100%;*/
+
+/*
     height: 2px;
     display: block;
     background: var(--accent_light);
@@ -298,12 +417,14 @@ a:focus::after {
     -moz-transform: translateY(0px);
     transform: translateY(0px);
 }
+*/
 
 h4 {
     margin: 0;
     font-family: 'Bitter', serif;
 }
 
+/*
 input:checked + .section {
     display: block;
 }
@@ -313,6 +434,7 @@ input.toggle-section {
     width: 0;
     height: 0;
 }
+*/
 
 .description {
     font-size: 10px;
