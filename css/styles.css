@@ -47,69 +47,123 @@ html {
 
 header {
     display: flex;
-    /*    flex-flow: row || wrap;*/
-    /*    justify-content: center;*/
+    flex-flow: row wrap;
     align-items: center;
     align-content: center;
     justify-content: center;
     /*    font-weight: bold;*/
-    /*    width: 100%;*/
-    /*    padding: 5px;*/
-    /*    border-bottom: 2px solid white;*/
+    border-bottom: 2px solid white;
     background: white;
-    /*    width: 800px;*/
-    /*    height: 150px;*/
-    /*max-height: 500px;*/
     padding: 10px;
     /*    this is adding vertical height; need to fix */
+    max-height: 80px;
 }
-
-/*
-header div {
-    padding: 5px;
-    height: 100%;
-}
-*/
 
 header div,
 header h1,
 header div::before {
     display: block;
-    /*    width: 100%;*/
-    /*    padding: 20px;*/
     padding: 0;
     margin: 0;
 }
 
 header div {
     display: flex;
-    /*    flex-direction: row;*/
+    height: 100%;
+    /*    margin-top: 0;*/
 }
 
-header div ul {
-    /*    width: 100%;*/
-}
-
-header div:before {
+header div::before {
     content: '';
-    /*    display: block;*/
-    /*    width: 100%;*/
-    /*    margin: 20px;*/
-    /*    border-left: 5px solid var(--dark);*/
-    background: black;
-    /*    position: absolute;*/
-    /*    float: right;*/
-    /*    align-self: stretch;*/
-    width: 3px;
-    /*    height: 50%;*/
-    /*    margin: 5px;*/
+    background: var(--dark);
+    width: 2px;
     flex: 0 2 auto;
+    /*    align-self: stretch;*/
+    /*    position: relative;*/
+    /*    bottom: 0;*/
     margin: 0 10px;
-    /*    padding: 20px;*/
-    /*    padding: 5px;*/
-    /*    margin-right: 5px;*/
-    /*    animation: 5s expandFromBottom;*/
-    /*    transform-origin: 0 50%;*/
+    /*    position: absolute;*/
+    /*    max-height: 0;*/
+    -webkit-animation: 2s bottomToTop ease-in-out;
+    -moz-animation: 2s bottomToTop ease-in-out;
+    -ms-animation: 2s bottomToTop ease-in-out;
+    -o-animation: 2s bottomToTop ease-in-out;
+    animation: 2s bottomToTop ease-in-out;
+
+    /*    top: 100%;*/
+    /*    animation-direction: reverse;*/
+    /*    transform-origin: 100% 100%;*/
+    /* after animation is done, remain at last keyframe */
+    /*
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -ms-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+*/
+}
+
+@keyframes bottomToTop {
+    from {
+        background-color: var(--accent_dark);
+        max-height: 0;
+        margin-top: 200px;
+        /*        animate top margin to make it animate upward - just need to make it anything larger than the enclosing area*/
+    }
+    to {
+        background-color: var(--dark);
+        max-height: 200px;
+        /*        animating max-height allows for the use of height: auto */
+        margin-top: 0;
+        /*        transform: translateY(-100%);*/
+    }
+}
+
+@-webkit-keyframes bottomToTop {
+    from {
+        background-color: var(--accent_dark);
+        max-height: 0;
+        margin-top: 500px;
+    }
+    to {
+        background-color: var(--dark);
+        max-height: 500px;
+        margin-top: 0;
+        /*        -webkit-transform: translateY(-100%);*/
+    }
+}
+
+@-moz-keyframes bottomToTop {
+    from {
+        background-color: var(--accent_dark);
+        max-height: 0;
+    }
+    to {
+        background-color: var(--dark);
+        max-height: 500px;
+    }
+}
+
+@-ms-keyframes bottomToTop {
+    from {
+        background-color: var(--accent_dark);
+        max-height: 0;
+    }
+    to {
+        background-color: var(--dark);
+        max-height: 500px;
+    }
+}
+
+@-o-keyframes bottomToTop {
+    from {
+        background-color: var(--accent_dark);
+        max-height: 0;
+    }
+    to {
+        background-color: var(--dark);
+        max-height: 500px;
+    }
 }
 
 #contact li {
@@ -120,12 +174,12 @@ header div:before {
     font-size: 10px;
     /*    padding-top: 2px;*/
     /* animation to set to run on its own; once on page load */
-    -webkit-animation: leftToRightFadeIn 4s ease-in-out 1;
-    -moz-animation: leftToRightFadeIn 4s ease-in-out 1;
-    -ms-animation: leftToRightFadeIn 4s ease-in-out 1;
-    -o-animation: leftToRightFadeIn 4s ease-in-out 1;
-    animation: leftToRightFadeIn 4s ease-in-out 1;
-
+    -webkit-animation: leftToRightFadeIn 2s ease-out 2s;
+    -moz-animation: leftToRightFadeIn 4s ease-in-out 1s;
+    -ms-animation: leftToRightFadeIn 4s ease-in-out 1s;
+    -o-animation: leftToRightFadeIn 4s ease-in-out 1s;
+    animation: leftToRightFadeIn 1s ease-out 2s;
+    /* delay so line can rise up first and can avoid kind of entertaining swooping effects due to margins */
     /* after animation is done, remain at last keyframe */
     -webkit-animation-fill-mode: forwards;
     -moz-animation-fill-mode: forwards;
@@ -143,7 +197,7 @@ header div:before {
     }
     5% {
         opacity: 0;
-        transform: translateX(-50px);
+        transform: translateX(-15px);
     }
     100% {
         opacity: 1;
@@ -208,6 +262,57 @@ header div:before {
 }
 
 #contact li:nth-child(1) {
+    animation-delay: 5s;
+    -o-animation-delay: 5s;
+    -ms-animation-delay: 5s;
+    -moz-animation-delay: 5s;
+    -webkit-animation-delay: 5s;
+}
+
+#contact li:nth-child(2) {
+    animation-delay: 4.25s;
+    -o-animation-delay: 4.25s;
+    -ms-animation-delay: 4.25s;
+    -moz-animation-delay: 4.25s;
+    -webkit-animation-delay: 4.25s;
+}
+
+#contact li:nth-child(3) {
+    animation-delay: 3.5s;
+    -o-animation-delay: 3.5s;
+    -ms-animation-delay: 3.5s;
+    -moz-animation-delay: 3.5s;
+    -webkit-animation-delay: 3.5s;
+}
+
+#contact li:nth-child(4) {
+    animation-delay: 2.75s;
+    -o-animation-delay: 2.75s;
+    -ms-animation-delay: 2.75s;
+    -moz-animation-delay: 2.75s;
+    -webkit-animation-delay: 2.75s;
+}
+
+
+/*
+#contact li:nth-child(1) {
+    animation-delay: 6s;
+    -o-animation-delay: 6s;
+    -ms-animation-delay: 6s;
+    -moz-animation-delay: 6s;
+    -webkit-animation-delay: 6s;
+}
+
+#contact li:nth-child(2) {
+    animation-delay: 5s;
+    -o-animation-delay: 5s;
+    -ms-animation-delay: 5s;
+    -moz-animation-delay: 5s;
+    -webkit-animation-delay: 5s;
+}*/
+
+/*
+#contact li:nth-child(1) {
     animation-delay: 4s;
     -o-animation-delay: 4s;
     -ms-animation-delay: 4s;
@@ -216,6 +321,14 @@ header div:before {
 }
 
 #contact li:nth-child(2) {
+    animation-delay: 3.5s;
+    -o-animation-delay: 3.5s;
+    -ms-animation-delay: 3.5s;
+    -moz-animation-delay: 3.5s;
+    -webkit-animation-delay: 3.5s;
+}
+
+#contact li:nth-child(3) {
     animation-delay: 3s;
     -o-animation-delay: 3s;
     -ms-animation-delay: 3s;
@@ -223,27 +336,40 @@ header div:before {
     -webkit-animation-delay: 3s;
 }
 
-#contact li:nth-child(3) {
+#contact li:nth-child(4) {
+    animation-delay: 2.5s;
+    -o-animation-delay: 2.5s;
+    -ms-animation-delay: 2.5s;
+    -moz-animation-delay: 2.5s;
+    -webkit-animation-delay: 2.5s;
+}
+*/
+
+/*
+#contact li:nth-child(4) {
     animation-delay: 2s;
     -o-animation-delay: 2s;
     -ms-animation-delay: 2s;
     -moz-animation-delay: 2s;
     -webkit-animation-delay: 2s;
 }
+*/
 
+/*
 #contact li:nth-child(4) {
-    animation-delay: 1s;
-    -o-animation-delay: 1s;
-    -ms-animation-delay: 1s;
-    -moz-animation-delay: 1s;
-    -webkit-animation-delay: 1s;
+    animation-delay: 1.5s;
+    -o-animation-delay: 1.5s;
+    -ms-animation-delay: 1.5s;
+    -moz-animation-delay: 1.5s;
+    -webkit-animation-delay: 1.5s;
 }
+*/
 
 h1 {
-    font-size: 25px;
+    font-size: 22px;
     text-align: left;
     font-family: 'Bitter', serif;
-    margin: 15px;
+    /*    margin: 15px;*/
 }
 
 /*Begin Nav-Bar -------------------------------------------------*/
