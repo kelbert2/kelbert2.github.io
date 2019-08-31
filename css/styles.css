@@ -27,7 +27,8 @@ body {
     overflow-x: auto;
     overflow-y: scroll;
     height: 100vh;
-    margin: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 html {
@@ -38,26 +39,86 @@ html {
     background: var(--light);
 }
 
+/*
 * {
     scroll-behavior: smooth;
 }
+*/
 
 header {
     display: flex;
-    flex-wrap: wrap;
+    /*    flex-flow: row || wrap;*/
+    /*    justify-content: center;*/
     align-items: center;
-    font-weight: bold;
-    width: 100%;
-    margin: 2px;
+    align-content: center;
+    justify-content: center;
+    /*    font-weight: bold;*/
+    /*    width: 100%;*/
+    /*    padding: 5px;*/
+    /*    border-bottom: 2px solid white;*/
+    background: white;
+    /*    width: 800px;*/
+    /*    height: 150px;*/
+    /*max-height: 500px;*/
+    padding: 10px;
+    /*    this is adding vertical height; need to fix */
+}
 
+/*
+header div {
+    padding: 5px;
+    height: 100%;
+}
+*/
+
+header div,
+header h1,
+header div::before {
+    display: block;
+    /*    width: 100%;*/
+    /*    padding: 20px;*/
+    padding: 0;
+    margin: 0;
+}
+
+header div {
+    display: flex;
+    /*    flex-direction: row;*/
+}
+
+header div ul {
+    /*    width: 100%;*/
+}
+
+header div:before {
+    content: '';
+    /*    display: block;*/
+    /*    width: 100%;*/
+    /*    margin: 20px;*/
+    /*    border-left: 5px solid var(--dark);*/
+    background: black;
+    /*    position: absolute;*/
+    /*    float: right;*/
+    /*    align-self: stretch;*/
+    width: 3px;
+    /*    height: 50%;*/
+    /*    margin: 5px;*/
+    flex: 0 2 auto;
+    margin: 0 10px;
+    /*    padding: 20px;*/
+    /*    padding: 5px;*/
+    /*    margin-right: 5px;*/
+    /*    animation: 5s expandFromBottom;*/
+    /*    transform-origin: 0 50%;*/
 }
 
 #contact li {
+    /*    width: 100%;*/
     opacity: 0;
-    margin: 2px 5px;
-    min-width: 30%;
+    /*    margin: 2px 5px;*/
+    /*    min-width: 30%;*/
     font-size: 10px;
-
+    /*    padding-top: 2px;*/
     /* animation to set to run on its own; once on page load */
     -webkit-animation: leftToRightFadeIn 4s ease-in-out 1;
     -moz-animation: leftToRightFadeIn 4s ease-in-out 1;
