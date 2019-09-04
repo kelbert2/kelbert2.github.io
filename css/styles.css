@@ -341,36 +341,61 @@ h1 {
 
 /* TODO: add menu icon to appear when screen size too small */
 /* For mobile, have icon float at bottom */
-#main-menu-toggle {
-    width: 35px;
-    height: 5px;
-    position: absolute;
-    float: left;
+.menu-toggle {
+    width: 20px;
+    height: 20px;
+    /*    position: absolute;*/
+    /*    float: left;*/
+    background-color: var(--accent_light);
 }
 
 .menu-toggle span {
     content: '';
+    display: block;
     width: 100%;
-    height: 100%;
+    height: 15%;
+    margin: 17% 0;
+    border-radius: 10px;
+
     background-color: var(--dark);
-    margin: 6px 0;
+    /*    margin: 6px 0;*/
     -webkit-transition: 0.4s;
     transition: 0.4s;
 }
 
-/*
+/* X Close state */
 .menu-toggle span:nth-child(1) {
-    transform: rotate(-45deg) translate(-9px. 6px);
+    -webkit-transform: translate(0%, 225%) rotate(-45deg);
+    transform: translate(0%, 225%) rotate(-45deg);
 }
 
+/* -9px, 6px */
 .menu-toggle span:nth-child(2) {
     opacity: 0;
 }
 
 .menu-toggle span:nth-child(3) {
-    transform: rotate(45deg) translate(-8px. -8px);
+    -webkit-transform: translate(0%, -200%) rotate(45deg);
+    transform: translate(0%, -200%) rotate(45deg);
 }
-*/
+
+/* -8px, -8px */
+.main-menu {
+    width: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+/* TODO: make these ID selections if this works */
+/* when someone clicks a link #main-menu*/
+.main-menu:target {
+    width: 20%;
+
+}
 
 .main-menu ul {
     list-style: none;
@@ -411,10 +436,10 @@ h1 {
 }
 */
 
-.main-nav li {
+.main-menu li {
     position: relative;
     /* so that pseudoelements are positioned relatively to their "li"s*/
-    padding: 5px 0 5px 5px;
+    /*    padding: 5px 0 5px 5px;*/
     z-index: 1;
     width: 100%;
 }
