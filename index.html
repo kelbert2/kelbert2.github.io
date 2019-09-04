@@ -17,51 +17,66 @@
 
 <body>
     <header>
-        <h1>Kristianna Elbert</h1>
+        <div class="logo-stack">
+            <a href="#main-menu" id="main-menu-toggle" class="menu-toggle" aria-label="Open main menu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+            <h1>Kristianna Elbert</h1>
+        </div>
         <!--        <span></span>-->
-        <div>
+        <div class="list">
             <ul id="contact">
                 <li style="opacity: 1\9; /* IE9 only */">
                     (908) 487-8043
                 </li>
                 <li style="opacity: 1\9; /* IE9 only0 */">
-                    <a href="mailto:kristiannaelbert@gmail.com">
-                    kristiannaelbert@gmail.com</a>
+                    <a href="mailto:kristiannaelbert@gmail.com" class="ani-link">
+                        kristiannaelbert@gmail.com</a>
                 </li>
                 <li>github here</li>
                 <li style="opacity: 1\9; /* IE9 only */">
-                    <a href="https://www.linkedin.com/in/kriselbert/">
-                    linkedin.com/in/kriselbert/</a>
+                    <a href="https://www.linkedin.com/in/kriselbert/" class="ani-link">
+                        linkedin.com/in/kriselbert/</a>
                 </li>
                 <li style="opacity: 1\9; /* IE9 only */">
-                    <a href="/assets/KrisElbert-2018.pdf" download>
-                    Download resume</a>
+                    <a href="/assets/KrisElbert-2018.pdf" download class="ani-link">
+                        Download resume</a>
                 </li>
             </ul>
         </div>
     </header>
 
 
-    <nav class="main-nav">
-        <a href="#main-menu-toggle" class="main-menu-close">
-        <span></span>
+    <nav id="main-menu" class="main-menu" aria-label="Main menu">
+        <a href="#main-menu-toggle" id="main-menu-close" class="menu-close" aria-label="Close main menu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
         </a>
-        <ul>
-            <li><a href="#experience"><span aria-hidden=true class="bullet"></span>Experience</a></li>
-            <li><a href="#skills"><span aria-hidden=true class="bullet"></span>Skills</a></li>
-            <li><a href="#education"><span aria-hidden=true class="bullet"></span>Education</a></li>
-            <li><a href="#awards"><span aria-hidden=true class="bullet"></span>Awards & Recognition</a></li>
-            <li><a href="#projects"><span aria-hidden=true class="bullet"></span>Past Projects</a></li>
-        </ul>
-    </nav>
-    <!--
 
-    <span class="line line-vertical"></span>
-    <h2>Exp</h2>
+        <!--
+        <input type="checkbox" id=main-menu-toggle>
+        <label for=main-menu-toggle>Menu</label>
 -->
 
+        <ul>
+            <li><a href="#experience"><span class="bullet"></span>Experience</a></li>
+            <li><a href="#skills"><span class="bullet"></span>Skills</a></li>
+            <li><a href="#education"><span aria-hidden="true" class="bullet"></span>Education</a></li>
+            <li><a href="#awards"><span aria-hidden="true" class="bullet"></span>Awards & Recognition</a></li>
+            <li><a href="#projects"><span aria-hidden="true" class="bullet"></span>Past Projects</a></li>
+        </ul>
+
+        <a href="#main-menu-toggle" class="backdrop" tabindex="-1" aria-hidden="true" hidden>
+        </a>
+    </nav>
+
+
     <section id="about">
-        <h2>About</h2>
+        <input type="checkbox" id="about-toggle" />
+        <h2><label for="about-toggle">About</label></h2>
         <span class="line line-4"></span>
         <ul>
             <li>neat-o</li>
@@ -80,7 +95,7 @@
                     <span class="location">Cary, NC</span>
                 </div>
                 <ul class="description">
-                    <li>Designed and implemented a full stack web app to deliver real time NLP-driven insights based on user queries to PrecisionLender's AI client.
+                    <li>Designed and implemented a full stack web app to deliver real time NLP-driven insights based on user queries to PrecisionLender"s AI client.
                     </li>
                     <li>Created wireframes of the UI which was then developed using TypeScript, Knockout.js, HTML, and CSS to be a responsive, dynamic, and accessible experience. Used AJAX calls to retrieve JSON files that were parsed and reformatted in the C# backend.
                     </li>
@@ -229,7 +244,7 @@
             <li class="desc-list">
                 <div class="subtitle"> Duke Cube Member</div>
                 <div class="time">2018-2019</div>
-                <p class="description">Duke's premier entrepreneurship selective living group</p>
+                <p class="description">Duke"s premier entrepreneurship selective living group</p>
             </li>
             <li class="desc-list">
                 <div class="subtitle"> 1st Place, Shell Eco-Marathon</div>
@@ -296,12 +311,12 @@
             </li>
             <li class="desc-list"><span class="subtitle">Duke Mental Health Screening</span><span class="technology">Vue.js, Bootstrap, HTML</span>
                 <p>
-                    A lot of university students need help but don't get it. Sometimes it's because they don't know how much they could improve, or what steps they'd have to take to receive services, or, sometimes, the university just isn't equipped to treat them. We need to fix this. We can. Through a partnership with Duke Counselling and Psychological Services (CAPS), this site will allow students to understand the services covered by their student health care and where to go to fill in the gaps. Also offers a scientifically validated short screening test to gauge whether a student should seek help, and then show them just how easy it is.
+                    A lot of university students need help but don"t get it. Sometimes it"s because they don"t know how much they could improve, or what steps they"d have to take to receive services, or, sometimes, the university just isn"t equipped to treat them. We need to fix this. We can. Through a partnership with Duke Counselling and Psychological Services (CAPS), this site will allow students to understand the services covered by their student health care and where to go to fill in the gaps. Also offers a scientifically validated short screening test to gauge whether a student should seek help, and then show them just how easy it is.
                 </p>
             </li>
             <li class="desc-list"><span class="subtitle">AiR Guitar</span><span class="technology">Swift, ARKit, Mobile Development</span>
                 <p>
-                    An iOS app that plays notes as a person play air guitar. Using some cool CoreML libraries, the app can recognize guitar fingerings on objects that aren't necessarily guitar necks. Through the use of ARKit and Unity, a guitar can be displayed on the screen, and so will the note and chord names as the user plays them.
+                    An iOS app that plays notes as a person play air guitar. Using some cool CoreML libraries, the app can recognize guitar fingerings on objects that aren"t necessarily guitar necks. Through the use of ARKit and Unity, a guitar can be displayed on the screen, and so will the note and chord names as the user plays them.
                 </p>
             </li>
         </ul>
@@ -311,6 +326,4 @@
     <!--    <footer>-->
     <span class="line line-bottom"></span>
     <!--    </footer>-->
-</body>
-
-</html>
+</body></html>
