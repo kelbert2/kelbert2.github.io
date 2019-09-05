@@ -344,11 +344,66 @@ h1 {
 .menu-toggle {
     width: 20px;
     height: 20px;
-    /*    position: absolute;*/
-    /*    float: left;*/
     background-color: var(--accent_light);
+    border-radius: 50%;
+    padding: 10px;
 }
 
+.menu-toggle span,
+.menu-toggle span::before,
+.menu-toggle span::after {
+    width: 100%;
+    height: calc(.15 * 20px);
+    margin: 17% 0;
+    border-radius: 10px;
+    content: '';
+    display: block;
+
+    background-color: var(--dark);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+
+    /*    position: relative;*/
+
+}
+
+.menu-toggle:focus span,
+.menu-toggle:focus span::before,
+.menu-toggle:focus span::after {
+    background-color: var(--darker);
+}
+
+/* TODO: In JavaScript, add a .closed class dynamically so not just relying on targetting */
+
+.menu-toggle span::before {
+    -webkit-transform: translateY(200%);
+    transform: translateY(200%);
+
+}
+
+.menu-toggle span::after {
+    -webkit-transform: translateY(200%);
+    transform: translateY(200%);
+}
+
+.menu-toggle:hover span,
+.menu-toggle:focus span {
+    transform: translate(0%, 225%) rotate(-45deg);
+}
+
+.menu-toggle:hover span::before,
+.menu-toggle:focus span::before {
+    opacity: 0;
+    transform: translate(0%, 0%) rotate(45deg);
+}
+
+.menu-toggle:hover span::after,
+.menu-toggle:focus span::after {
+    -webkit-transform: translate(0%, 0%) rotate(45deg);
+    transform: translate(0%, -225%) rotate(90deg);
+}
+
+/*
 .menu-toggle span {
     content: '';
     display: block;
@@ -358,32 +413,39 @@ h1 {
     border-radius: 10px;
 
     background-color: var(--dark);
-    /*    margin: 6px 0;*/
     -webkit-transition: 0.4s;
     transition: 0.4s;
 }
+*/
+/*    margin: 6px 0;*/
 
 /* X Close state */
+/*
 .menu-toggle span:nth-child(1) {
     -webkit-transform: translate(0%, 225%) rotate(-45deg);
     transform: translate(0%, 225%) rotate(-45deg);
 }
+*/
 
 /* -9px, 6px */
+/*
 .menu-toggle span:nth-child(2) {
     opacity: 0;
 }
+*/
 
+/*
 .menu-toggle span:nth-child(3) {
     -webkit-transform: translate(0%, -200%) rotate(45deg);
     transform: translate(0%, -200%) rotate(45deg);
 }
+*/
 
 /* -8px, -8px */
 .main-menu {
     width: 0;
     overflow: hidden;
-    position: fixed;
+    /*    position: fixed;*/
     top: 0;
     left: 0;
     height: 100%;
@@ -584,6 +646,8 @@ a:hover,
 a:focus {
     color: var(--accent_light);
 }
+
+/* TODO: maybe have flash a color on click */
 
 
 a.ani-link::after {
