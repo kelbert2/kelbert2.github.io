@@ -55,13 +55,158 @@ Light mode: green, teal, brown, gray
     display: none;
 }
 
+html {
+    color: var(--dark);
+    font-size: 12px;
+    font-family: 'Montserrat', 'Ubuntu', sans-serif;
+    height: 100%;
+    background: var(--light);
+}
+
+body {
+    /* reset default values */
+    /* Crete Round, Roboto Slab, Zilla Slab, Raleway */
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: var(--light);
+    vertical-align: baseline;
+    overflow-x: auto;
+    overflow-y: scroll;
+    /*    height: 100vh;*/
+    margin: 0;
+    padding: 0;
+}
+
+/*
+* {
+    scroll-behavior: smooth;
+}
+*/
+/* Begin Header ------------------------------------------------- */
+
+h1 {
+    font-size: 22px;
+    text-align: left;
+    /* FUTURE: should this be here? */
+    font-family: 'Bitter', serif;
+}
+
+header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    /*        font-weight: bold;*/
+    background: var(--light);
+    border-bottom: 2px solid white;
+    /*    TODO: change color - add alpha value*/
+    padding: 10px;
+    /*    this is adding vertical height; need to fix */
+    max-height: 80px;
+    /*    position: sticky;*/
+}
+
+header em {
+    font-style: normal;
+    font-weight: bold;
+}
+
+header div,
+header h1,
+header div::before {
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+/* FUTURE: may move div:: before reference to media query */
+
+header div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+    /*    margin-top: 0;*/
+}
+
+#header-contact {
+    display: none;
+}
+
+/* FUTURE: can move @media into the element above if switch over to SASS */
+/*
+@media (min-width: 400px) {
+    #header-contact {
+        display: block;
+    }
+}
+*/
+
+/* leftToRightFadeIn Animation ---------------------------------- */
+
+@keyframes leftToRightFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 0;
+        -webkit-transform: translateX(-15px);
+        transform: translateX(-15px);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0px);
+        transform: translateX(0px);
+    }
+}
+
+@-webkit-keyframes leftToRightFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 0;
+        -webkit-transform: translateX(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0px);
+    }
+}
+
 
 /* Larger than mobile*/
 @media(min-width: 400px) {
 
     /* TODO: only for larger screens; else, hide and show a contact tab */
+    section#contact {
+        display: none;
+    }
+
+    #header-contact {
+        display: block;
+    }
+
+    /*    TODO: Also hide the href to contact in the navbar */
+
     header div.list::before {
         content: '';
+        display: block;
         background: var(--dark);
         width: 2px;
         /*  TODO: make so either shrink to 0 and wrap or do not shrink below 2px, to maintain border-radius */
@@ -250,132 +395,6 @@ Light mode: green, teal, brown, gray
 
 /* 1024 */
 
-html {
-    color: var(--dark);
-    font-size: 12px;
-    font-family: 'Montserrat', 'Ubuntu', sans-serif;
-    height: 100%;
-    background: var(--light);
-}
-
-body {
-    /* reset default values */
-    /* Crete Round, Roboto Slab, Zilla Slab, Raleway */
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    background-color: var(--light);
-    vertical-align: baseline;
-    overflow-x: auto;
-    overflow-y: scroll;
-    /*    height: 100vh;*/
-    margin: 0;
-    padding: 0;
-}
-
-/*
-* {
-    scroll-behavior: smooth;
-}
-*/
-
-/* Begin Header ------------------------------------------------- */
-
-header {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-flow: row wrap;
-    flex-flow: row wrap;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -ms-flex-line-pack: center;
-    align-content: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    /*        font-weight: bold;*/
-
-    border-bottom: 2px solid white;
-    /*    TODO: change color - add alpha value*/
-    /*    background: white;*/
-    padding: 10px;
-    /*    this is adding vertical height; need to fix */
-    max-height: 80px;
-    /*    position: sticky;*/
-}
-
-header em {
-    font-style: normal;
-    font-weight: bold;
-}
-
-header div,
-header h1,
-header div::before {
-    display: block;
-    padding: 0;
-    margin: 0;
-}
-
-/* FUTURE: may move div:: before reference to media query */
-
-header div {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    height: 100%;
-    /*    margin-top: 0;*/
-}
-
-#header-contact {
-    display: none;
-}
-
-/* leftToRightFadeIn Animation */
-
-@keyframes leftToRightFadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    5% {
-        opacity: 0;
-        -webkit-transform: translateX(-15px);
-        transform: translateX(-15px);
-    }
-
-    100% {
-        opacity: 1;
-        -webkit-transform: translateX(0px);
-        transform: translateX(0px);
-    }
-}
-
-@-webkit-keyframes leftToRightFadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    5% {
-        opacity: 0;
-        -webkit-transform: translateX(-50px);
-    }
-
-    100% {
-        opacity: 1;
-        -webkit-transform: translateX(0px);
-    }
-}
-
-h1 {
-    font-size: 22px;
-    text-align: left;
-    font-family: 'Bitter', serif;
-    /*    margin: 15px;*/
-}
 
 /* End Header ----------------------------------------------------*/
 
@@ -410,14 +429,12 @@ h1 {
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 8;
+    /*        z-index: 8;*/
 }
 
 /* TODO: work with z-index and opacity to make -close appear over it, then switch out on focus/movement of menu */
-
-.menu-toggle {
-    width: 20px;
-    height: 20px;
+.menu-toggle,
+.menu-close {
     background-color: var(--accent_light);
     border-radius: 50%;
     padding: 10px;
@@ -429,75 +446,28 @@ h1 {
     /*    font-size: 1em;*/
 }
 
-.menu-toggle span,
-.menu-toggle span::before,
-.menu-toggle span::after {
-    width: 100%;
-    height: calc(.15 * 20px);
-    margin: 17% 0;
-    border-radius: 10px;
-    content: '';
-    display: block;
-
-    background-color: var(--dark);
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-
-    z-index: 3;
-    position: relative;
-    /*    setting position helps with the z-index order that gets funky with the transforms, specifically with #main-menu-toggle::before */
-
-}
-
-.menu-toggle:focus span,
-.menu-toggle:focus span::before,
-.menu-toggle:focus span::after {
-    background-color: var(--darker);
-}
-
-/* TODO: In JavaScript, add a .closed class dynamically so not just relying on targetting */
-
-.menu-toggle span::before {
-    -webkit-transform: translateY(200%);
-    transform: translateY(200%);
-}
-
-.menu-toggle span::after {
-    -webkit-transform: translateY(200%);
-    transform: translateY(200%);
-}
-
-.menu-toggle:hover span,
-.menu-toggle:focus span {
-    transform: translate(0%, 225%) rotate(-45deg);
-}
-
-.menu-toggle:hover span::before,
-.menu-toggle:focus span::before {
-    opacity: 0;
-    transform: translate(0%, 0%) rotate(45deg);
-}
-
-.menu-toggle:hover span::after,
-.menu-toggle:focus span::after {
-    -webkit-transform: translate(0%, 0%) rotate(45deg);
-    transform: translate(0%, -225%) rotate(90deg);
-}
-
-/* TODO: clean up and combine with menu-toggle */
+.menu-toggle,
 .menu-close {
     width: 20px;
     height: 20px;
-    /*
-    background-color: var(--accent_light);
-    border-radius: 50%;
-    padding: 10px;
-*/
-    /*        float: left;*/
-    /* TODO: fix position when scroll sidebar */
-    /*    margin: 5px;*/
+    /* TODO: fix .menu-close position when scroll sidebar */
 }
 
+/*    margin: 5px;*/
+
+.menu-toggle span,
+.menu-toggle span::before,
+.menu-toggle span::after {
+
+    z-index: 3;
+    position: relative;
+
+    /*    setting position helps with the z-index order that gets funky with the transforms, specifically with #main-menu-toggle::before */
+}
+
+.menu-toggle span,
+.menu-toggle span::before,
+.menu-toggle span::after,
 .menu-close span,
 .menu-close span::before,
 .menu-close span::after {
@@ -513,24 +483,50 @@ h1 {
     transition: 0.4s;
 }
 
+.menu-toggle:focus span,
+.menu-toggle:focus span::before,
+.menu-toggle:focus span::after,
 .menu-close:focus span,
 .menu-close:focus span::before,
 .menu-close:focus span::after {
     background-color: var(--darker);
 }
 
-.menu-close span {
+/* TODO: In JavaScript, add a .closed class dynamically so not just relying on :targetting */
+
+.menu-toggle span::before,
+.menu-toggle span::after,
+.menu-close:hover span::before,
+.menu-close:focus span::before,
+.menu-close:hover span::after,
+.menu-close:focus span::after {
+    opacity: 1;
+    /*    FUTURE: opacity should only be relevant for .menu-close befores */
+    -webkit-transform: translateY(200%);
+    transform: translateY(200%);
+}
+
+.menu-toggle:hover span,
+.menu-toggle:focus span {
     transform: translate(0%, 225%) rotate(-45deg);
 }
 
+.menu-toggle:hover span::before,
+.menu-toggle:focus span::before,
 .menu-close span::before {
     opacity: 0;
     transform: translate(0%, 0%) rotate(45deg);
 }
 
+.menu-toggle:hover span::after,
+.menu-toggle:focus span::after,
 .menu-close span::after {
-    -webkit-transform: translate(0%, 0%) rotate(45deg);
+    /*    -webkit-transform: translate(0%, 0%) rotate(45deg);*/
     transform: translate(0%, -225%) rotate(90deg);
+}
+
+.menu-close span {
+    transform: translate(0%, 225%) rotate(-45deg);
 }
 
 .menu-close:hover span,
@@ -538,64 +534,9 @@ h1 {
     transform: translate(0%, 0%) rotate(0);
 }
 
-.menu-close:hover span::before,
-.menu-close:focus span::before {
-    opacity: 1;
-    -webkit-transform: translateY(200%);
-    transform: translateY(200%);
-}
-
-.menu-close:hover span::after,
-.menu-close:focus span::after {
-    -webkit-transform: translateY(200%);
-    transform: translateY(200%);
-}
-
-/*
-.menu-toggle span {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 15%;
-    margin: 17% 0;
-    border-radius: 10px;
-
-    background-color: var(--dark);
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-}
-*/
-/*    margin: 6px 0;*/
-
-/* X Close state */
-/*
-.menu-toggle span:nth-child(1) {
-    -webkit-transform: translate(0%, 225%) rotate(-45deg);
-    transform: translate(0%, 225%) rotate(-45deg);
-}
-*/
-
-/* -9px, 6px */
-/*
-.menu-toggle span:nth-child(2) {
-    opacity: 0;
-}
-*/
-
-/*
-.menu-toggle span:nth-child(3) {
-    -webkit-transform: translate(0%, -200%) rotate(45deg);
-    transform: translate(0%, -200%) rotate(45deg);
-}
-*/
-
-/* -8px, -8px */
 /* FUTURE: rename nav bar or the like to avoid confusion with icons */
 .main-menu {
-    /*    width: 0;*/
-    /*
-    overflow: hidden;
-    height: 100%;
+    /*    width: 0;
     transition: width 0.3s ease;
 */
 
@@ -604,16 +545,23 @@ h1 {
     display: none;
     /*    left: -200px;*/
     top: 0;
-    transform: translateX(-200px);
+    left: 0;
+    /*    transform: translateX(-200px);*/
     height: 100%;
     /*    FIX: scroll in y despite no content to scroll to although do have an odd horizontal line that scrolls with the backdrop */
-    overflow-y: scroll;
+    overflow-y: visible;
     /*    FUTURE: try to change scrollbar color or visibility bvecause it does not look hot here*/
-    overflow-x: hidden;
+    overflow-x: visible;
+    /*     need visible to show overlay */
     /*    FUTURE: what would overflow-x: visible accomplish here? */
+    /*
     transition: left 0.3s,
         box-shadow 0.3s;
-    z-index: 999;
+*/
+    /*    transition: 0.5s;*/
+    background: var(--main_dark);
+    /*    z-index: 998;*/
+    /*    position: relative;*/
 }
 
 /*    position: fixed;*/
@@ -629,56 +577,109 @@ h1 {
     /*    width: 30%;*/
     display: block;
     /*    left: 0;*/
-    transform: translateX(0);
+    /*    transform: translateX(0);*/
+    /* Hide shadow w/ -8px while 'closed' */
+    /*    box-shadow: -8px 0 8px rgba(0, 0, 0, .5);*/
     /*    outline: none;*/
-    -moz-box-shadow: 3px 0 12px rgba(0, 0, 0, .25);
-    -webkit-box-shadow: 3px 0 12px rgba(0, 0, 0, .25);
     box-shadow: 3px 0 12px rgba(0, 0, 0, .25);
 }
 
 .main-menu:target .menu-close,
 .main-menu[aria-expanded="true"] .menu-close {
-    z-index: 1001;
+    /*    z-index: 1000;*/
 }
 
+/*
 .main-menu:target ul,
 .main-menu[aria-expanded="true"] ul {
     position: relative;
     z-index: 1000;
 }
+*/
 
 /*
  We could us `.main-menu:target:after`, but
  it wouldn't be clickable.
 */
+
+/*
 .main-menu:target + .backdrop,
-.main-menu[aria-expanded="true"] + .backdrop {
+.main-menu[aria-expanded="true"] + .backdrop
+*/
+/*
+.main-menu:target {
+    position: fixed;
+    z-index: 50;
+}
+.main-menu:target ul {
+    position: relative;
+}
+.main-menu:target ul::after {
     position: absolute;
-    display: block;
-    left: 0;
-    top: 0;
+    z-index: -1;
+}
+*/
+header {
+    position: fixed;
+    right: 0;
     width: 100%;
-    height: 100%;
-    z-index: 998;
+    z-index: 1;
+}
+
+.main-menu:target {
+    position: fixed;
+}
+
+.main-menu::after {
+    position: fixed;
+    z-index: -1;
+}
+
+
+
+.main-menu::after {
+    content: '';
+    /*     add href to # so will close menu on click v*/
+    /*    position: absolute;*/
+    /*
+    bottom: 0;
+    right: 0;
+*/
+
+    /*    position: absolute;*/
+    display: block;
+    /*    left: 0;*/
+    /*    top: 0;*/
+    width: 300px;
+    height: 300px;
+    /*    z-index: 997;*/
+    /*    z-index: -1;*/
+    /*    transform: translateX(40px);*/
+
     background: #000;
-    background: rgba(0, 0, 0, .85);
+    background: rgba(0, 0, 0, .65);
+    /*    background: rgba(0, 0, 0, .85);*/
     /*    cursor: default;*/
 }
 
 @supports (position: fixed) {
 
+    /* .main-menu:target::after, */
     .main-menu,
     .main-menu:target + .backdrop,
     .main-menu[aria-expanded="true"] + .backdrop {
-        position: fixed;
+        /*        position: fixed;*/
     }
 }
 
 .main-menu ul {
     list-style: none;
     /*    list-style-position: inside;*/
-    margin-left: 0;
-    padding: 2.5em 0 0;
+    /*    margin-left: 0;*/
+    /*    padding: 2.5em 0 0;*/
+    padding: 0;
+    margin: 0;
+
     font-family: 'Bitter', serif;
     display: flex;
     align-content: center;
@@ -686,41 +687,52 @@ h1 {
     flex-direction: column;
     /*    justify-content: center;*/
     /*    width: 100%;*/
-
-    /* Hide shadow w/ -8px while 'closed' */
-    box-shadow: -8px 0 8px rgba(0, 0, 0, .5);
-    min-height: 100%;
+    /*    z-index: 999;*/
     width: 200px;
-    background: #1a1a1a;
-    /*    TODO: give a background color */
+    /*    position: relative;*/
 }
 
-.main-menu a {
+/* FUTURE: unify .main-menu li a and a as much as is sensible */
+
+.main-menu li,
+.main-menu li a {
+    width: 100%;
+    color: var(--main_light);
+    /*    z-index: 999;*/
+}
+
+.main-menu li a:hover,
+.main-menu li a:focus {
+    color: var(--accent_light);
+}
+
+.main-menu li a {
     display: block;
     /*    padding: .75em 15px;*/
     line-height: 1em;
     font-size: 1em;
-    color: #fff;
 }
 
 .main-menu li {
     /*    text-decoration: none;*/
-    border-bottom: 1px solid #383838;
+    border-bottom: 1px solid var(--accent_light);
     position: relative;
     /* so that pseudoelements are positioned relatively to their "li"s*/
     padding: 5px 0 5px 5px;
-    z-index: 1;
 }
 
+/* TODO: Line isn't extending all the way */
 .main-menu li:first-child a {
-    border-top: 1px solid #383838;
+    border-top: 1px solid var(--accent_light);
     padding-top: 5px;
 }
 
 .main-menu .menu-close {
+    /*
     position: absolute;
     right: 0;
     top: 0;
+*/
 }
 
 /*
@@ -739,13 +751,6 @@ h1 {
     padding: 10px;
 }
 */
-
-/* FUTURE: unify .main-menu li a and a as much as is sensible */
-
-.main-menu li,
-.main-menu li a {
-    width: 100%;
-}
 
 /*
 .main-menu li a {
