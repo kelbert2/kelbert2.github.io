@@ -823,20 +823,31 @@ main-nav label:checked {
 /* End Nav-Bar -------------------------------------------------- */
 
 /* Seem to need to apply .title to everything you want to not be hidden, even if a .title class element contains it */
-section :not(.title) {
-    margin: 10px;
-    display: none;
+section {
     transition: display 0.3s;
 }
 
-section:target {
+section a.title ~ * {
+    display: none;
+}
+
+section:target a.title ~ * {
+    margin: 10px;
     display: block;
 }
 
-section > h2 {
-    /*    position: sticky;*/
-    width: 100%;
+section .title,
+section:target .title {
+    display: block;
 }
+
+/*
+section > a.title {
+        position: sticky;
+    width: 100%;
+    display: block;
+}
+*/
 
 /* header used to be there ^ */
 

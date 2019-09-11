@@ -20,14 +20,12 @@
 <body>
     <header>
         <a href="#main-menu" id="main-menu-toggle" class="menu-toggle" aria-label="Open main menu">
-            <!--            <span aria-hidden="true"></span>-->
             <span aria-hidden="true"></span>
-            <!--            <span aria-hidden="true"></span>-->
         </a>
         <div class="logo-stack">
             <h1>Kris Elbert</h1>
         </div>
-        <!--        <span></span>-->
+
         <div class="list">
             <ul id="header-contact">
                 <li style="opacity: 1\9; /* IE9 only */">
@@ -48,19 +46,10 @@
                 </li>
             </ul>
         </div>
-    </header>
-
-    <main role="main">
-        <!--    TODO: double check main placement -->
         <nav id="main-menu" class="main-menu" aria-label="Main menu">
             <a href="#main-menu-toggle" id="main-menu-close" class="menu-close" aria-label="Close main menu">
                 <span aria-hidden="true"></span>
             </a>
-
-            <!--
-        <input type="checkbox" id=main-menu-toggle>
-        <label for=main-menu-toggle>Menu</label>
--->
             <!-- FUTURE: add js for current menu item open -->
             <ul>
                 <li><a href="#about"><span aria-hidden="true" class="bullet"></span>About</a></li>
@@ -74,11 +63,15 @@
             <a href="#main-menu-toggle" class="backdrop" tabindex="-1" aria-hidden="true" hidden>
             </a>
         </nav>
+    </header>
 
+
+    <main role="main">
+        <!--    TODO: double check main placement -->
 
         <section id="about">
             <a href="#about" class="title">
-                <h2 class="title">both classed, About</h2>
+                <h2 class="title">About</h2>
             </a>
             <p>Hi,</p>
             <p>I'm Kris.<em class="tooltip">short for "Kristianna"</em></p>
@@ -86,7 +79,9 @@
         </section>
 
         <section id="experience">
-            <h2 class="title">no a, h2 classed Experience</h2>
+            <a href="#experience" class="title">
+                <h2 class="title">Experience</h2>
+            </a>
             <ul>
                 <li>
                     <div class="experience-header">
@@ -213,7 +208,9 @@
         </section>
 
         <section id="skills">
-            <h2 class="title">Skills</h2>
+            <a href="#skills" class="title">
+                <h2 class="title">Skills</h2>
+            </a>
             <h3 class="subtitle">Programming</h3>
             <ul class="ani-list">
                 <li>Java</li>
@@ -250,8 +247,8 @@
         </section>
 
         <section id="education">
-            <a>
-                <h2 class="title">h2 classed, Education</h2>
+            <a href="#education" class="title">
+                <h2 class="title">Education</h2>
             </a>
             <div class="educational-info">
                 <h3 class="subtitle">Duke University</h3>
@@ -386,8 +383,8 @@
         </section>
 
         <section id="projects">
-            <a class="title">
-                <h2>a classed, Past Projects</h2>
+            <a href="#projects" class="title">
+                <h2 class="title">Past Projects</h2>
             </a>
             <ul>
                 <li class="desc-list">
@@ -425,7 +422,9 @@
         </section>
 
         <section id="contact">
-            <a class="title">only a, a classed Contact</a>
+            <a href="#contact" class="title">
+                <h2 class="title">Contact</h2>
+            </a>
             <span class="line line-4"></span>
             <ul>
 
@@ -447,10 +446,9 @@
                 </li>
             </ul>
         </section>
-        <!--    </main>-->
-
-        <!--    <footer>-->
-        <!--        <span class="line line-bottom"></span>-->
-        <!--    </footer>-->
     </main>
+
+    <!--    <footer>-->
+    <!--        <span class="line line-bottom"></span>-->
+    <!--    </footer>-->
 </body></html>
