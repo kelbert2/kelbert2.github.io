@@ -65,8 +65,6 @@ Light mode: green, teal, brown, gray
         background: var(--dark);
         width: 2px;
         /*  TODO: make so either shrink to 0 and wrap or do not shrink below 2px, to maintain border-radius */
-        -webkit-box-flex: 0;
-        -ms-flex: 0 2 auto;
         flex: 0 2 auto;
         /*    align-self: stretch;*/
         /*    position: relative;*/
@@ -92,38 +90,6 @@ Light mode: green, teal, brown, gray
 */
     }
 
-    @keyframes bottomToTop {
-        from {
-            background-color: var(--accent_dark);
-            max-height: 0;
-            margin-top: 200px;
-            /*        animate top margin to make it animate upward - just need to make it anything larger than the enclosing area*/
-        }
-
-        to {
-            background-color: var(--dark);
-            max-height: 200px;
-            /*        animating max-height allows for the use of height: auto */
-            margin-top: 0;
-            /*        transform: translateY(-100%);*/
-        }
-    }
-
-    @-webkit-keyframes bottomToTop {
-        from {
-            background-color: var(--accent_dark);
-            max-height: 0;
-            margin-top: 500px;
-        }
-
-        to {
-            background-color: var(--dark);
-            max-height: 500px;
-            margin-top: 0;
-            /*        -webkit-transform: translateY(-100%);*/
-        }
-    }
-
     #header-contact li {
         /*    width: 100%;*/
         opacity: 0;
@@ -141,6 +107,141 @@ Light mode: green, teal, brown, gray
 
     }
 
+    #header-contact li:nth-child(1) {
+        animation-delay: 5s;
+        -o-animation-delay: 5s;
+        -ms-animation-delay: 5s;
+        -moz-animation-delay: 5s;
+        -webkit-animation-delay: 5s;
+    }
+
+    #header-contact li:nth-child(2) {
+        animation-delay: 4.25s;
+        -o-animation-delay: 4.25s;
+        -ms-animation-delay: 4.25s;
+        -moz-animation-delay: 4.25s;
+        -webkit-animation-delay: 4.25s;
+    }
+
+    #header-contact li:nth-child(3) {
+        animation-delay: 3.5s;
+        -o-animation-delay: 3.5s;
+        -ms-animation-delay: 3.5s;
+        -moz-animation-delay: 3.5s;
+        -webkit-animation-delay: 3.5s;
+    }
+
+    #header-contact li:nth-child(4) {
+        animation-delay: 2.75s;
+        -o-animation-delay: 2.75s;
+        -ms-animation-delay: 2.75s;
+        -moz-animation-delay: 2.75s;
+        -webkit-animation-delay: 2.75s;
+    }
+
+
+    /*
+#header-contact li:nth-child(1) {
+    animation-delay: 6s;
+    -o-animation-delay: 6s;
+    -ms-animation-delay: 6s;
+    -moz-animation-delay: 6s;
+    -webkit-animation-delay: 6s;
+}
+
+#header-contact li:nth-child(2) {
+    animation-delay: 5s;
+    -o-animation-delay: 5s;
+    -ms-animation-delay: 5s;
+    -moz-animation-delay: 5s;
+    -webkit-animation-delay: 5s;
+}*/
+
+    /*
+#header-contact li:nth-child(1) {
+    animation-delay: 4s;
+    -o-animation-delay: 4s;
+    -ms-animation-delay: 4s;
+    -moz-animation-delay: 4s;
+    -webkit-animation-delay: 4s;
+}
+
+#header-contact li:nth-child(2) {
+    animation-delay: 3.5s;
+    -o-animation-delay: 3.5s;
+    -ms-animation-delay: 3.5s;
+    -moz-animation-delay: 3.5s;
+    -webkit-animation-delay: 3.5s;
+}
+
+#header-contact li:nth-child(3) {
+    animation-delay: 3s;
+    -o-animation-delay: 3s;
+    -ms-animation-delay: 3s;
+    -moz-animation-delay: 3s;
+    -webkit-animation-delay: 3s;
+}
+
+#header-contact li:nth-child(4) {
+    animation-delay: 2.5s;
+    -o-animation-delay: 2.5s;
+    -ms-animation-delay: 2.5s;
+    -moz-animation-delay: 2.5s;
+    -webkit-animation-delay: 2.5s;
+}
+*/
+
+    /*
+#header-contact li:nth-child(4) {
+    animation-delay: 2s;
+    -o-animation-delay: 2s;
+    -ms-animation-delay: 2s;
+    -moz-animation-delay: 2s;
+    -webkit-animation-delay: 2s;
+}
+*/
+
+    /*
+#header-contact li:nth-child(4) {
+    animation-delay: 1.5s;
+    -o-animation-delay: 1.5s;
+    -ms-animation-delay: 1.5s;
+    -moz-animation-delay: 1.5s;
+    -webkit-animation-delay: 1.5s;
+}
+*/
+}
+
+@keyframes bottomToTop {
+    from {
+        background-color: var(--accent_dark);
+        max-height: 0;
+        margin-top: 200px;
+        /*        animate top margin to make it animate upward - just need to make it anything larger than the enclosing area*/
+    }
+
+    to {
+        background-color: var(--dark);
+        max-height: 200px;
+        /*        animating max-height allows for the use of height: auto */
+        margin-top: 0;
+        /*        transform: translateY(-100%);*/
+    }
+}
+
+@-webkit-keyframes bottomToTop {
+    from {
+        background-color: var(--accent_dark);
+        max-height: 0;
+        margin-top: 500px;
+    }
+
+    to {
+        background-color: var(--dark);
+        max-height: 500px;
+        margin-top: 0;
+        /*        -webkit-transform: translateY(-100%);*/
+    }
 }
 
 /* 600 */
@@ -148,6 +249,14 @@ Light mode: green, teal, brown, gray
 @media(device-width: 750px) {}
 
 /* 1024 */
+
+html {
+    color: var(--dark);
+    font-size: 12px;
+    font-family: 'Montserrat', 'Ubuntu', sans-serif;
+    height: 100%;
+    background: var(--light);
+}
 
 body {
     /* reset default values */
@@ -158,17 +267,9 @@ body {
     vertical-align: baseline;
     overflow-x: auto;
     overflow-y: scroll;
-    height: 100vh;
+    /*    height: 100vh;*/
     margin: 0;
     padding: 0;
-}
-
-html {
-    color: var(--dark);
-    font-size: 12px;
-    font-family: 'Montserrat', 'Ubuntu', sans-serif;
-    height: 100%;
-    background: var(--light);
 }
 
 /*
@@ -203,6 +304,7 @@ header {
     padding: 10px;
     /*    this is adding vertical height; need to fix */
     max-height: 80px;
+    /*    position: sticky;*/
 }
 
 header em {
@@ -217,6 +319,8 @@ header div::before {
     padding: 0;
     margin: 0;
 }
+
+/* FUTURE: may move div:: before reference to media query */
 
 header div {
     display: -webkit-box;
@@ -265,110 +369,6 @@ header div {
         -webkit-transform: translateX(0px);
     }
 }
-
-#header-contact li:nth-child(1) {
-    animation-delay: 5s;
-    -o-animation-delay: 5s;
-    -ms-animation-delay: 5s;
-    -moz-animation-delay: 5s;
-    -webkit-animation-delay: 5s;
-}
-
-#header-contact li:nth-child(2) {
-    animation-delay: 4.25s;
-    -o-animation-delay: 4.25s;
-    -ms-animation-delay: 4.25s;
-    -moz-animation-delay: 4.25s;
-    -webkit-animation-delay: 4.25s;
-}
-
-#header-contact li:nth-child(3) {
-    animation-delay: 3.5s;
-    -o-animation-delay: 3.5s;
-    -ms-animation-delay: 3.5s;
-    -moz-animation-delay: 3.5s;
-    -webkit-animation-delay: 3.5s;
-}
-
-#header-contact li:nth-child(4) {
-    animation-delay: 2.75s;
-    -o-animation-delay: 2.75s;
-    -ms-animation-delay: 2.75s;
-    -moz-animation-delay: 2.75s;
-    -webkit-animation-delay: 2.75s;
-}
-
-
-/*
-#header-contact li:nth-child(1) {
-    animation-delay: 6s;
-    -o-animation-delay: 6s;
-    -ms-animation-delay: 6s;
-    -moz-animation-delay: 6s;
-    -webkit-animation-delay: 6s;
-}
-
-#header-contact li:nth-child(2) {
-    animation-delay: 5s;
-    -o-animation-delay: 5s;
-    -ms-animation-delay: 5s;
-    -moz-animation-delay: 5s;
-    -webkit-animation-delay: 5s;
-}*/
-
-/*
-#header-contact li:nth-child(1) {
-    animation-delay: 4s;
-    -o-animation-delay: 4s;
-    -ms-animation-delay: 4s;
-    -moz-animation-delay: 4s;
-    -webkit-animation-delay: 4s;
-}
-
-#header-contact li:nth-child(2) {
-    animation-delay: 3.5s;
-    -o-animation-delay: 3.5s;
-    -ms-animation-delay: 3.5s;
-    -moz-animation-delay: 3.5s;
-    -webkit-animation-delay: 3.5s;
-}
-
-#header-contact li:nth-child(3) {
-    animation-delay: 3s;
-    -o-animation-delay: 3s;
-    -ms-animation-delay: 3s;
-    -moz-animation-delay: 3s;
-    -webkit-animation-delay: 3s;
-}
-
-#header-contact li:nth-child(4) {
-    animation-delay: 2.5s;
-    -o-animation-delay: 2.5s;
-    -ms-animation-delay: 2.5s;
-    -moz-animation-delay: 2.5s;
-    -webkit-animation-delay: 2.5s;
-}
-*/
-
-/*
-#header-contact li:nth-child(4) {
-    animation-delay: 2s;
-    -o-animation-delay: 2s;
-    -ms-animation-delay: 2s;
-    -moz-animation-delay: 2s;
-    -webkit-animation-delay: 2s;
-}
-*/
-
-/*
-#header-contact li:nth-child(4) {
-    animation-delay: 1.5s;
-    -o-animation-delay: 1.5s;
-    -ms-animation-delay: 1.5s;
-    -moz-animation-delay: 1.5s;
-    -webkit-animation-delay: 1.5s;
-}
-*/
 
 h1 {
     font-size: 22px;
@@ -742,33 +742,38 @@ h1 {
 
 /* FUTURE: unify .main-menu li a and a as much as is sensible */
 
-.main-menu li a {
-    display: flex;
-    /*        justify-content: flex-start;*/
-    /*        align-content: stretch;*/
-    align-items: center;
-    /*    width: 100%;*/
-    /*    flex-wrap: nowrap;*/
-    /*    flex-shrink: 0;*/
-    white-space: nowrap;
-    flex-flow: row nowrap;
-}
-
 .main-menu li,
 .main-menu li a {
     width: 100%;
 }
 
+/*
+.main-menu li a {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-flow: row nowrap;
+}
+*/
+/*        justify-content: flex-start;*/
+/*        align-content: stretch;*/
+/*    width: 100%;*/
+/*    flex-wrap: nowrap;*/
+/*    flex-shrink: 0;*/
+
+/*
 .main-menu ul li a .bullet {
     display: block;
     background-color: var(--dark);
-    /*        float: left;*/
     height: 3px;
     margin: 5px;
     flex: 1 2 30%;
     transition: flex-basis 2s ease-out;
 }
+*/
+/*        float: left;*/
 
+/*
 .main-menu ul li a:hover .bullet,
 .main-menu ul li a:focus .bullet {
     flex: 1 2 80%;
@@ -780,8 +785,9 @@ h1 {
     display: block;
     background: none;
     flex: 1 3 30%;
-    /*    if keep at same flex-basis as the .bullet line, will center the remaining words */
 }
+*/
+/*    if keep at same flex-basis as the .bullet line, will center the remaining words */
 
 /*        transition: flex-basis 2s ease-in-out;*/
 
@@ -822,7 +828,32 @@ main-nav label:checked {
 
 /* End Nav-Bar -------------------------------------------------- */
 
-/* Seem to need to apply .title to everything you want to not be hidden, even if a .title class element contains it */
+main::before {
+    content: '';
+    display: inline-block;
+    background-color: var(--dark);
+    margin: 5px;
+    width: 4px;
+    height: 100%;
+    border-radius: 2px;
+    /*    flex: 0 2 auto;*/
+    /*    float: left;*/
+    position: absolute;
+    left: 10px;
+    /*    z-index: 0;*/
+    top: 0;
+    -webkit-animation: 2s bottomToTop ease-in-out;
+    animation: 2s bottomToTop ease-in-out;
+}
+
+main {
+    height: 100%;
+    position: relative;
+    /*    display: flex;*/
+
+}
+
+/* TODO: transition the display, maybe add an opacity/ visibility to transition */
 section {
     transition: display 0.3s;
 }
@@ -834,16 +865,69 @@ section a.title ~ * {
 section:target a.title ~ * {
     margin: 10px;
     display: block;
+    padding: 15px;
 }
 
+/*
 section .title,
 section:target .title {
     display: block;
 }
+*/
+
+section a.title {
+    /*    width: 100%;*/
+    display: flex;
+    /*        justify-content: flex-start;*/
+    /*        align-content: stretch;*/
+    align-items: center;
+    /*    width: 100%;*/
+    /*    flex-wrap: nowrap;*/
+    /*    flex-shrink: 0;*/
+    white-space: nowrap;
+    flex-flow: row nowrap;
+    margin: 5px 15px;
+}
+
+section a.title::before {
+    content: '';
+    display: block;
+    background-color: var(--dark);
+    border-radius: 3px;
+    /*        float: left;*/
+    height: 4px;
+    flex: 1 2 25%;
+    transition: flex-basis 2s ease-out;
+}
+
+section a.title::after,
+section a.title:hover::after,
+section a.title:focus::after,
+section:target a.title::after,
+section:target a.title:hover::after,
+section:target a.title:focus::after {
+    content: '';
+    display: block;
+    border-radius: 5px;
+    background: none;
+    height: 2px;
+    flex: 1 3 25%;
+    /*    if keep at same flex-basis as the .bullet line, will center the remaining words */
+}
+
+/* TODO: see just how many of these are relevant */
+section a.title:hover::before,
+section a.title:focus::before,
+section:target a.title::before,
+section:target a.title:hover::before,
+section:target a.title:focus::before {
+    flex: 1 2 75%;
+}
+
 
 /*
 section > a.title {
-        position: sticky;
+    position: sticky;
     width: 100%;
     display: block;
 }
