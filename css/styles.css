@@ -7,9 +7,12 @@
     --light: #e4ece7;
     --dark: #48705f;
     --darker: rgb(81, 94, 96);
-    --nav-height: 80px;
+    --header-height: 60px;
     --main-menu-width: 20px;
+    --drop-shadow: 0;
 }
+
+/* TODO: change header-height based on screen size */
 
 /*
 Dark mode - slate and light blue
@@ -103,8 +106,9 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    max-height: var(--nav-height);
-    z-index: 1;
+    /*    max-height: var(--header-height);*/
+    height: var(--header-height);
+    z-index: 2;
 
     display: flex;
     flex-flow: row wrap;
@@ -138,6 +142,7 @@ header div::before {
 header div {
     display: flex;
     height: 100%;
+    align-items: center;
     /*    margin-top: 0;*/
 }
 
@@ -570,12 +575,28 @@ main {
     height: 100%;
     position: relative;
     /*    display: flex;*/
-
+    margin-top: var(--header-height);
 }
 
 /* TODO: transition the display, maybe add an opacity/ visibility to transition */
 section {
     transition: display 0.3s;
+    z-index: 1;
+    /*    position: relative;*/
+    /*    opacity: .25;*/
+}
+
+/* To give some space for when click, so will have suitable spacing underneath the fixed header */
+section::before {
+    content: '';
+    display: block;
+
+    height: var(--header-height);
+    margin: calc(-1*var(--header-height)) 0 0;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
 section a.title ~ * {
@@ -585,7 +606,7 @@ section a.title ~ * {
 section:target a.title ~ * {
     margin: 10px;
     display: block;
-    padding: 15px;
+    padding: 0 15px;
 }
 
 /*
@@ -598,6 +619,7 @@ section:target .title {
 section a.title {
     /*    width: 100%;*/
     display: flex;
+    z-index: 1;
     /*        justify-content: flex-start;*/
     /*        align-content: stretch;*/
     align-items: center;
