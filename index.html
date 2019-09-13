@@ -18,15 +18,17 @@
    could use toggle buttons to turn on/ off visibility without js?-->
 
 <body>
+    <!--    <a id="skip-nav" class="screen-reader-only" href="#main-content">Skip to main content</a>-->
     <header>
         <a href="#main-menu" id="main-menu-toggle" class="menu-toggle" aria-label="Open main menu">
-            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>TOGGLE
         </a>
         <div class="logo-stack">
             <h1>Kris Elbert</h1>
         </div>
 
         <div class="list">
+            <!--            TODO: right now have this silly bit as a way to make a line that goes with ul list, which has its own flex direction, same as logo-stack. Find a cleaner way to do this -->
             <ul id="header-contact">
                 <li style="opacity: 1\9; /* IE9 only */">
                     (908) 487-8043
@@ -46,9 +48,10 @@
                 </li>
             </ul>
         </div>
-        <nav id="main-menu" class="main-menu" aria-label="Main menu">
+
+        <nav id="main-menu" class="menu" aria-label="Main menu">
             <a href="#main-menu-toggle" id="main-menu-close" class="menu-close" aria-label="Close main menu">
-                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>UNTOGGLE
             </a>
             <!-- FUTURE: add js for current menu item open or css mock-scroll spy -->
             <ul>
