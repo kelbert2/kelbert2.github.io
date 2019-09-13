@@ -8,6 +8,7 @@
     --dark: #48705f;
     --darker: rgb(81, 94, 96);
     --nav-height: 80px;
+    --main-menu-width: 20px;
 }
 
 /*
@@ -388,19 +389,144 @@ header div {
 }
 
 /* Begin Nav-Bar -------------------------------------------------*/
+#main-menu-toggle {
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+#main-menu-toggle::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background-color: var(--accent_light);
+    transform: translate(75%, -25%);
+    float: right;
+}
+
+/* TODO: work with z-index and opacity to make -close appear over it, then switch out on focus/movement of menu */
+#main-menu-toggle,
+#main-menu-close {
+    background-color: var(--accent_light);
+    border-radius: 50%;
+    padding: 10px;
+
+    /*     https://medium.com/@heyoka/responsive-pure-css-off-canvas-hamburger-menu-aebc8d11d793 */
+    display: inline-block;
+    margin: .75em 10px;
+}
+
+
+#main-menu-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.menu-toggle,
+.menu-close {
+    width: var(--main-menu-width);
+    height: var(--main-menu-width);
+}
+
+.menu-toggle span,
+.menu-toggle span::before,
+.menu-toggle span::after {
+    position: relative;
+    /*    setting position helps with the z-index order that gets funky with the transforms, specifically with #main-menu-toggle::before */
+}
+
+.menu-toggle span,
+.menu-toggle span::before,
+.menu-toggle span::after,
+.menu-close span,
+.menu-close span::before,
+.menu-close span::after {
+    width: 100%;
+    height: calc(.15 * var(--main-menu-width));
+    margin: 17% 0;
+    border-radius: 10px;
+    content: '';
+    display: block;
+
+    background-color: var(--dark);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.menu-toggle:focus span,
+.menu-toggle:focus span::before,
+.menu-toggle:focus span::after,
+.menu-close:focus span,
+.menu-close:focus span::before,
+.menu-close:focus span::after {
+    background-color: var(--darker);
+}
+
+/* TODO: In JavaScript, add a .closed class dynamically so not just relying on :targetting */
+
+.menu-toggle span::before,
+.menu-toggle span::after,
+.menu-close:hover span::before,
+.menu-close:focus span::before,
+.menu-close:hover span::after,
+.menu-close:focus span::after {
+    opacity: 1;
+    /*    FUTURE: check: opacity should only be relevant for .menu-close befores */
+    -webkit-transform: translateY(200%);
+    transform: translateY(200%);
+}
+
+.menu-toggle:hover span,
+.menu-toggle:focus span {
+    transform: translate(0%, 225%) rotate(-45deg);
+}
+
+.menu-toggle:hover span::before,
+.menu-toggle:focus span::before,
+.menu-close span::before {
+    opacity: 0;
+    transform: translate(0%, 0%) rotate(45deg);
+}
+
+.menu-toggle:hover span::after,
+.menu-toggle:focus span::after,
+.menu-close span::after {
+    /*    -webkit-transform: translate(0%, 0%) rotate(45deg);*/
+    transform: translate(0%, -225%) rotate(90deg);
+}
+
+.menu-close span {
+    transform: translate(0%, 225%) rotate(-45deg);
+}
+
+.menu-close:hover span,
+.menu-close:focus span {
+    transform: translate(0%, 0%) rotate(0);
+}
 
 #main-menu {
     display: none;
-    position: absolute;
+    /*        width: 0;*/
+    position: fixed;
     right: 0;
     top: 0;
-
-    background: var(--main_light);
-    border: 1px solid var(--main_dark);
+    height: 100%;
+    /*    min-width: 50%;*/
 }
 
 #main-menu:target {
     display: block;
+}
+
+#main-menu:target ul {
+    background: var(--main_light);
+    width: 100%;
+    height: 100%;
+    padding: 1.5em;
+    margin: 0;
 }
 
 #main-menu:target #main-menu-close::before {
@@ -413,8 +539,9 @@ header div {
 
     content: '';
     display: block;
-    /*    background: var(--main_dark);*/
-    background: rgba(0, 0, 0, .25);
+    background: black;
+    opacity: .5;
+    /*        background: rgba(0, 0, 0, .25);*/
     /*    #main-menu-toggle also appearing over */
 }
 
