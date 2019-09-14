@@ -80,8 +80,10 @@ body {
     box-sizing: border-box;
     background-color: var(--light);
     vertical-align: baseline;
+    /*
     overflow-x: auto;
-    overflow-y: scroll;
+    overflow-y: auto;
+*/
     /*    height: 100vh;*/
     margin: 0;
     padding: 0;
@@ -394,10 +396,33 @@ header div {
 }
 
 /* Begin Nav-Bar -------------------------------------------------*/
-#main-menu-toggle {
-    position: fixed;
+#main-menu-toggle,
+#main-menu-toggle::before {
+    padding: calc(var(--main-menu-width)/2);
+}
+
+#main-menu-toggle,
+#main-menu-close,
+#main-menu-toggle::before,
+#main-menu ul {
+    background: var(--accent_light);
+}
+
+#main-menu-close {
+    padding: var(--main-menu-width) calc(100% - 1.5*var(--main-menu-width)) 0 var(--main-menu-width);
+    padding-right: calc(100% - 1.5*var(--main-menu-width));
+    /*
     right: 0;
     top: 0;
+*/
+}
+
+#main-menu-toggle {
+    position: fixed;
+    border-radius: 50%;
+    right: 0;
+    top: 0;
+    margin: calc(var(--main-menu-width)/2);
 }
 
 #main-menu-toggle::before {
@@ -405,8 +430,6 @@ header div {
     display: block;
     width: 100%;
     height: 100%;
-    padding: 10px;
-    background-color: var(--accent_light);
     transform: translate(75%, -25%);
     float: right;
 }
@@ -414,20 +437,8 @@ header div {
 /* TODO: work with z-index and opacity to make -close appear over it, then switch out on focus/movement of menu */
 #main-menu-toggle,
 #main-menu-close {
-    background-color: var(--accent_light);
-    border-radius: 50%;
-    padding: 10px;
-
     /*     https://medium.com/@heyoka/responsive-pure-css-off-canvas-hamburger-menu-aebc8d11d793 */
     display: inline-block;
-    margin: .75em 10px;
-}
-
-
-#main-menu-close {
-    position: absolute;
-    top: 0;
-    right: 0;
 }
 
 .menu-toggle,
@@ -456,7 +467,7 @@ header div {
     content: '';
     display: block;
 
-    background-color: var(--dark);
+    background: var(--dark);
     -webkit-transition: 0.4s;
     transition: 0.4s;
 }
@@ -467,7 +478,7 @@ header div {
 .menu-close:focus span,
 .menu-close:focus span::before,
 .menu-close:focus span::after {
-    background-color: var(--darker);
+    background: var(--darker);
 }
 
 /* TODO: In JavaScript, add a .closed class dynamically so not just relying on :targetting */
@@ -512,26 +523,63 @@ header div {
     transform: translate(0%, 0%) rotate(0);
 }
 
-#main-menu {
+#main-menu #main-menu-close {
     display: none;
-    /*        width: 0;*/
+}
+
+#main-menu:target #main-menu-close {
+    display: block;
+}
+
+#main-menu {
+    animation: inFromRight 1s reverse;
     position: fixed;
     right: 0;
     top: 0;
     height: 100%;
-    /*    min-width: 50%;*/
+    /*    transform: translateX(100px);*/
+    /*    visibility: none;*/
+    /*    transition: visibility .1s, transform 1s;*/
+    display: none;
 }
+
 
 #main-menu:target {
     display: block;
+    visibility: visible;
+    /*    animation: inFromRight 1s;*/
+    /*    transform: translateX(0);*/
+}
+
+/*
+@keyframes inFromRight {
+    from {
+        transform: translateX(100px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+*/
+
+#main-menu ul,
+#main-menu #main-menu-close::before {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity 600ms, visibility 600ms;
+    transition: opacity 600ms, visibility 600ms;
 }
 
 #main-menu:target ul {
-    background: var(--main_light);
+    /*    background: var(--main_light);*/
     width: 100%;
     height: 100%;
-    padding: 1.5em;
+    padding: 0 3em 3em 3em;
     margin: 0;
+    box-sizing: border-box;
+    opacity: 1;
+    visibility: visible;
 }
 
 #main-menu:target #main-menu-close::before {
@@ -546,6 +594,7 @@ header div {
     display: block;
     background: black;
     opacity: .5;
+    visibility: visible;
     /*        background: rgba(0, 0, 0, .25);*/
     /*    #main-menu-toggle also appearing over */
 }
