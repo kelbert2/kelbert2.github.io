@@ -10,10 +10,12 @@
     --header-height: 60px;
     --main-menu-width: 20px;
     --drop-shadow: 0;
+    --main-menu-transition-time: 1s;
+    --section-title-height: 2em;
 }
 
 /* TODO: change header-height based on screen size */
-
+/* TODO: check if need this:  @supports (position: fixed) */
 /*
 Dark mode - slate and light blue
 */
@@ -54,6 +56,10 @@ Light mode: green, teal, brown, gray
 
 @-ms-viewport {
     width: device-width;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 /* FUTURE: mobile accessible and mobile-first */
@@ -118,8 +124,8 @@ header {
     align-content: center;
     justify-content: center;
     /*        font-weight: bold;*/
-    background: var(--light);
-    border-bottom: 2px solid white;
+    /*    background: var(--light);*/
+    /*    border-bottom: 2px solid white;*/
     box-shadow: 0 4px 3px rgba(0, 0, 0, .4);
     /*    TODO: change color - add alpha value*/
     /*        padding: 10px;*/
@@ -396,27 +402,6 @@ header div {
 }
 
 /* Begin Nav-Bar -------------------------------------------------*/
-#main-menu-toggle,
-#main-menu-toggle::before {
-    padding: calc(var(--main-menu-width)/2);
-}
-
-#main-menu-toggle,
-#main-menu-close,
-#main-menu-toggle::before,
-#main-menu ul {
-    background: var(--accent_light);
-}
-
-#main-menu-close {
-    padding: var(--main-menu-width) calc(100% - 1.5*var(--main-menu-width)) 0 var(--main-menu-width);
-    padding-right: calc(100% - 1.5*var(--main-menu-width));
-    /*
-    right: 0;
-    top: 0;
-*/
-}
-
 #main-menu-toggle {
     position: fixed;
     border-radius: 50%;
@@ -434,19 +419,42 @@ header div {
     float: right;
 }
 
+#main-menu-toggle,
+#main-menu-toggle::before {
+    padding: calc(var(--main-menu-width)/2);
+}
+
 /* TODO: work with z-index and opacity to make -close appear over it, then switch out on focus/movement of menu */
 #main-menu-toggle,
 #main-menu-close {
     /*     https://medium.com/@heyoka/responsive-pure-css-off-canvas-hamburger-menu-aebc8d11d793 */
-    display: inline-block;
+    display: block;
+}
+
+#main-menu-toggle,
+#main-menu-toggle::before,
+#main-menu-close,
+#main-menu ul {
+    background: var(--accent_light);
+}
+
+#main-menu-close {
+    padding: var(--main-menu-width);
+    padding-right: calc(100% - 1.5*var(--main-menu-width));
+    /*
+    right: 0;
+    top: 0;
+*/
 }
 
 .menu-toggle,
 .menu-close {
     width: var(--main-menu-width);
     height: var(--main-menu-width);
+    box-sizing: content-box;
 }
 
+/* Start Menu Icon -------------------------------------------*/
 .menu-toggle span,
 .menu-toggle span::before,
 .menu-toggle span::after {
@@ -460,12 +468,12 @@ header div {
 .menu-close span,
 .menu-close span::before,
 .menu-close span::after {
+    content: '';
+    display: block;
     width: 100%;
     height: calc(.15 * var(--main-menu-width));
     margin: 17% 0;
     border-radius: 10px;
-    content: '';
-    display: block;
 
     background: var(--dark);
     -webkit-transition: 0.4s;
@@ -523,6 +531,19 @@ header div {
     transform: translate(0%, 0%) rotate(0);
 }
 
+#main-menu #main-menu-close span {
+    visibility: hidden;
+    opacity: 0;
+    display: block;
+}
+
+#main-menu:target #main-menu-close span {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* End Menu Icon -------------------------------------------- */
+/*
 #main-menu #main-menu-close {
     display: none;
 }
@@ -530,39 +551,84 @@ header div {
 #main-menu:target #main-menu-close {
     display: block;
 }
-
+*/
+/* https://medium.com/@heyoka/responsive-pure-css-off-canvas-hamburger-menu-aebc8d11d793 */
+/* Is behind the overlay */
 #main-menu {
-    animation: inFromRight 1s reverse;
     position: fixed;
-    right: 0;
+    right: -200px;
     top: 0;
     height: 100%;
-    /*    transform: translateX(100px);*/
+    /*        transform: translateX(200px);*/
     /*    visibility: none;*/
-    /*    transition: visibility .1s, transform 1s;*/
-    display: none;
+
+    /*        display: none;*/
+    transition: right var(--main-menu-transition-time);
+    /*    animation: inFromRight 1s reverse;*/
+    /*
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+*/
+}
+
+/* when someone clicks a link #main-menu*/
+/*  [aria-expanded] will be used if/when JavaScript is added to improve interaction, though it's completely optional. */
+/* https://medium.com/@heyoka/responsive-pure-css-off-canvas-hamburger-menu-aebc8d11d793 */
+#main-menu:target,
+#main-menu[aria-expanded="true"] {
+    /*    visibility: visible;*/
+    position: fixed;
+    right: 0;
+    box-shadow: -3px 0 12px rgba(0, 0, 0, .25);
+    /*    box-shadow: -8px 0 8px rgba(0, 0, 0, .5);*/
+
+    /*    transform: right 1s, visibility .1s;*/
+    /*        display: block;*/
+    /*    animation: inFromRight 1s;*/
+    /*        transform: translateX(0);*/
+    /*    Transforms in Chromium create a new stacking context */
+    /*
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+*/
 }
 
 
-#main-menu:target {
-    display: block;
-    visibility: visible;
-    /*    animation: inFromRight 1s;*/
-    /*    transform: translateX(0);*/
+@keyframes fadeIn {
+    0% {
+        visibility: none;
+        opacity: 0;
+    }
+
+    2% {
+        visibility: visible;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: .5;
+        visibility: visible;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: .5;
+        visibility: visible;
+    }
+
+    95% {
+        opacity: 0;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
 }
 
 /*
-@keyframes inFromRight {
-    from {
-        transform: translateX(100px);
-    }
-
-    to {
-        transform: translateX(0);
-    }
-}
-*/
-
 #main-menu ul,
 #main-menu #main-menu-close::before {
     opacity: 0;
@@ -570,19 +636,41 @@ header div {
     -webkit-transition: opacity 600ms, visibility 600ms;
     transition: opacity 600ms, visibility 600ms;
 }
+*/
 
-#main-menu:target ul {
+#main-menu ul {
     /*    background: var(--main_light);*/
     width: 100%;
     height: 100%;
-    padding: 0 3em 3em 3em;
+    padding: 0;
+    /*    box-sizing: border-box;*/
     margin: 0;
-    box-sizing: border-box;
-    opacity: 1;
-    visibility: visible;
 }
 
-#main-menu:target #main-menu-close::before {
+/* Putting the padding here to expand clickable space */
+#main-menu li a {
+    display: block;
+    /*    padding: .75em 15px;*/
+    padding: 10px 20px;
+    line-height: 1em;
+    /*    font-size: 1em;*/
+}
+
+#main-menu li {
+    /*    text-decoration: none;*/
+    border-bottom: 1px solid var(--main_light);
+    position: relative;
+    padding: 0;
+    /* so that pseudoelements are positioned relatively to their "li"s*/
+    /*    padding: 5px 0 5px 5px;*/
+}
+
+#main-menu li,
+#main-menu-close {
+    border-bottom: 1px solid var(--main_light);
+}
+
+#main-menu #main-menu-close::before {
     position: fixed;
     top: 0;
     left: 0;
@@ -591,31 +679,43 @@ header div {
     z-index: -1;
 
     content: '';
-    display: block;
     background: black;
-    opacity: .5;
+    /*    TODO: Figure out how to simplify animation */
+    /* animation: fadeIn 1s reverse; */
+    /*    or*/
+    /*    animation-direction: reverse;*/
+    /* makes it so neither animation runs */
+    visibility: hidden;
+    opacity: 0;
+    animation: fadeOut var(--main-menu-transition-time);
+}
+
+#main-menu:target #main-menu-close::before {
+
+    animation: fadeIn var(--main-menu-transition-time);
     visibility: visible;
+    opacity: .5;
+    /*    transition: visibility 1s, opacity 1s;*/
+
     /*        background: rgba(0, 0, 0, .25);*/
     /*    #main-menu-toggle also appearing over */
 }
 
-/* End Nav-Bar -------------------------------------------------- */
-/* End Header ----------------------------------------------------*/
+/* End Nav-Bar ----------------------------------------------- */
+/* End Header ------------------------------------------------ */
 
 main::before {
     content: '';
-    display: inline-block;
+    /*    display: inline-block;*/
     background-color: var(--dark);
-    margin: 5px;
     width: 4px;
-    height: 100%;
+    height: calc(100% - var(--header-height) - var(--section-title-height)/4);
     border-radius: 2px;
     /*    flex: 0 2 auto;*/
-    /*    float: left;*/
     position: absolute;
-    left: 10px;
-    /*    z-index: 0;*/
-    top: 0;
+    left: 15px;
+    /*    margin: calc(var(--section-title-height) / 4) 0;*/
+    bottom: calc(var(--section-title-height) / 32);
     -webkit-animation: 2s bottomToTop ease-in-out;
     animation: 2s bottomToTop ease-in-out;
 }
@@ -624,7 +724,7 @@ main {
     height: 100%;
     position: relative;
     /*    display: flex;*/
-    margin-top: var(--header-height);
+    padding-top: var(--header-height);
 }
 
 /* TODO: transition the display, maybe add an opacity/ visibility to transition */
@@ -665,6 +765,7 @@ section:target .title {
 }
 */
 
+
 section a.title {
     /*    width: 100%;*/
     display: flex;
@@ -678,19 +779,29 @@ section a.title {
     white-space: nowrap;
     flex-flow: row nowrap;
     margin: 5px 15px;
+    height: var(--section-title-height);
 }
 
 section a.title::before {
-    content: '';
-    display: block;
     background-color: var(--dark);
     border-radius: 3px;
     /*        float: left;*/
     height: 4px;
-    flex: 1 2 25%;
-    transition: flex-basis 2s ease-out;
 }
 
+section a.title::after,
+section a.title::before {
+    content: '';
+    display: block;
+
+    flex: 1 2 25%;
+    transition: flex-basis 2s ease-out;
+    /*    if keep at same flex-basis as the .bullet line, will center the remaining words */
+    /*     can change flex order if necessary */
+}
+
+/*    visibility: none;*/
+/*
 section a.title::after,
 section a.title:hover::after,
 section a.title:focus::after,
@@ -699,12 +810,12 @@ section:target a.title:hover::after,
 section:target a.title:focus::after {
     content: '';
     display: block;
-    border-radius: 5px;
     background: none;
-    height: 2px;
+
     flex: 1 3 25%;
-    /*    if keep at same flex-basis as the .bullet line, will center the remaining words */
 }
+*/
+
 
 /* TODO: see just how many of these are relevant */
 section a.title:hover::before,
@@ -728,8 +839,10 @@ section > a.title {
 
 h2 {
     color: var(--darker);
-    margin: 5px;
+    margin: 0 5px;
     font-family: 'Bitter', serif;
+    /*    font-weight: bold;*/
+    height: 100%;
 }
 
 /* Links -------------------------------------------------------- */
@@ -834,19 +947,9 @@ input.toggle-section {
 
 .experience-header,
 .experience-info {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between;
-    -webkit-box-align: end;
-    -ms-flex-align: end;
     align-items: flex-end;
-}
-
-.title {
-    font-weight: bold;
 }
 
 /*.location {}*/
@@ -907,6 +1010,8 @@ input.toggle-section {
     transform: scale(.8);
 }
 
+/*
+
 .line {
     background-color: var(--dark);
     position: relative;
@@ -933,6 +1038,7 @@ input.toggle-section {
     -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
 }
+*/
 
 /*
  -webkit-transition: width 5s ease-in;
