@@ -1,12 +1,18 @@
 :root {
-    --main: #afe0cf;
-    --main_light: #e4ece7;
-    --main_dark: #48705f;
-    --accent_light: #9ca293;
-    --accent_dark: #6a594d;
-    --light: #e4ece7;
-    --dark: #48705f;
-    --darker: rgb(81, 94, 96);
+    --background: hsl(44, 40%, 93%);
+    --background_light: hsl(44, 50%, 95%);
+    --background_dark: hsl(44, 30%, 92%);
+    --accent_light: #86C232;
+    --accent: green;
+    --accent_dark: #605b3e;
+    --main: hsl(102, 20%, 50%);
+    --main_light: hsl(102, 46%, 75%);
+    --main_dark: hsl(102, 20%, 25%);
+    --on_background: hsl(100, 5%, 15%);
+    --on_main: hsl(102, 20%, 25%);
+
+    --gradient_main_to_dark: linear-gradient(to right, hsl(102, 20%, 50%), hsl(102, 20%, 25%));
+    --gradient_main_dark_to_light: linear-gradient(to right, hsl(102, 20%, 25%), hsl(102, 46%, 75%));
     --header-height: 60px;
     --main-menu-width: 20px;
     --drop-shadow: 0;
@@ -22,6 +28,21 @@ Dark mode - slate and light blue
 /*
 Light mode: green, teal, brown, gray
 */
+/*ABE063
+AFD779
+B5DDA4
+BEEA85
+58754e
+*/
+/*
+    --background: #C6B59A;
+    --background_light: #EEE5CD;
+    --background_dark: #C4BC9B;
+
+    --background: hsl(44, 40%, 87%);
+    --background_light: hsl(44, 60%, 92%);
+    --background_dark: hsl(44, 25%, 80%);
+*/
 /*
 --main: #B8E094;
     --main_light: #EAF7CF;
@@ -32,7 +53,42 @@ Light mode: green, teal, brown, gray
     --dark: #617073;
     --darker: rgb(81, 94, 96);
 */
-
+/*
+ --background: #d0e1ca;
+    --background_light: #ecf5ed;
+    --background_dark: #aec5aa;
+    --accent_light: #86C232;
+    --accent: green;
+    --accent_dark: #605b3e;
+    --main: #9fa081;
+    --main_light: #e4ece7;
+    --main_dark: #777d63;
+    --on_background: #FFF;
+    --on_main: #000;
+*/
+/*
+--main: #afe0cf;
+    --main_light: #e4ece7;
+    --main_dark: #48705f;
+    --accent_light: #9ca293;
+    --accent_dark: #6a594d;
+    --light: #e4ece7;
+    --dark: #48705f;
+    --darker: rgb(81, 94, 96);
+*/
+/*
+ --background: #474B4F;
+    --background_light: #6B6E70;
+    --background_dark: #222629;
+    --accent_light: #86C232;
+    --accent: green;
+    --accent_dark: #61892F;
+    --main: lightblue;
+    --main_light: #e4ece7;
+    --main_dark: #48705f;
+    --on_background: #FFF;
+    --on_main: #000;
+*/
 /* 400 or 600, larger than mobile */
 /* Larger than tablet */
 /*@media(device-width: 750px) {}*/
@@ -77,14 +133,17 @@ html {
     font-size: 12px;
     font-family: 'Montserrat', 'Ubuntu', sans-serif;
     height: 100%;
-    background: var(--light);
+    /*    background: var(--light);*/
 }
 
 body {
     /* reset default values */
     /* Crete Round, Roboto Slab, Zilla Slab, Raleway */
     box-sizing: border-box;
-    background-color: var(--light);
+    background-color: var(--background_dark);
+    background-attachment: fixed;
+    color: var(--on_background);
+
     vertical-align: baseline;
     /*
     overflow-x: auto;
@@ -124,8 +183,10 @@ header {
     align-content: center;
     justify-content: center;
     /*        font-weight: bold;*/
-    /*    background: var(--light);*/
-    /*    border-bottom: 2px solid white;*/
+    background: var(--background);
+    color: var(--on_background);
+    /*    opacity: .75;*/
+    border-bottom: 2px solid var(--background_light);
     box-shadow: 0 4px 3px rgba(0, 0, 0, .4);
     /*    TODO: change color - add alpha value*/
     /*        padding: 10px;*/
@@ -219,7 +280,7 @@ header div {
     header div.list::before {
         content: '';
         display: block;
-        background: var(--dark);
+        background: var(--main);
         width: 2px;
         /*  TODO: make so either shrink to 0 and wrap or do not shrink below 2px, to maintain border-radius */
         flex: 0 2 auto;
@@ -295,90 +356,18 @@ header div {
         -moz-animation-delay: 2.75s;
         -webkit-animation-delay: 2.75s;
     }
-
-
-    /*
-#header-contact li:nth-child(1) {
-    animation-delay: 6s;
-    -o-animation-delay: 6s;
-    -ms-animation-delay: 6s;
-    -moz-animation-delay: 6s;
-    -webkit-animation-delay: 6s;
-}
-
-#header-contact li:nth-child(2) {
-    animation-delay: 5s;
-    -o-animation-delay: 5s;
-    -ms-animation-delay: 5s;
-    -moz-animation-delay: 5s;
-    -webkit-animation-delay: 5s;
-}*/
-
-    /*
-#header-contact li:nth-child(1) {
-    animation-delay: 4s;
-    -o-animation-delay: 4s;
-    -ms-animation-delay: 4s;
-    -moz-animation-delay: 4s;
-    -webkit-animation-delay: 4s;
-}
-
-#header-contact li:nth-child(2) {
-    animation-delay: 3.5s;
-    -o-animation-delay: 3.5s;
-    -ms-animation-delay: 3.5s;
-    -moz-animation-delay: 3.5s;
-    -webkit-animation-delay: 3.5s;
-}
-
-#header-contact li:nth-child(3) {
-    animation-delay: 3s;
-    -o-animation-delay: 3s;
-    -ms-animation-delay: 3s;
-    -moz-animation-delay: 3s;
-    -webkit-animation-delay: 3s;
-}
-
-#header-contact li:nth-child(4) {
-    animation-delay: 2.5s;
-    -o-animation-delay: 2.5s;
-    -ms-animation-delay: 2.5s;
-    -moz-animation-delay: 2.5s;
-    -webkit-animation-delay: 2.5s;
-}
-*/
-
-    /*
-#header-contact li:nth-child(4) {
-    animation-delay: 2s;
-    -o-animation-delay: 2s;
-    -ms-animation-delay: 2s;
-    -moz-animation-delay: 2s;
-    -webkit-animation-delay: 2s;
-}
-*/
-
-    /*
-#header-contact li:nth-child(4) {
-    animation-delay: 1.5s;
-    -o-animation-delay: 1.5s;
-    -ms-animation-delay: 1.5s;
-    -moz-animation-delay: 1.5s;
-    -webkit-animation-delay: 1.5s;
-}
-*/
 }
 
 @keyframes bottomToTop {
     from {
-        background-color: var(--accent_dark);
+        background-color: var(--main_dark);
         max-height: 0;
         margin-top: 200px;
         /*        animate top margin to make it animate upward - just need to make it anything larger than the enclosing area*/
     }
 
     to {
-        background-color: var(--dark);
+        background-color: var(--main);
         max-height: 200px;
         /*        animating max-height allows for the use of height: auto */
         margin-top: 0;
@@ -388,13 +377,13 @@ header div {
 
 @-webkit-keyframes bottomToTop {
     from {
-        background-color: var(--accent_dark);
+        background-color: var(--main_dark);
         max-height: 0;
         margin-top: 500px;
     }
 
     to {
-        background-color: var(--dark);
+        background-color: var(--main);
         max-height: 500px;
         margin-top: 0;
         /*        -webkit-transform: translateY(-100%);*/
@@ -435,7 +424,8 @@ header div {
 #main-menu-toggle::before,
 #main-menu-close,
 #main-menu ul {
-    background: var(--accent_light);
+    background: var(--main);
+    color: var(--on_main);
 }
 
 #main-menu-close {
@@ -475,7 +465,7 @@ header div {
     margin: 17% 0;
     border-radius: 10px;
 
-    background: var(--dark);
+    background: var(--on_main);
     -webkit-transition: 0.4s;
     transition: 0.4s;
 }
@@ -486,7 +476,16 @@ header div {
 .menu-close:focus span,
 .menu-close:focus span::before,
 .menu-close:focus span::after {
-    background: var(--darker);
+    background: var(--on_main);
+}
+
+.menu-toggle:hover span,
+.menu-toggle:hover span::before,
+.menu-toggle:hover span::after,
+.menu-close:hover span,
+.menu-close:hover span::before,
+.menu-close:hover span::after {
+    background: var(--main_light);
 }
 
 /* TODO: In JavaScript, add a .closed class dynamically so not just relying on :targetting */
@@ -658,7 +657,7 @@ header div {
 
 #main-menu li {
     /*    text-decoration: none;*/
-    border-bottom: 1px solid var(--main_light);
+    border-bottom: 1px solid var(--main_dark);
     position: relative;
     padding: 0;
     /* so that pseudoelements are positioned relatively to their "li"s*/
@@ -667,7 +666,7 @@ header div {
 
 #main-menu li,
 #main-menu-close {
-    border-bottom: 1px solid var(--main_light);
+    border-bottom: 1px solid var(--main_dark);
 }
 
 #main-menu #main-menu-close::before {
@@ -707,7 +706,7 @@ header div {
 main::before {
     content: '';
     /*    display: inline-block;*/
-    background-color: var(--dark);
+    background: var(--main);
     width: 4px;
     height: calc(100% - var(--header-height) - var(--section-title-height)/4);
     border-radius: 2px;
@@ -748,16 +747,6 @@ section::before {
     z-index: -1;
 }
 
-section a.title ~ * {
-    display: none;
-}
-
-section:target a.title ~ * {
-    margin: 10px;
-    display: block;
-    padding: 0 15px;
-}
-
 /*
 section .title,
 section:target .title {
@@ -780,10 +769,11 @@ section a.title {
     flex-flow: row nowrap;
     margin: 5px 15px;
     height: var(--section-title-height);
+    /*    position: sticky;*/
 }
 
 section a.title::before {
-    background-color: var(--dark);
+    background: var(--gradient_main_to_dark);
     border-radius: 3px;
     /*        float: left;*/
     height: 4px;
@@ -826,6 +816,11 @@ section:target a.title:focus::before {
     flex: 1 2 75%;
 }
 
+section a.title:hover h2,
+section:target a.title h2 {
+    color: var(--main);
+}
+
 
 /*
 section > a.title {
@@ -838,11 +833,89 @@ section > a.title {
 /* header used to be there ^ */
 
 h2 {
-    color: var(--darker);
+    color: var(--main_dark);
     margin: 0 5px;
     font-family: 'Bitter', serif;
     /*    font-weight: bold;*/
     height: 100%;
+    transition: color 1s;
+}
+
+section a.title ~ * {
+    /*        display: none;*/
+    /*    visibility: hidden;*/
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /*    transition: height 3s;*/
+    /*
+    animation: hideAutoHeight;
+    animation-delay: 5s;
+    animation-fill-mode: backwards;
+    animation-direction: normal;
+*/
+    transition: max-height 1.5s;
+
+}
+
+section:target a.title ~ * {
+    margin: 10px;
+    display: block;
+    padding: 0 15px;
+
+    overflow: auto;
+    max-height: 5000px;
+    /*    visibility: visible;*/
+
+
+    /*    animation: revealAutoHeight 5s ease-in;*/
+    /*    animation-fill-mode: both;*/
+    /*    animation-delay: 5s;*/
+
+    /*    max-height: 5000px;*/
+}
+
+@keyframes revealAutoHeight {
+    0% {
+        display: none;
+        overflow-y: hidden;
+        max-height: 0;
+    }
+
+    5% {
+        display: block;
+        max-height: 0;
+    }
+
+    100% {
+        display: block;
+        max-height: 5000px;
+        overflow-y: auto;
+    }
+}
+
+@keyframes hideAutoHeight {
+    0% {
+        max-height: 5000px;
+        overflow-y: hidden;
+        display: block;
+    }
+
+    95% {
+        display: block;
+        max-height: 0;
+    }
+
+    100% {
+        max-height: 0;
+        display: none;
+        overflow-y: auto;
+    }
+}
+
+section p {
+    text-indent: 10px;
 }
 
 /* Links -------------------------------------------------------- */
@@ -852,18 +925,18 @@ a {
     /*    height: 100%;*/
     cursor: pointer;
     text-decoration: none;
-    color: var(--darker);
+    color: var(--accent);
     -webkit-transition: color 0.3s;
     transition: color 0.3s;
 }
 
 a:visited {
-    color: var(--accent_dark);
+    color: var(--main_dark);
 }
 
 a:hover,
 a:focus {
-    color: var(--accent_light);
+    color: var(--main_light);
 }
 
 /* TODO: maybe have flash a color on click */
@@ -879,7 +952,7 @@ a.ani-link::after {
 
     height: 2px;
     display: block;
-    background: var(--accent_light);
+    background: var(--main_light);
     opacity: 0;
 
     -webkit-transform: translateY(5px);
@@ -966,11 +1039,7 @@ input.toggle-section {
 
 .ani-list > li {
     min-width: 50%;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: baseline;
-    -ms-flex-align: baseline;
     align-items: baseline;
 }
 
@@ -994,19 +1063,9 @@ input.toggle-section {
     position: relative;
     vertical-align: middle;
 
-    -webkit-box-shadow: inset 0 0 0 0.15em var(--main_dark);
-
     box-shadow: inset 0 0 0 0.15em var(--main_dark);
 
-    -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
-    -webkit-transform: scale(.8);
-    -moz-transition: -moz-transform 0.2s, opacity 0.2s;
-    -moz-transform: scale(.8);
-    -ms-transform: scale(.8);
-    -webkit-transition: opacity 0.2s, -webkit-transform 0.2s;
-    transition: opacity 0.2s, -webkit-transform 0.2s;
     transition: transform 0.2s, opacity 0.2s;
-    transition: transform 0.2s, opacity 0.2s, -webkit-transform 0.2s;
     transform: scale(.8);
 }
 
@@ -1053,48 +1112,48 @@ input.toggle-section {
     from {
         width: 0%;
         margin: 0 50% 0 50%;
-        background-color: var(--accent_dark);
+        background-color: var(--main_dark);
     }
 
     to {
         width: 90%;
         margin: 0 5% 0 5%;
-        background-color: var(--dark);
+        background-color: var(--main);
     }
 }
 
 @-webkit-keyframes expandFromCenter {
     from {
         width: 0%;
-        background-color: var(--accent_dark);
+        background-color: var(--main_dark);
     }
 
     to {
         width: 90%;
-        background-color: var(--dark);
+        background-color: var(--main);
     }
 }
 
 @keyframes expandFromBottom {
     from {
         height: 0%;
-        background-color: var(--accent_dark);
+        background-color: var(--main_dark);
     }
 
     to {
         height: 50%;
-        background-color: var(--dark);
+        background-color: var(--main);
     }
 }
 
 @-webkit-keyframes expandFromBottom {
     from {
         height: 0%;
-        background-color: var(--accent_dark);
+        background-color: var(--main_dark);
     }
 
     to {
         height: 50%;
-        background-color: var(--dark);
+        background-color: var(--main);
     }
 }
