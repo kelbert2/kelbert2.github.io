@@ -14,6 +14,7 @@
     --gradient_main_to_dark: linear-gradient(to right, hsl(102, 20%, 50%), hsl(102, 20%, 25%));
     --gradient_main_dark_to_light: linear-gradient(to right, hsl(102, 20%, 25%), hsl(102, 46%, 75%));
     --gradient_main_to_light: linear-gradient(to right, hsl(102, 20%, 50%), hsl(102, 46%, 75%));
+        --gradient_light_to_main: linear-gradient(to left, hsl(102, 20%, 50%), hsl(102, 46%, 75%));
     --header-height: 60px;
     --main-menu-width: 20px;
     --drop-shadow: 0;
@@ -163,7 +164,7 @@ body {
 /* Begin Header ------------------------------------------------- */
 
 h1 {
-    font-size: 22px;
+    font-size: 16px;
     text-align: left;
     /* FUTURE: should this be here? */
     font-family: 'Bitter', serif;
@@ -766,6 +767,7 @@ section {
     z-index: 1;
     /*    position: relative;*/
     /*    opacity: .25;*/
+    font-size: 11px;
 }
 
 /* To give some space for when click, so will have suitable spacing underneath the fixed header */
@@ -863,8 +865,9 @@ h2 {
     margin: 0 5px;
     font-family: 'Bitter', serif;
     /*    font-weight: bold;*/
-    height: 100%;
+    /*    height: 100%;*/
     transition: color 1s;
+    font-size: 14px;
 }
 
 section a.title ~ * {
@@ -887,7 +890,7 @@ section a.title ~ * {
 
 section:target a.title ~ * {
     margin: 10px;
-    display: block;
+    /*    display: block;*/
     padding: 0 25px;
 
     overflow: auto;
@@ -931,6 +934,7 @@ section:target a.title ~ * {
     95% {
         display: block;
         max-height: 0;
+        overflow-y: hidden;
     }
 
     100% {
@@ -942,6 +946,11 @@ section:target a.title ~ * {
 
 section p {
     text-indent: 20px;
+}
+
+h4 {
+    margin: 0;
+    font-family: 'Bitter', serif;
 }
 
 /* Links -------------------------------------------------------- */
@@ -965,12 +974,13 @@ a:focus {
 }
 
 /* TODO: maybe have flash a color on click */
-a.ani-link {
+.ani-link {
     position: relative;
-    /*    color: var(--main);*/
+    margin-bottom: 2px;
+    /*    In order to keep added line from messing with spacing */
 }
 
-a.ani-link::after {
+.ani-link::after {
     content: '';
     display: block;
 
@@ -994,8 +1004,8 @@ a.ani-link::after {
 /* TODO: Double check this auto-prefixer*/
 /* FUTURE: add postcss auto-prefixer in addition to minification */
 
-a.ani-link:hover::after,
-a.ani-link:focus::after {
+.ani-link:hover::after,
+.ani-link:focus::after {
     width: 100%;
     /*
     -webkit-transform: translateY(0px);
@@ -1003,16 +1013,7 @@ a.ani-link:focus::after {
 */
 }
 
-a.ani-link svg {
-    height: 30px;
-    width: 30px;
-    fill: var(--main);
-}
 
-h4 {
-    margin: 0;
-    font-family: 'Bitter', serif;
-}
 
 /*
 input:checked + .section {
@@ -1036,7 +1037,7 @@ li {
 }
 
 li + li {
-    padding: 5px 0 0;
+    margin: 5px 0 0;
 }
 
 ul.description {
@@ -1101,6 +1102,114 @@ input.toggle-section {
 
     transition: transform 0.2s, opacity 0.2s;
     transform: scale(.8);
+}
+
+.subtitle {
+    font-weight: bold;
+    margin-top: 1em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+    white-space: nowrap;
+}
+.subtitle::before,
+.subtitle::after {
+    content: '';
+    display: inline-block;
+    height: 2px;
+    border-radius: 1px;
+    flex: 1 2 25%;
+}
+.subtitle::before {
+    background: var(--gradient_main_to_light);
+    margin-right: 5px;
+}
+.subtitle::after {
+    background: var(--gradient_light_to_main);
+    margin-left: 5px;
+}
+
+.technology {
+    font-style: italic;
+    font-size: 10px;
+    text-align: right;
+    padding: 0;
+    margin: 0;
+}
+
+p.description {
+    margin: .25em 1em;
+}
+
+
+/* Begin Logo Stack ------------------------------------- */
+header .logo-stack {
+    display: flex;
+    flex-direction: column;
+}
+
+header .logo-stack svg {
+    height: 30px;
+    width: 30px;
+    display: block;
+    margin: auto;
+}
+
+.logo-stack:hover {
+    color: var(--main_light);
+}
+
+.logo-stack svg {
+    height: 30px;
+    width: 30px;
+    fill: var(--main);
+    transition: fill .5s;
+}
+
+.logo-stack:hover svg {
+    fill: var(--main_light);
+}
+
+.logo-stack:hover .ani-link::after {
+    width: 100%;
+}
+
+/* If change ~ * back to display: none/block, need to add section:target to make specific enough */
+.logo-link-set li a {
+    display: flex;
+    align-items: center;
+}
+
+.logo-link-set li a .ani-link {
+    margin-top: 2px;
+    /*    to keep centered against icon*/
+}
+
+.logo-link-set svg {
+    height: 15px;
+}
+
+.logo-link-set .svg-label {
+    display: inline-block;
+}
+
+.logo-stack .svg-label :not(strong) {
+    visibility: hidden;
+    opacity: 0;
+    font-size: 10px;
+    /*    position: absolute;*/
+    /*        left: 50%;*/
+    /*        margin: -50%;*/
+    /*    left: 0;*/
+    top: 0;
+
+    transition: visibility .1s, opacity .4s;
+}
+
+.logo-stack:hover .svg-label em {
+    visibility: visible;
+    opacity: 1;
 }
 
 /*
