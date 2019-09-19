@@ -13,6 +13,7 @@
 
     --gradient_main_to_dark: linear-gradient(to right, hsl(102, 20%, 50%), hsl(102, 20%, 25%));
     --gradient_main_dark_to_light: linear-gradient(to right, hsl(102, 20%, 25%), hsl(102, 46%, 75%));
+    --gradient_main_to_light: linear-gradient(to right, hsl(102, 20%, 50%), hsl(102, 46%, 75%));
     --header-height: 60px;
     --main-menu-width: 20px;
     --drop-shadow: 0;
@@ -966,6 +967,7 @@ a:focus {
 /* TODO: maybe have flash a color on click */
 a.ani-link {
     position: relative;
+    /*    color: var(--main);*/
 }
 
 a.ani-link::after {
@@ -976,13 +978,13 @@ a.ani-link::after {
 
     height: 2px;
     width: 0;
-    background: var(--main);
+    background: var(--gradient_main_to_light);
+    border-radius: 2px;
 
     transition: width .3s;
     /*    display: block;*/
     /*    position: relative;*/
     /*    opacity: 1;*/
-
     /*
     transform: translateY(5px);
     transition: transform 0.3s, opacity 0.3s;
@@ -1001,6 +1003,11 @@ a.ani-link:focus::after {
 */
 }
 
+a.ani-link svg {
+    height: 30px;
+    width: 30px;
+    fill: var(--main);
+}
 
 h4 {
     margin: 0;
