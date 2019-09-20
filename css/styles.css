@@ -14,7 +14,7 @@
     --gradient_main_to_dark: linear-gradient(to right, hsl(102, 20%, 50%), hsl(102, 20%, 25%));
     --gradient_main_dark_to_light: linear-gradient(to right, hsl(102, 20%, 25%), hsl(102, 46%, 75%));
     --gradient_main_to_light: linear-gradient(to right, hsl(102, 20%, 50%), hsl(102, 46%, 75%));
-        --gradient_light_to_main: linear-gradient(to left, hsl(102, 20%, 50%), hsl(102, 46%, 75%));
+    --gradient_light_to_main: linear-gradient(to left, hsl(102, 20%, 50%), hsl(102, 46%, 75%));
     --header-height: 60px;
     --main-menu-width: 20px;
     --drop-shadow: 0;
@@ -324,7 +324,6 @@ header div {
         /* after animation is done, remain at last keyframe */
         -webkit-animation-fill-mode: forwards;
         animation-fill-mode: forwards;
-
     }
 
     #header-contact li:nth-child(1) {
@@ -975,25 +974,27 @@ a:focus {
 
 /* TODO: maybe have flash a color on click */
 .ani-link {
+    /*    display: inline-block;*/
     position: relative;
-    margin-bottom: 2px;
+    /*    margin-bottom: 2px;*/
     /*    In order to keep added line from messing with spacing */
+    /*        width: 100%;*/
+    margin: 2px 0;
 }
 
 .ani-link::after {
     content: '';
-    display: block;
-
+    display: inline-block;
     position: absolute;
-
     height: 2px;
     width: 0;
     background: var(--gradient_main_to_light);
     border-radius: 2px;
+    bottom: -2px;
+    left: 0;
 
     transition: width .3s;
-    /*    display: block;*/
-    /*    position: relative;*/
+    /*        position: relative; */
     /*    opacity: 1;*/
     /*
     transform: translateY(5px);
@@ -1060,29 +1061,29 @@ input.toggle-section {
     align-items: flex-end;
 }
 
-/*.location {}*/
-
-/*.time {}*/
-
+/*
 .ani-list {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
+*/
 
+/*
 .ani-list > li {
     min-width: 50%;
     display: flex;
     align-items: baseline;
 }
+*/
 
+/*
 .ani-list,
 .desc-list {
     margin: 15px;
 }
+*/
 
+/*
 .ani-list > li::before,
 .ani-list > li::before,
 .desc-list::before,
@@ -1103,7 +1104,9 @@ input.toggle-section {
     transition: transform 0.2s, opacity 0.2s;
     transform: scale(.8);
 }
+*/
 
+/* Projects Section */
 .subtitle {
     font-weight: bold;
     margin-top: 1em;
@@ -1113,6 +1116,7 @@ input.toggle-section {
     flex-flow: row nowrap;
     white-space: nowrap;
 }
+
 .subtitle::before,
 .subtitle::after {
     content: '';
@@ -1121,10 +1125,12 @@ input.toggle-section {
     border-radius: 1px;
     flex: 1 2 25%;
 }
+
 .subtitle::before {
     background: var(--gradient_main_to_light);
     margin-right: 5px;
 }
+
 .subtitle::after {
     background: var(--gradient_light_to_main);
     margin-left: 5px;
@@ -1176,18 +1182,22 @@ header .logo-stack svg {
 }
 
 /* If change ~ * back to display: none/block, need to add section:target to make specific enough */
-.logo-link-set li a {
-    display: flex;
-    align-items: center;
-}
 
 .logo-link-set li a .ani-link {
     margin-top: 2px;
     /*    to keep centered against icon*/
+    /*    border: 1px solid black;*/
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .logo-link-set svg {
     height: 15px;
+    width: 15px;
+    margin: 0 15px;
+    display: inline-block;
+    vertical-align: middle;
+    /*    border: 1px solid black;*/
 }
 
 .logo-link-set .svg-label {
