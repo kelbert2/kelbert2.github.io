@@ -15,11 +15,15 @@
     --gradient_main_dark_to_light: linear-gradient(to right, hsl(102, 20%, 25%), hsl(102, 46%, 75%));
     --gradient_main_to_light: linear-gradient(to right, hsl(102, 20%, 50%), hsl(102, 46%, 75%));
     --gradient_light_to_main: linear-gradient(to left, hsl(102, 20%, 50%), hsl(102, 46%, 75%));
+
     --header-height: 60px;
     --main-menu-width: 20px;
+
     --drop-shadow: 0;
     --main-menu-transition-time: 1s;
     --section-title-height: 2em;
+
+    --line-thickness: 4px;
 }
 
 /* TODO: change header-height based on screen size */
@@ -953,16 +957,15 @@ h4 {
 }
 
 /* About Section --------------------------------------------- */
-#about p {
+#about:target p {
     padding: 2px 25px;
     /*    In order for underline in the final line of an element to show up, needs some padding or overflow-y: visible, else will be hidden */
+    /*    padding will not collapse, so only add when :targeted */
 }
 
 /* Links -------------------------------------------------------- */
 
 a {
-    /*    width: 100%;*/
-    /*    height: 100%;*/
     cursor: pointer;
     color: var(--main);
     text-decoration: none;
@@ -1021,7 +1024,7 @@ a:focus {
 }
 
 
-
+/* #Experience Section ------------------------------------------ */
 /*
 input:checked + .section {
     display: block;
@@ -1034,22 +1037,77 @@ input.toggle-section {
 }
 */
 
-.description {
+#experience .logo-stack svg {
+    /*    height: 1.5em;*/
+    width: 20px;
+    margin-right: 5px;
+    margin-left: calc(-10px + var(--line-thickness) / 2);
+}
+
+#experience .logo-stack {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--main_dark);
+}
+
+.experience-header .title,
+ul.description {
     font-size: 10px;
+    margin-left: 20px;
     padding: 0;
 }
 
-li {
+.experience-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 9px;
+    font-style: italic;
+    margin: 2px 15px 2px 35px;
+}
+
+ul {
     list-style-type: none;
 }
 
 li + li {
-    margin: 5px 0 0;
+    margin: 2px 0 0;
 }
 
 ul.description {
-    margin: 5px;
+    margin: 2px;
     margin-left: 20px;
+    /*    list-style-type: disc;*/
+    /*    list-style-position: inside;*/
+    height: 100%;
+    position: relative;
+}
+
+/*
+ul.description li {
+    text-indent: 10px;
+}
+*/
+
+ul.description::before {
+    content: '';
+    display: inline-block;
+    width: var(--line-thickness);
+    height: 100%;
+    /*    background: var(--main);*/
+    position: absolute;
+    left: -20px;
+    border-radius: 4px;
+}
+
+ul.description li::before {
+    content: '';
+    display: inline-block;
+    height: var(--line-thickness);
+    width: 50px;
+    background: var(--gradient_main_to_dark);
+    margin: 1.5px 5px 1.5px -40px;
+    border-radius: 4px;
 }
 
 /*
@@ -1060,12 +1118,6 @@ input.toggle-section {
 }
 */
 
-.experience-header,
-.experience-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
 
 /*
 .ani-list {
@@ -1187,27 +1239,27 @@ header .logo-stack svg {
     width: 100%;
 }
 
+.logo-link-set svg,
+.logo-link-set li a .ani-link,
+#experience .logo-stack svg,
+#experience .logo-stack .svg-label {
+    vertical-align: middle;
+    display: inline-block;
+}
+
 /* If change ~ * back to display: none/block, need to add section:target to make specific enough */
 
 .logo-link-set li a .ani-link {
     margin-top: 2px;
     /*    to keep centered against icon*/
     /*    border: 1px solid black;*/
-    display: inline-block;
-    vertical-align: middle;
 }
 
 .logo-link-set svg {
     height: 15px;
     width: 15px;
     margin: 0 15px;
-    display: inline-block;
-    vertical-align: middle;
     /*    border: 1px solid black;*/
-}
-
-.logo-link-set .svg-label {
-    display: inline-block;
 }
 
 .logo-stack .svg-label :not(strong) {
@@ -1315,4 +1367,29 @@ header .logo-stack svg {
         height: 50%;
         background-color: var(--main);
     }
+}
+
+.svg-precisionlender {
+    --pl-blue: #1f3f70;
+    --pl-orange: #f78f20;
+    --pl-white: #fff;
+}
+
+.svg-carbon {
+    fill: black;
+}
+
+.svg-co-lab {
+    --cl-white: #fefefe;
+    --cl-light-blue: #91bedb;
+    --cl-gray: #949ca8;
+    --cl-blue: #5e95bd;
+    --cl-dark-gray: #505e70;
+    --cl-dark-blue: #2d4f6f;
+    --cl-darker-blue: #23344b;
+    --cl-darkest-blue: #18263b;
+}
+
+.svg-fathom {
+    --fathom-orange: #e0b00e;
 }
