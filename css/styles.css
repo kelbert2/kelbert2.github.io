@@ -952,6 +952,12 @@ h4 {
     font-family: 'Bitter', serif;
 }
 
+/* About Section --------------------------------------------- */
+#about p {
+    padding: 2px 25px;
+    /*    In order for underline in the final line of an element to show up, needs some padding or overflow-y: visible, else will be hidden */
+}
+
 /* Links -------------------------------------------------------- */
 
 a {
