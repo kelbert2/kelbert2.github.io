@@ -877,8 +877,9 @@ section a.title ~ * {
     /*        display: none;*/
     /*    visibility: hidden;*/
     max-height: 0;
-    margin: 0;
-    padding: 0;
+    margin: 0 10px;
+    padding: 0 25px;
+    /*    left/right margin and padding used to maintain some styling when transitioning between :targets */
     overflow: hidden;
     /*    transition: height 3s;*/
     /*
@@ -894,12 +895,10 @@ section a.title ~ * {
 section:target a.title ~ * {
     margin: 10px;
     /*    display: block;*/
-    padding: 0 25px;
 
     overflow: auto;
     max-height: 5000px;
     /*    visibility: visible;*/
-
 
     /*    animation: revealAutoHeight 5s ease-in;*/
     /*    animation-fill-mode: both;*/
@@ -963,7 +962,7 @@ h4 {
     /*    padding will not collapse, so only add when :targeted */
 }
 
-/* Links -------------------------------------------------------- */
+/* Links ------------------------------------------------------- */
 
 a {
     cursor: pointer;
@@ -1024,7 +1023,7 @@ a:focus {
 }
 
 
-/* #Experience Section ------------------------------------------ */
+/* #Experience Section ----------------------------------------- */
 /*
 input:checked + .section {
     display: block;
@@ -1048,6 +1047,10 @@ input.toggle-section {
     font-size: 12px;
     font-weight: bold;
     color: var(--main_dark);
+}
+
+.experience-header .title {
+    font-weight: bold;
 }
 
 .experience-header .title,
@@ -1089,25 +1092,43 @@ ul.description li {
 }
 */
 
+/*
 ul.description::before {
     content: '';
     display: inline-block;
     width: var(--line-thickness);
     height: 100%;
-    /*    background: var(--main);*/
+        background: var(--main);
     position: absolute;
     left: -20px;
     border-radius: 4px;
 }
-
-ul.description li::before {
+*/
+#experience ul.description li::before {
     content: '';
     display: inline-block;
     height: var(--line-thickness);
-    width: 50px;
+    width: 0;
     background: var(--gradient_main_to_dark);
     margin: 1.5px 5px 1.5px -40px;
     border-radius: 4px;
+    transition: width 1s;
+}
+
+#experience:target ul.description li::before {
+    width: 50px;
+}
+
+#experience ul.description li {
+    opacity: 0;
+    visibility: none;
+    /*    text-indent: 50px;*/
+    transition: visibility 1s, opacity 1.3s;
+}
+
+#experience:target ul.description li {
+    opacity: 1;
+    visibility: visible;
 }
 
 /*
