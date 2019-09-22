@@ -1131,36 +1131,7 @@ ul.description::before {
     visibility: visible;
 }
 
-/*
-ul,
-input.toggle-section {
-    margin: 0;
-    padding: 0;
-}
-*/
 
-
-/*
-.ani-list {
-    display: flex;
-    flex-wrap: wrap;
-}
-*/
-
-/*
-.ani-list > li {
-    min-width: 50%;
-    display: flex;
-    align-items: baseline;
-}
-*/
-
-/*
-.ani-list,
-.desc-list {
-    margin: 15px;
-}
-*/
 
 /*
 .ani-list > li::before,
@@ -1184,6 +1155,39 @@ input.toggle-section {
     transform: scale(.8);
 }
 */
+
+
+/* Skills Section */
+#skills ul {
+    /*    display: flex;*/
+    width: 100%;
+    /*    list-style-type: disc;*/
+    /*    list-style-position: inside;*/
+
+    /*    overflow: hidden;*/
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+#skills ul li::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 2.5px;
+    background: var(--main);
+    margin: 0 10px;
+    vertical-align: middle;
+}
+
+#skills ul li {
+    /*    width: 50%;*/
+    /*    flex: 1 0 50%;*/
+    /*    box-sizing: border-box;*/
+    /*    float: left;*/
+    vertical-align: middle;
+    display: inline-block;
+}
 
 /* Projects Section */
 .subtitle {
@@ -1396,7 +1400,7 @@ header .logo-stack svg {
     --pl-white: #fff;
 }
 
-.svg-carbon {
+m .svg-carbon {
     fill: black;
 }
 
