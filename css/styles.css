@@ -991,13 +991,6 @@ h4 {
     /*    font-family: 'Bitter', serif;*/
 }
 
-/* About Section --------------------------------------------- */
-#about:target p {
-    padding: 2px 25px;
-    /*    In order for underline in the final line of an element to show up, needs some padding or overflow-y: visible, else will be hidden */
-    /*    padding will not collapse, so only add when :targeted */
-}
-
 /* Links ------------------------------------------------------- */
 
 a {
@@ -1058,6 +1051,31 @@ a:focus {
 */
 }
 
+/* Lists --------------------------------------------------- */
+ul {
+    list-style-type: none;
+}
+
+li + li {
+    margin: 2px 0 0;
+}
+
+/* About Section --------------------------------------------- */
+#about:target p.intro {
+    font-size: 1.2em;
+    /*    text-align: center;*/
+    margin-bottom: 0;
+    /*    font-weight: bold;*/
+    color: var(--main);
+
+}
+
+#about:target p {
+    padding: 2px 25px;
+    margin-top: 0;
+    /*    In order for underline  in the final line of an element to show up, needs some padding or overflow-y: visible, else will be hidden */
+    /*    padding will not collapse, so only add when :targeted */
+}
 
 /* #Experience Section ----------------------------------------- */
 /*
@@ -1074,9 +1092,9 @@ input.toggle-section {
 
 #experience .logo-stack svg {
     /*    height: 1.5em;*/
-    width: 20px;
-    margin-right: 5px;
-    margin-left: calc(-10px + var(--line-thickness) / 2);
+    width: 30px;
+    margin-right: 10px;
+    margin-left: calc(-5px + var(--line-thickness) / 2);
 }
 
 #experience .logo-stack {
@@ -1102,8 +1120,14 @@ ul.description {
     align-items: flex-end;
     font-size: 9px;
     font-style: italic;
-    margin: 2px 15px 2px 35px;
+    margin: 2px 20px 2px 40px;
 }
+
+/*
+.experience-info div {
+    margin-right: 2px;
+}
+*/
 
 /*
 #education .time {
@@ -1123,17 +1147,10 @@ ul.description {
 }
 */
 
-ul {
-    list-style-type: none;
-}
 
-li + li {
-    margin: 2px 0 0;
-}
 
 ul.description {
-    margin: 2px;
-    margin-left: 20px;
+    margin: 2px 2px 10px 20px;
     /*    list-style-type: disc;*/
     /*    list-style-position: inside;*/
     height: 100%;
@@ -1164,7 +1181,7 @@ ul.description::before {
     height: var(--line-thickness);
     width: 0;
     background: var(--gradient_main_to_dark);
-    margin: 1.5px 5px 1.5px -40px;
+    margin: 1.5px 10px 1.5px -40px;
     border-radius: 4px;
     transition: width 1s;
 }
@@ -1177,6 +1194,7 @@ ul.description::before {
     opacity: 0;
     visibility: none;
     /*    text-indent: 50px;*/
+    margin: 5px 0;
     transition: visibility 1s, opacity 1.3s;
 }
 
@@ -1226,7 +1244,7 @@ ul.description::before {
 #skills ul li::before {
     content: '';
     display: inline-block;
-    width: 6````````````````````````````````px;
+    width: 6px;
     height: 5px;
     border-radius: 2.5px;
     background: var(--main);
@@ -1258,8 +1276,8 @@ ul.description::before {
 .subtitle::after {
     content: '';
     display: inline-block;
-    height: 2px;
-    border-radius: 1px;
+    height: var(--line-thickness);
+    border-radius: 3px;
     flex: 1 2 25%;
 }
 
