@@ -909,6 +909,15 @@ h2 {
     font-size: 14px;
 }
 
+h4,
+.subtitle {
+    font-size: 1.2em;
+}
+
+.subsubtitle {
+    font-weight: bold;
+}
+
 section a.title ~ * {
     /*        display: none;*/
     /*    visibility: hidden;*/
@@ -986,9 +995,8 @@ section p {
     text-indent: 20px;
 }
 
-h4 {
-    margin: 0;
-    /*    font-family: 'Bitter', serif;*/
+section .subtitle:nth-child(1) {
+    margin-top: 0;
 }
 
 /* Links ------------------------------------------------------- */
@@ -1056,8 +1064,10 @@ ul {
     list-style-type: none;
 }
 
-li + li {
+/*li + li {*/
+li {
     margin: 2px 0 0;
+    /*    With grids, will misalign when makes multiple columns */
 }
 
 /* About Section --------------------------------------------- */
@@ -1232,16 +1242,18 @@ ul.description::before {
 /* Skills Section --------------------------- */
 #skills ul {
     /*    display: flex;*/
-    width: 100%;
+    /*    width: 100%;*/
     /*    list-style-type: disc;*/
     /*    list-style-position: inside;*/
 
     /*    overflow: hidden;*/
+    /*    box-sizing: border-box;*/
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
 
-#skills ul li::before {
+#skills ul li::before,
+#education ul.ani-list li::before {
     content: '';
     display: inline-block;
     width: 6px;
@@ -1252,10 +1264,10 @@ ul.description::before {
     vertical-align: middle;
 }
 
-#skills ul li {
+#skills ul li,
+#education ul.ani-list li {
     /*    width: 50%;*/
     /*    flex: 1 0 50%;*/
-    /*    box-sizing: border-box;*/
     /*    float: left;*/
     vertical-align: middle;
     display: inline-block;
@@ -1264,21 +1276,31 @@ ul.description::before {
 /* Projects Section */
 .subtitle {
     font-weight: bold;
-    margin-top: 1em;
-    width: 100%;
+    /*    margin-top: 1em;*/
+    /*    flex-flow: row nowrap;*/
+    /*    white-space: nowrap;*/
+}
+
+.subsubtitle,
+.subtitle {
+    /*    width: 100%;*/
     display: flex;
     align-items: center;
-    flex-flow: row nowrap;
-    white-space: nowrap;
+}
+
+.subtitle::before,
+.subtitle::after,
+.subsubtitle::before,
+.subsubtitle::after {
+    content: '';
+    /*    display: inline-block;*/
+    flex: 1 2 1%;
 }
 
 .subtitle::before,
 .subtitle::after {
-    content: '';
-    display: inline-block;
     height: var(--line-thickness);
     border-radius: 3px;
-    flex: 1 2 25%;
 }
 
 .subtitle::before {
@@ -1375,6 +1397,28 @@ header .logo-stack svg {
 .logo-stack:hover .svg-label em {
     visibility: visible;
     opacity: 1;
+}
+
+/* Education ----------------------------------------------- */
+#education ul.ani-list {
+    /*    display: flex;*/
+    /*    width: 100%;*/
+    /*    list-style-type: disc;*/
+    /*    list-style-position: inside;*/
+
+    /*    overflow: hidden;*/
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+
+.skills-short {
+    font-style: none;
+    /* FUTURE: em styling still overriding font-style */
+    font-size: .9em;
+}
+
+.educational-info h4 {
+    margin: 0;
 }
 
 /*
