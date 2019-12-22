@@ -26,8 +26,8 @@
         </a>
         <a href="#" class="logo-stack">
             <!--            Not ideal order but will have svg here -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 485.211 485.211" aria-labelledby="email-svg-title" preserveAspectRatio="xMidYMid meet">
-                <title id="email-svg-title">Email</title>
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 485.211 485.211" aria-labelledby="logo-svg-title" preserveAspectRatio="xMidYMid meet">
+                <title id="logo-svg-title">Kris Elbert</title>
                 <path d="M485.211 363.906c0 10.637-2.992 20.498-7.785 29.174L324.225 221.67l151.54-132.584c5.895 9.355 9.446 20.344 9.446 32.219v242.601zM242.606 252.793l210.863-184.5c-8.653-4.737-18.397-7.642-28.908-7.642H60.651c-10.524 0-20.271 2.905-28.889 7.642l210.844 184.5zm58.787-11.162l-48.809 42.734a15.145 15.145 0 01-9.978 3.729c-3.57 0-7.125-1.242-9.98-3.729l-48.82-42.736L28.667 415.23c9.299 5.834 20.197 9.329 31.983 9.329h363.911c11.784 0 22.687-3.495 31.983-9.329L301.393 241.631zM9.448 89.085C3.554 98.44 0 109.429 0 121.305v242.602c0 10.637 2.978 20.498 7.789 29.174l153.183-171.44L9.448 89.085z" />
             </svg>
             <h1>Kris Elbert</h1>
@@ -66,6 +66,7 @@
                 <li><a href="#skills"><span class="bullet"></span>Skills</a></li>
                 <li><a href="#education"><span aria-hidden="true" class="bullet"></span>Education</a></li>
                 <li><a href="#projects"><span aria-hidden="true" class="bullet"></span>Past Projects</a></li>
+                <li><a href="#test"><span aria-hidden="true" class="bullet"></span>Test Me</a></li>
                 <li><a href="#contact"><span aria-hidden="true" class="bullet"></span>Contact</a></li>
             </ul>
             <!--
@@ -83,7 +84,7 @@
             </a>
             <p class="intro">Hi,<em class="tooltip">short for "Hello"</em></p>
             <p class="intro">I'm Kris.<em class="tooltip">short for "Kristianna"</em></p>
-            <p>I'm a hard-working software engineer that loves building things that work and understanding <em>why</em> they work<em class="tooltip">(when possible)</em>. I aim to create progressive websites that are accessible and beautiful to experience. <a href="#contact" class="ani-link">Let's work together.</a></p>
+            <p>I'm a hard-working software engineer that loves building things that work and understanding <em>why</em> they work<em class="tooltip">(when possible)</em>. I aim to create progressive websites that are accessible and beautiful to experience. Figuring out how to make something work is great - but I love understanding why things work: why a particular experience speaks to a certain user and how the technology supports it - and how it can be pushed further. <a href="#contact" class="ani-link">Let's work together.</a></p>
         </section>
 
         <section id="experience">
@@ -95,6 +96,7 @@
                     <div class="experience-header">
                         <!--                        TODO: add link to their website, double check these defs of linear gradients in the svg, and put color variables and definitions in css -->
                         <a class="logo-stack">
+                            <!--                           TODO: look into unifying svg namespaces and defining in the html root element; change the colors to be defined in the css -->
                             <svg xmlns:osb="http://www.openswatchbook.org/uri/2009/osb" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 728 728" preserveAspectRatio="xMidYMid meet" labelledby="precisionlender-svg-label" class="svg-precisionlender">
                                 <title id="precisionlender-svg-label">PrecisionLender Logo</title>
                                 <g transform="translate(-760)">
@@ -161,7 +163,7 @@
                         </li>
                         <li>Developed a full stack Excel dashboard to enable engineers to rapidly process and visualize 3D printing statistics from any individual Carbon printer.
                         </li>
-                        <li>Generated and produced low-cost, high-resolution parts from client submitted 3D files. Optimized client designs to decrease cost and production time. Validated part accuracy and material consistency.
+                        <li>Generated and produced low-cost, high-resolution parts from client-submitted 3D files. Optimized client designs to decrease cost and production time. Validated part accuracy and material consistency.
                         </li>
                     </ul>
                 </li>
@@ -197,10 +199,10 @@
                         <li>Adobe Illustrator</li>
                     </ul>
                     <ul class="description">
-                        <li>Designed and constructed creative engineering solutions. Lead a wide range of clients through the design process from concept to product. These clients consist of students, Duke Hospital staff, and University Researchers. Notable past projects include third world organ transport devices and machinery parts.
+                        <li>Designed and constructed creative engineering solutions. Lead a wide range of clients through the design process from concept to product. These clients consist of students, Duke Hospital staff, and University Researchers. Notable past projects include third-world organ transport devices and machinery parts.
                         </li>
                         <li>Organized and taught courses on CAD, 3D printing, Adobe Illustrator, and CNC machining.</li>
-                        <li>Oversaw the world’s largest 3D printing bank in higher education.</li>
+                        <li>Oversaw the world’s largest 3D-printing bank in higher education.</li>
                     </ul>
                 </li>
                 <!--
@@ -315,8 +317,8 @@
                     <div class="location">Durham, NC</div>
                 </div>
                 <ul class="degree">
-                    <li>BS in Electrical & Computer Engineering</li>
-                    <li>BS in Computer Science
+                    <li>BS in <em class="electric">Electrical</em> & <em class="computer">Computer</em> Engineering</li>
+                    <li>BS in <em class="computer">Computer Science</em>
                         <ul>
                             <li>Concentration in Digital Systems</li>
                         </ul>
@@ -333,7 +335,9 @@
                         <li>C++</li>
                         <li>CUDA</li>
                         <li>Linux</li>
+                        <li>UPAAL real-time system modeling</li>
                     </ul>
+                    <p class="details">Worked on writing and parallelyzing a model of the network of neurons in the Basal Ganglia brain region. Written in CUDA and C++ to run on GPGPUs, or General Purpose Graphics Processing Units, to dramatically decrease simulation time and increase the number of neurons able to be simulated in the system. Deep brain stimulation to this region of the brain has been shown to reduce motor symptoms of Parkinson's, including tremors. By creating an efficient and scalable multi-threaded program, we open up an incredible resource to researchers with limited coding experience and those with the C++ experience needed to build on top of our model.</p>
                 </li>
                 <li>Mobile App Development<em class="skills-short"> (Swift, Objective-C)</em>
                     <ul class="skills">
@@ -342,17 +346,26 @@
                         <li>Objective-C</li>
                         <li>Graphic Design</li>
                     </ul>
+                    <ul class="details">
+                        <li>Worked in a group to adapt a client's interactive HTML art exhibit entitled <a href="http://www.dukewired.org/projects/a-portrait-of-venice/">"A Portrait of Venice"</a> into a usable and enjoyable iPad application.</li>
+                        <li>Personally designed the User Interface and navigational flow.</li>
+                        <li>Personally coded a flexible procedural generation of views with varying video, image, text, and audio assets by parsing JSON files with customizable placement information. This immensely decreased development time and allowed the team to implement all of the exhibit, going above and beyond what the client expected, in addition to offering them a simple framework for adding more views without needing to code each unique view.</li>
+                    </ul>
                 </li>
                 <li>Human-Computer Interaction<em class="skills-short"> (JavaScript, Vue.js, HTML, CSS)</em>
                     <ul class="skills">
                         <li>Statistical Analysis</li>
-                        <li>User Study Design</li>
+                        <li>User Study Design with IRB Approval</li>
                         <li>UI Design</li>
                         <li>User Feedback Survey Design, Comparative</li>
                         <!--                    TODO: Go through old notes to find a better phrasing -->
                         <li>Vue.js</li>
                         <li>JavaScript</li>
                         <li>HTML & CSS</li>
+                    </ul>
+                    <ul class="details">
+                        <li>Redesigned Duke's mental health services website for improved accessibility and usability using Vue.js, Javascript, HTML, and CSS.</li>
+                        <li>Ran a user study to compare the redesigned website with original. Judged website effectiveness at communicating information by testing user's ability to quickly and accurately find information, while recording their existing familiarity with the original website; collected user feedback; and determined user preference for the redesign or original. The results of this study showed a strong preference for the redesigned website and indicated that users were more engaged with the redesigned website.</li>
                     </ul>
                 </li>
                 <li>Modern Cryptography</li>
@@ -370,7 +383,21 @@
                         <li>Angular</li>
                         <li>TypeScript</li>
                         <li>Node.js</li>
+                        <li>GitHub</li>
                     </ul>
+                    <ul class="details">
+                        <li>In a team, created an Enterprise Resource Platform for a hypothetical food company using the MEAN Stack, MongoDB, Express, Angular (Typescript), and Node.js. Project specifications were changed, overwritten, and drastically extended every two weeks, requiring flexible, extendable, and generalized implementation of features in addition to strong team communication.</li>
+                        <li>Personally designed User Interfaces for all pages presented in the demo and implemented searchable and sortable tabular displays of </li>
+                        <li>Personally wrote an extensive test plan of all features that resulted in a great increase in number of bugs caught.</li>
+                    </ul>
+                </li>
+                <li>Digital Systems <em class="skills-short"> (Verilog)</em>
+                    <ul class="skills">
+                        <li>LaTeX</li>
+                    </ul>
+                    <p class="detials">
+                        Created register files, an arithmetic logic unit (ALU), and a pipelined reduced instruction set computer (RISC) processor with bypassing. Written in Verilog, a hardware description language, on the level of basic logic gates connected with wires, to interpret a slightly modified MIPS assembly language.
+                    </p>
                 </li>
                 <li>Design & Analysis of Algorithms<em class="skills-short"> (Java)</em>
                     <ul class="skills">
@@ -396,18 +423,18 @@
             <h3 id="awards" class="subtitle">Awards & Recognition</h3>
             <ul>
                 <li class="desc-list">
-                    <div class="subsubtitle">Duke Technology Scholar</div>
+                    <div class="subsubtitle"><a href="https://dtech.duke.edu/">Duke Technology Scholar</a></div>
                     <div class="time">2017-2019</div>
                 </li>
                 <li class="desc-list">
-                    <div class="subtitle"> Duke Cube Member</div>
+                    <div class="subsubtitle"><a href="https://dukethecube.com/">Duke Cube Member</a></div>
                     <div class="time">2018-2019</div>
-                    <p class="description">Duke"s premier entrepreneurship selective living group</p>
+                    <p class="description">Duke's premier entrepreneurship selective living group</p>
                 </li>
                 <li class="desc-list">
-                    <div class="subsubtitle"> 1st Place, Shell Eco-Marathon</div>
+                    <div class="subsubtitle">1st Place, Shell Eco-Marathon</div>
                     <div class="time">2017</div>
-                    <p class="description">Duke Electric Vehicles Team, Prototype Electric</p>
+                    <p class="description"><a href="http://www.duke-ev.org/">Duke Electric Vehicles Team,</a> Prototype Electric</p>
                 </li>
                 <li class="desc-list">
                     <div class="subsubtitle">1st Place, Duke ChangeWorks Startup Challenge</div>
@@ -425,30 +452,30 @@
             <h4 class="subsubtitle">Leadership</h4>
             <ul>
                 <li class="desc-list">
-                    <div class="subsubtitle">Duke University Marching Band</div>
+                    <div class="subsubtitle"><a href="http://www.dukeband.org/">Duke University Marching Band</a></div>
                     <p class="description">Treasurer, Piccolo</p>
                 </li>
                 <li class="desc-list">
-                    <div class="subsubtitle">Duke Electric Vehicles</div>
+                    <div class="subsubtitle"><a href="http://www.duke-ev.org/">Duke Electric Vehicles</a></div>
                     <p class="description">Co-Lead for Driver Strategy and Prototype Electric Driver</p>
                 </li>
                 <li class="desc-list">
-                    <div class="subtsubitle">Design for America</div>
+                    <div class="subtsubitle"><a href="https://designforamerica.com/">Design for America</a></div>
                     <p class="description">Secretary, Co-Team Lead</p>
                 </li>
             </ul>
             <h4 class="subsubtitle">Volunteering</h4>
             <ul>
                 <li class="desc-list">
-                    <div class="subsubtitle">Females Excelling More in Math, Engineering, and Science</div>
+                    <div class="subsubtitle"><a href="https://sites.duke.edu/femmes/">Females Excelling More in Math, Engineering, and Science</a></div>
                     <p class="description">Volunteer with elementary through high-school aged girls</p>
                 </li>
                 <li class="desc-list">
-                    <div class="subsubtitle">Girls Engineering Change</div>
+                    <div class="subsubtitle"><a href="https://www.girlsengineeringchange.org/">Girls Engineering Change</a></div>
                     <p class="description">Teach young women to solder and inspire them to pursue engineering degrees</p>
                 </li>
                 <li class="desc-list">
-                    <div class="subsubtitle">Westfield Historical Society</div>
+                    <div class="subsubtitle"><a href="https://www.westfieldhistoricalsociety.org/">Westfield Historical Society</a></div>
                 </li>
             </ul>
         </section>
@@ -507,6 +534,11 @@
             </ul>
         </section>
 
+        <section id="test">
+            <a href="#test" class="title">
+                <h2 class="title">Test Me</h2>
+            </a>
+        </section>
         <section id="contact">
             <a href="#contact" class="title">
                 <h2 class="title">Contact</h2>
@@ -551,4 +583,6 @@
     <!--    <footer>-->
     <!--        <span class="line line-bottom"></span>-->
     <!--    </footer>-->
-</body></html>
+</body>
+
+</html>

@@ -1281,7 +1281,7 @@ ul.description::before {
     /*    white-space: nowrap;*/
 }
 
-.subsubtitle,
+h4.subsubtitle,
 .subtitle {
     /*    width: 100%;*/
     display: flex;
@@ -1290,8 +1290,8 @@ ul.description::before {
 
 .subtitle::before,
 .subtitle::after,
-.subsubtitle::before,
-.subsubtitle::after {
+h4.subsubtitle::before,
+h4.subsubtitle::after {
     content: '';
     /*    display: inline-block;*/
     flex: 1 2 1%;
