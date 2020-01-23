@@ -151,9 +151,10 @@ body {
     /* Crete Round, Roboto Slab, Zilla Slab, Raleway */
     box-sizing: border-box;
     background-color: var(--background_dark);
+
     background-attachment: fixed;
-    background-image: url('../assets/background-images/light-sketch.png');
-    background-image: url('../assets/background-images/paper-fibers.png');
+    /*    background-image: url('../assets/background-images/light-sketch.png');*/
+    /*    background-image: url('../assets/background-images/paper-fibers.png');*/
     background-image: url('../assets/background-images/snow.png');
 
     color: var(--on_background);
@@ -819,7 +820,6 @@ section::after {
 
 section:target::after {
     height: calc(100% + 1em);
-
 }
 
 section a.title {
