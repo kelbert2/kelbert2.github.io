@@ -5,17 +5,24 @@
 
 :root {
     --contrast: #f5c5a3;
+    --contrast-light: #fcde9c;
     /*    hsl(25, 80%, 80%);*/
-    --accent: #a3f5be;
+    --accent-light: #d0ffb7;
+    /*    --accent: #a3f5be;*/
     /*    hsl(140, 80%, 80%);*/
-    --accent-dark: #6BD1B8;
+    --accent: #8bf4ae;
+
+    /*    --accent-dark: #6BD1B8;*/
     /*    hsl(165, 53%, 62%);*/
+    --accent-dark: #55D1B2;
     --background-dark: #0b0b0f;
     /*    hsl(240, 15%, 10%);*/
     --background: #21212C;
     /*    hsl(240, 15%, 15%);*/
     --background-light: #2B2B3B;
     /*    hsl(240, 15%, 20%);*/
+
+    --neutral: #ccc;
 
     --on-background: white;
     --on-accent: black;
@@ -38,7 +45,7 @@
     --section-title-height: 2em;
     --line-thickness: 2px;
 
-    --accent-gradient: linear-gradient(to right, #a3f5be, #6BD1B8);
+    --accent-gradient: linear-gradient(to right, #8bf4ae, orange);
 
     --header-height: 3em;
 
@@ -77,6 +84,10 @@ body {
 
     max-width: 50em;
     margin: auto;
+}
+
+.skills {
+    display: none;
 }
 
 h1,
@@ -144,28 +155,63 @@ a:active,
 a:link {
     text-decoration: none;
     color: var(--on-background);
-    cursor: pointer;
-    transition: color .3s;
 }
 
-.ani-link {
-    border-bottom: 1px solid hsla(0, 0%, 100%, .2);
+.ani-link,
+a.ani-link {
+    text-decoration: underline;
+    text-decoration-skip: ink;
 
+    /*    border-bottom: 1px solid hsla(0, 0%, 100%, .2);*/
+    /*
+    text-decoration: underline;
+    text-decoration-skip: ink;
+*/
+    /*
+    text-decoration-color:
+        var(--neutral);
+*/
+    transition: all .5s;
+    cursor: pointer;
+
+    color: var(--on-background);
+
+    background: var(--accent);
+    background-clip: border-box;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: hsla(0, 0%, 100%, .2);
+    /*    way to get different color for underlines */
 }
 
 a.ani-link:visited {
-    color: var(--accent-dark);
-}
+    /*    color: var(--accent-dark);*/
 
-.ani-link:hover,
-.ani-link:focus {
-    color: var(--accent);
+    background: var(--accent-dark);
+    background-clip: border-box;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: hsla(0, 0%, 100%, .2);
 }
 
 .ani-link {
     position: relative;
-    margin: 2px 0;
-    color: var(--accent);
+    /*    margin: 2px 0;*/
+}
+
+.ani-link:hover,
+.ani-link:focus {
+    /*    background: -webkit-gradient(linear, left top, right top, from(#ff8a00), to(#e52e71));*/
+    background: var(--accent-gradient);
+    background-clip: border-box;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: hsla(0, 0%, 100%, .2);
+
+    /*    border-image: linear-gradient(70deg, var(--accent) 35%, var(--accent) 70%, var(--accent-dark)) 1;*/
+
+    /*    box-decoration-break: clone;*/
+    /*    text-shadow: none;*/
 }
 
 .ani-link::after {
@@ -175,7 +221,7 @@ a.ani-link:visited {
     height: 2px;
     width: 0;
     background: var(--accent-gradient);
-    /*    border-radius: 2px;*/
+    border-radius: 2px;
     bottom: -2px;
     left: 0;
 
@@ -572,6 +618,24 @@ section p {
 
 }
 
+.about-description,
+#about p:nth-child(4)::before,
+.about-description::after {
+    background: rgba(255, 255, 255, .8);
+}
+
+#about p:nth-child(4)::before,
+.about-description::after {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 1em;
+}
+
+p.about-description ~ p.about-description {
+    margin: 0;
+}
+
 #experience svg {
     width: 5em;
     height: 5em;
@@ -591,12 +655,15 @@ section p {
     /*    grid-auto-flow: column;*/
 }
 
-ul.ani-list li {
+ul.ani-list li,
+.description li {
     position: relative;
 }
 
 ul.ani-list li::before,
-ul.ani-list li::after {
+ul.ani-list li::after,
+.description li::before,
+.description li::after {
     display: inline-block;
     content: '';
     /*    border-radius: .6em;*/
@@ -604,7 +671,8 @@ ul.ani-list li::after {
     vertical-align: middle;
 }
 
-ul.ani-list li::before {
+ul.ani-list li::before,
+.description li::before {
     margin: 0 .5em;
     /*    position: relative;*/
     width: .6em;
@@ -612,7 +680,8 @@ ul.ani-list li::before {
     background: var(--accent);
 }
 
-ul.ani-list li::after {
+ul.ani-list li::after,
+.description li::after {
     position: absolute;
     background: var(--background-dark);
     width: .5em;
