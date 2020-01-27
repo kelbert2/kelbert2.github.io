@@ -50,16 +50,14 @@
     --header-height: 3em;
 
     --indent: 1em;
+
+    --fill-color: hsla(0, 0%, 100%, .5);
     /*    TODO: header height based on viewport size */
 }
 
 @viewport {
     width: device-width;
     zoom: 1.0;
-}
-
-.tooltip {
-    display: none;
 }
 
 * {
@@ -164,10 +162,6 @@ a.ani-link {
 
     /*    border-bottom: 1px solid hsla(0, 0%, 100%, .2);*/
     /*
-    text-decoration: underline;
-    text-decoration-skip: ink;
-*/
-    /*
     text-decoration-color:
         var(--neutral);
 */
@@ -180,7 +174,8 @@ a.ani-link {
     background-clip: border-box;
 
     -webkit-background-clip: text;
-    -webkit-text-fill-color: hsla(0, 0%, 100%, .2);
+    color: var(--fill-color);
+    -webkit-text-fill-color: var(--fill-color);
     /*    way to get different color for underlines */
 }
 
@@ -191,7 +186,8 @@ a.ani-link:visited {
     background-clip: border-box;
 
     -webkit-background-clip: text;
-    -webkit-text-fill-color: hsla(0, 0%, 100%, .2);
+    color: var(--fill-color);
+    -webkit-text-fill-color: var(--fill-color);
 }
 
 .ani-link {
@@ -203,10 +199,12 @@ a.ani-link:visited {
 .ani-link:focus {
     /*    background: -webkit-gradient(linear, left top, right top, from(#ff8a00), to(#e52e71));*/
     background: var(--accent-gradient);
-    background-clip: border-box;
+    /*    background-clip: border-box;*/
+    background-clip: text;
 
     -webkit-background-clip: text;
-    -webkit-text-fill-color: hsla(0, 0%, 100%, .2);
+    color: var(--fill-color);
+    -webkit-text-fill-color: var(--fill-color);
 
     /*    border-image: linear-gradient(70deg, var(--accent) 35%, var(--accent) 70%, var(--accent-dark)) 1;*/
 
@@ -214,7 +212,7 @@ a.ani-link:visited {
     /*    text-shadow: none;*/
 }
 
-.ani-link::after {
+.ani-link::before {
     content: '';
     display: inline-block;
     position: absolute;
@@ -228,8 +226,8 @@ a.ani-link:visited {
     transition: width .3s;
 }
 
-.ani-link:hover::after,
-.ani-link:focus::after {
+.ani-link:hover::before,
+.ani-link:focus::before {
     width: 100%;
 }
 
@@ -245,6 +243,72 @@ a.ani-link:visited {
     margin-left: calc(-5px + var(--line-thickness) / 2);
 }
 
+.tooltip {
+    /*    position: relative;*/
+    display: inline-block;
+}
+
+.ani-link.tooltip::after,
+.tooltip::after {
+    display: inline-block;
+    content: '...';
+    text-align: center;
+    height: 1.3125em;
+    width: 1.3125em;
+    font-size: .75em;
+    background: var(--background-light);
+    /*    background-color: var(--accent);*/
+    /*    color: var(--accent);*/
+    border-radius: 50%;
+    vertical-align: top;
+
+    padding: 0 .25em .5em;
+    margin: 0 .25em;
+
+    color: var(--fill-color);
+    -webkit-text-fill-color: var(--fill-color);
+    /*
+    position: absolute;
+    right: -2.625em;
+    top: 0;
+*/
+    position: relative;
+    top: 0;
+}
+
+.tooltip:hover::before,
+.tooltip::before:hover {
+    background-color: var(--accent-gradient);
+}
+
+.tooltip-text {
+    display: none;
+    position: relative;
+    /*    bottom: -2em;*/
+    bottom: -3em;
+    left: 0em;
+    /*    left: 50%;*/
+    /*    margin-left: -1em;*/
+    z-index: 1;
+
+    text-align: center;
+    background-color: var(--background-light);
+    color: var(--on-background);
+
+    max-width: 15em;
+    padding: .25em;
+    border-radius: .25em;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+.tooltip:hover ~ .tooltip-text {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
 
 /* Header -------------------------------------------------------------- */
 header {
@@ -618,22 +682,15 @@ section p {
 
 }
 
-.about-description,
-#about p:nth-child(4)::before,
-.about-description::after {
-    background: rgba(255, 255, 255, .8);
+.about-description {
+    background: rgba(255, 255, 255, .5);
+    padding: 1em;
+    margin-bottom: 0;
 }
 
-#about p:nth-child(4)::before,
-.about-description::after {
-    display: block;
-    content: '';
-    width: 100%;
-    height: 1em;
-}
-
-p.about-description ~ p.about-description {
-    margin: 0;
+#about p.about-description + p.about-description {
+    margin-top: 0;
+    padding-top: 0;
 }
 
 #experience svg {
