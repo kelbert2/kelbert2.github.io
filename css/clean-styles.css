@@ -243,10 +243,9 @@ a:visited.ani-link {
 
 .tooltip {
     position: relative;
-    display: inline-block;
+    /*        display: inline-block;*/
 }
 
-.ani-link.tooltip::after,
 .tooltip::after {
     display: inline-block;
     content: '...';
@@ -259,7 +258,7 @@ a:visited.ani-link {
     width: 1.3125em;
     padding: 0 .25em .5em;
     margin: 0 .25em;
-    border-radius: 50%;
+    border-radius: 1em;
 
     background: var(--background-light);
 
@@ -273,54 +272,46 @@ a:visited.ani-link {
 */
     position: relative;
     top: 0;
+
+    transition: all .5s;
 }
 
-/*
-.ani-link.tooltip:hover::after,
-.ani-link.tooltip::after:hover,
-.ani-link.tooltip:focus::after,
-.ani-link.tooltip::after:focus,
 .tooltip:hover::after,
-.tooltip::after:hover,
-.tooltip:focus::after,
-.tooltip::after:focus,
-.ani-link.tooltip:hover,
-.ani-link.tooltip:focus,
-.tooltip:hover,
-.tooltip:focus {
-    color: var(--accent);
-    -webkit-text-fill-color: var(--accent);
-} 
-*/
+.tooltip:focus::after {
+    color: var(--contrast);
+    -webkit-text-fill-color: var(--contrast);
+}
 
 .tooltip-text {
-    display: none;
+    /*        display: none;*/
     position: absolute;
-
+    z-index: 1;
+    bottom: -2em;
+    right: .25em;
     /*        bottom: -2em;*/
-    bottom: 0em;
-    left: 0em;
+
     /*    left: 50%;*/
     /*    margin-left: -1em;*/
-    z-index: 1;
 
     text-align: center;
-    background-color: var(--background-light);
+    background: var(--background-light);
     color: var(--on-background);
 
-    max-width: 15em;
-    padding: .25em;
-    border-radius: .25em;
+    max-width: 0;
+    padding: .25em .75em;
+    border-radius: 1em;
 
     visibility: hidden;
     opacity: 0;
-    transition: opacity .3s;
+    transition: max-width 1s, opacity .5s;
 }
 
-.tooltip:hover ~ .tooltip-text {
-    display: block;
+.tooltip:hover .tooltip-text,
+.tooltip:focus .tooltip-text {
+    /*        display: block;*/
     visibility: visible;
     opacity: 1;
+    max-width: 15em;
 }
 
 /* Header -------------------------------------------------------------- */
