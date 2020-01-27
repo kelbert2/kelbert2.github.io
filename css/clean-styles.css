@@ -51,7 +51,7 @@
 
     --indent: 1em;
 
-    --fill-color: hsla(0, 0%, 100%, .5);
+    --fill-color: hsla(0, 0%, 100%, .3);
     /*    TODO: header height based on viewport size */
 }
 
@@ -168,8 +168,6 @@ a.ani-link {
     transition: all .5s;
     cursor: pointer;
 
-    color: var(--on-background);
-
     background: var(--accent);
     background-clip: border-box;
 
@@ -179,11 +177,11 @@ a.ani-link {
     /*    way to get different color for underlines */
 }
 
-a.ani-link:visited {
+a:visited.ani-link {
     /*    color: var(--accent-dark);*/
 
     background: var(--accent-dark);
-    background-clip: border-box;
+    background-clip: text;
 
     -webkit-background-clip: text;
     color: var(--fill-color);
@@ -244,7 +242,7 @@ a.ani-link:visited {
 }
 
 .tooltip {
-    /*    position: relative;*/
+    position: relative;
     display: inline-block;
 }
 
@@ -252,21 +250,22 @@ a.ani-link:visited {
 .tooltip::after {
     display: inline-block;
     content: '...';
+
     text-align: center;
+    vertical-align: top;
+    font-size: .75em;
+
     height: 1.3125em;
     width: 1.3125em;
-    font-size: .75em;
-    background: var(--background-light);
-    /*    background-color: var(--accent);*/
-    /*    color: var(--accent);*/
-    border-radius: 50%;
-    vertical-align: top;
-
     padding: 0 .25em .5em;
     margin: 0 .25em;
+    border-radius: 50%;
 
-    color: var(--fill-color);
-    -webkit-text-fill-color: var(--fill-color);
+    background: var(--background-light);
+
+    color: var(--on-background);
+    -webkit-text-fill-color: var(--on-background);
+
     /*
     position: absolute;
     right: -2.625em;
@@ -276,16 +275,30 @@ a.ani-link:visited {
     top: 0;
 }
 
-.tooltip:hover::before,
-.tooltip::before:hover {
-    background-color: var(--accent-gradient);
-}
+/*
+.ani-link.tooltip:hover::after,
+.ani-link.tooltip::after:hover,
+.ani-link.tooltip:focus::after,
+.ani-link.tooltip::after:focus,
+.tooltip:hover::after,
+.tooltip::after:hover,
+.tooltip:focus::after,
+.tooltip::after:focus,
+.ani-link.tooltip:hover,
+.ani-link.tooltip:focus,
+.tooltip:hover,
+.tooltip:focus {
+    color: var(--accent);
+    -webkit-text-fill-color: var(--accent);
+} 
+*/
 
 .tooltip-text {
     display: none;
-    position: relative;
-    /*    bottom: -2em;*/
-    bottom: -3em;
+    position: absolute;
+
+    /*        bottom: -2em;*/
+    bottom: 0em;
     left: 0em;
     /*    left: 50%;*/
     /*    margin-left: -1em;*/
