@@ -148,6 +148,7 @@ h4,
 
 ul {
     list-style-type: none;
+    padding-left: 1em;
 }
 
 li {
@@ -248,7 +249,8 @@ a:visited.ani-link {
 
 .logo-stack svg {
     /*    height: 1.5em;*/
-    width: 30px;
+    height: 3em;
+    width: 3em;
     margin-right: 10px;
     margin-left: calc(-5px + var(--line-thickness) / 2);
 }
@@ -290,6 +292,18 @@ a:visited.ani-link {
     transition: all .3s;
 }
 
+.tooltip:hover .tooltip-icon {
+    margin: -.25em .325rem;
+    width: 1em;
+    height: 1em;
+}
+
+.tooltip.subtitle:hover .tooltip-icon {
+    margin: -.25em .5rem;
+    width: 1em;
+    height: 1em;
+}
+
 .tooltip-icon::before,
 .tooltip-icon::after {
     display: block;
@@ -302,16 +316,10 @@ a:visited.ani-link {
 
 .tooltip-icon::before {
     width: .5em;
-    height: .125rem;
+    height: .125em;
 
     right: calc(50% - .25em);
     top: calc(50% - .0625em);
-}
-
-.tooltip:hover .tooltip-icon {
-    width: 1em;
-    height: 1em;
-    margin: -.25em .325rem;
 }
 
 .tooltip:hover .tooltip-icon::before,
@@ -703,10 +711,6 @@ section::before {
     z-index: -1;
 }
 
-section {
-    /*    padding: 1em;*/
-}
-
 section p {
     text-indent: 20px;
 }
@@ -885,15 +889,20 @@ section p {
     display: grid;
     /*    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));*/
 
-    grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(8em, 10em));
     grid-template-rows: repeat(auto-fit, minmax(1.75em, 1fr));
 
     /*    grid-auto-flow: column;*/
 }
 
+#education ul.ani-list {
+    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+}
+
 ul.ani-list li,
 .description li {
     position: relative;
+    margin: .2em;
 }
 
 ul.ani-list li::before,
@@ -943,15 +952,19 @@ ul.ani-list li::after,
     top: 0;
 }
 
+/*
 #skills::before {
     background: var(--background-light);
     left: -5em;
 }
+*/
 
+/*
 #skills::after {
     background: var(--background);
     right: -6em;
 }
+*/
 
 #skills ul:nth-child(odd) {
     position: relative;
@@ -977,7 +990,7 @@ ul.ani-list li::after,
 #skills ul:nth-child(3)::after,
 #skills ul:nth-child(7)::after {
     background: var(--background-light);
-    border-right: 2em solid var(--background-dark);
+    border-right: 1em solid var(--background-dark);
 }
 
 #skills h2,
@@ -1003,6 +1016,7 @@ ul.ani-list li::after,
     padding: var(--indent);
 }
 
+/*
 #education::before {
     position: absolute;
     top: 5.5em;
@@ -1017,6 +1031,7 @@ ul.ani-list li::after,
 
     outline: var(--indent) solid var(--accent);
 }
+*/
 
 #education h2 {
     position: relative;
@@ -1035,8 +1050,8 @@ ul.ani-list li::after,
 }
 
 #education > div {
-    padding: 1em;
-    /*    margin: 1em;*/
+    padding: .5em 1em;
+    margin: 1em;
 }
 
 #education > div:nth-child(odd) {
@@ -1125,6 +1140,56 @@ ul.ani-list li::after,
 #education .subsubsubtitle {
     padding: 0;
     color: var(--accent);
+}
+
+.ani-link.project {
+    position: relative;
+    /*    overflow: hidden;*/
+    display: inline-block;
+    width: 0;
+    white-space: nowrap;
+    /*    left: -5em;*/
+    /*    text-indent: -5em;*/
+    visibility: hidden;
+    color: var(--accent);
+
+    /*    Trying to keep the width constant so won't skip to the next line */
+    margin-right: 4.7em;
+    padding-right: -4.7em;
+    transition: width .3s .15s, margin .3s .15s, padding .3s .15s, visibility .25s;
+}
+
+.ani-link.project:hover {
+    visibility: visible;
+    text-indent: 0;
+    transition: width .3s, margin .3s, padding .3s, visibility .1s;
+    margin-right: 0;
+    padding-right: 0;
+    width: 4.7em;
+}
+
+.ani-link.project::after {
+    visibility: visible;
+    display: inline-block;
+    content: '';
+    position: absolute;
+    height: .5em;
+    width: .5em;
+    right: -1em;
+    bottom: .125em;
+    border-right: .25em solid var(--accent);
+    border-bottom: .25em solid var(--accent);
+    transform-origin: center center;
+    transform: rotate(-45deg);
+    /*    margin: 0 5em;*/
+    transition: all .3s;
+}
+
+.ani-link.project:hover::after {
+    border-right: .25em solid var(--contrast);
+    border-bottom: .25em solid var(--contrast);
+
+    transform: rotate(-45deg) skewX(10deg) skewY(10deg);
 }
 
 #projects h2 {
