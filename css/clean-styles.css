@@ -102,7 +102,8 @@ h4,
 .subsubtitle,
 .subsubsubtitle,
 #about .intro,
-#contact p {
+#contact p,
+button {
     /*    font-family: 'Roboto Slab', 'Ubuntu', serif;*/
     font-family: 'Montserrat', 'Ubuntu', sans-serif;
     /*    font-family: 'Source Sans Pro', 'Ubuntu', sans-serif;*/
@@ -142,7 +143,8 @@ h4,
     font-size: 1.4rem;
 }
 
-.subsubsubtitle {
+.subsubsubtitle,
+button {
     font-size: 1.1rem;
 }
 
@@ -1219,6 +1221,10 @@ ul.ani-list li::after,
     color: var(--accent);
 }
 
+#education h3 {
+    margin: 0;
+}
+
 .ani-link.project {
     position: relative;
     display: inline-block;
@@ -1280,6 +1286,106 @@ ul.ani-list li::after,
     background: var(--accent);
     left: 1.96em;
     top: .31em;
+}
+
+#projects .subtitle {
+    background: var(--accent);
+    color: var(--background-dark);
+    padding: .25em;
+}
+
+.details {
+    position: relative;
+}
+
+.details .ani-list {
+    display: none;
+    opacity: 0;
+}
+
+button {
+    border: .25em solid var(--accent);
+    padding: .25em;
+    text-align: center;
+    background: transparent;
+    color: var(--accent);
+    transition: all .3s;
+}
+
+button:hover,
+button:focus {
+    background: var(--accent);
+    color: var(--background-dark);
+    letter-spacing: .25em;
+}
+
+.details-button {
+    margin: auto;
+    width: 6em;
+}
+
+.details-button:hover {
+    width: 8em;
+}
+
+.details-button:active {
+    width: 6em;
+    background: var(--accent-dark);
+    border: none;
+    color: var(--background-dark);
+}
+
+.details-button::after,
+.details-button::before {
+    display: inline-block;
+    content: '';
+    height: .25em;
+    width: .75em;
+    background: var(--accent);
+}
+
+.details-button:hover::after,
+.details-button:hover::before,
+.details-button:focus::after,
+.details-button:focus::before {
+    background: var(--background-dark);
+}
+
+.details-button:active::after,
+.details-button:active::before {
+    background: var(--background-dark);
+}
+
+.details-button:active::before {
+    top: .77em;
+    left: 4.55em;
+
+}
+
+.details-button::before {
+    position: absolute;
+    left: 4.59em;
+    top: .98em;
+
+    background: var(--contrast);
+    transform-origin: center center;
+    transform: rotate(90deg);
+
+    transition: all .3s;
+}
+
+.details-button:hover::before,
+.details-button:focus::before {
+    left: 6.43em;
+}
+
+.details-button::after {
+    margin: .25em;
+    margin-right: 0;
+}
+
+#projects .technology {
+    font-style: italic;
 }
 
 #test {
