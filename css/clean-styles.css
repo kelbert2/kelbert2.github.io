@@ -844,7 +844,8 @@ section p {
     padding-top: 0;
 }
 
-#experience h2 {
+#experience h2,
+#education h2 {
     position: relative;
     margin: .45em .1em;
     font-size: .9em;
@@ -1054,7 +1055,7 @@ ul.ani-list li::after,
     display: block;
     content: '';
     height: calc(100% + 3em);
-    width: 100%;
+    width: calc(100% - 1em);
     top: -2em;
     left: 0em;
     position: absolute;
@@ -1113,15 +1114,11 @@ ul.ani-list li::after,
 }
 */
 
-#education h2 {
-    position: relative;
-}
-
 #education h2::after {
     display: block;
     content: '';
     position: absolute;
-    width: .148em;
+    width: .143em;
     height: .26em;
     left: 5.119em;
     top: .7em;
@@ -1273,6 +1270,7 @@ ul.ani-list li::after,
     position: relative;
 }
 
+/* Using the t in past and referencing left and top in order to maintain location even if "Past Projects" splits into two lines*/
 #projects h2::after {
     display: block;
     content: '';
@@ -1280,8 +1278,8 @@ ul.ani-list li::after,
     width: .16em;
     height: .25em;
     background: var(--accent);
-    left: 6.01em;
-    bottom: .66em;
+    left: 1.96em;
+    top: .31em;
 }
 
 #test {
