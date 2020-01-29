@@ -151,7 +151,7 @@ ul {
     padding-left: 1em;
 }
 
-li {
+li + li {
     margin: .2em 0 0;
     padding: 0;
 }
@@ -248,12 +248,54 @@ a:visited.ani-link {
 }
 
 .logo-stack svg {
-    /*    height: 1.5em;*/
-    height: 3em;
     width: 3em;
     margin-right: 10px;
     margin-left: calc(-5px + var(--line-thickness) / 2);
 }
+
+.logo-link-set svg,
+.logo-link-set li a .ani-link,
+#experience .logo-stack svg,
+#experience .logo-stack .svg-label {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.logo-stack:hover .ani-link::before {
+    width: 100%;
+}
+
+.logo-link-set li a .ani-link {
+    margin-top: 2px;
+    /*    to keep centered against icon*/
+    /*    border: 1px solid black;*/
+}
+
+.logo-link-set svg {
+    height: 15px;
+    width: 15px;
+    margin: 0 15px;
+    /*    border: 1px solid black;*/
+}
+
+.logo-stack .svg-label :not(strong) {
+    visibility: hidden;
+    opacity: 0;
+    font-size: 10px;
+    /*    position: absolute;*/
+    /*        left: 50%;*/
+    /*        margin: -50%;*/
+    /*    left: 0;*/
+    top: 0;
+
+    transition: visibility .1s, opacity .4s;
+}
+
+.logo-stack:hover .svg-label em {
+    visibility: visible;
+    opacity: 1;
+}
+
 
 .tooltip {
     position: relative;
@@ -788,12 +830,11 @@ section p {
     width: 5%;
     background: var(--accent);
     transform-origin: top left;
-    /*    transform: skewX(135deg);*/
-
+    transform: skewX(135deg);
 }
 
 .about-description {
-    background: rgba(255, 255, 255, .5);
+    background: var(--background-light);
     padding: 1em;
     margin-bottom: 0;
 }
@@ -805,56 +846,96 @@ section p {
 
 #experience h2 {
     position: relative;
+    margin: .45em .1em;
+    font-size: .9em;
 }
 
 #experience h2::after {
     display: block;
     content: '';
-    width: 2.5%;
-    width: 9.88333px;
-    width: .17em;
-    /*    height: 200%;*/
+
+    width: .16em;
+
     position: absolute;
-    bottom: 20%;
-    bottom: 14.075px;
+
     bottom: .25em;
-    left: 10%;
-    left: 38.225px;
+
     left: .67em;
     background: var(--accent);
-    top: 35%;
-    top: 24.6333px;
-    top: 0.45em;
+    top: 0.44em;
     /*    top: 80%;*/
     transform-origin: bottom left;
     transform: skewX(-38deg);
 }
 
 .experience-header {
-    /*    background: var(--background);*/
+    /*        background: var(--background-light);*/
     /*    padding: 1em;*/
 }
 
+#experience > ul {
+    padding: 0;
+}
+
+#experience > ul > li {
+    background: var(--background);
+    padding: .25em;
+}
+
+#experience > ul li::after {
+    left: .5em;
+    top: .86em;
+}
+
+
+#experience ul li {
+    margin-bottom: .5em;
+}
+
 #experience .description {
+    /*    background: var(--background);*/
+    /*    padding: .5em;*/
+    padding: 0;
+    margin: 0 .5em;
+}
+
+#experience ul.description li {
     background: var(--background-light);
-    padding: .5em;
-    padding-left: 3em;
+    padding: .25em .5em;
 }
 
 #experience svg {
-    width: 5em;
-    height: 5em;
+    margin-left: .5em;
+    flex: 1 1 5em;
+    max-height: 5em;
+    max-width: 5em;
+}
+
+#experience .logo-stack {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--main_dark);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /*    padding-top: 1em;*/
 }
 
 .experience-info {
     display: flex;
     justify-content: space-between;
-    margin: .75em 0;
+    margin: .75em 1em;
+    font-style: italic;
+}
+
+.experience-info * {
+    margin: 0 .5em;
 }
 
 .job-title {
     font-weight: bold;
-    text-indent: 3em;
+
+    margin-left: 5em;
 }
 
 #skills h2 {
@@ -902,7 +983,6 @@ section p {
 ul.ani-list li,
 .description li {
     position: relative;
-    margin: .2em;
 }
 
 ul.ani-list li::before,
@@ -1144,12 +1224,9 @@ ul.ani-list li::after,
 
 .ani-link.project {
     position: relative;
-    /*    overflow: hidden;*/
     display: inline-block;
     width: 0;
     white-space: nowrap;
-    /*    left: -5em;*/
-    /*    text-indent: -5em;*/
     visibility: hidden;
     color: var(--accent);
 
