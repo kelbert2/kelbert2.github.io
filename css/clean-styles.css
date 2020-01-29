@@ -1345,13 +1345,12 @@ button:focus {
 }
 
 .details-button:hover::after,
-.details-button:hover::before,
-.details-button:focus::after,
-.details-button:focus::before {
+.details-button:hover::before {
     background: var(--background-dark);
 }
 
-.details-button:active::after,
+.details-button:focus::after,
+.details-button:focus::before .details-button:active::after,
 .details-button:active::before {
     background: var(--background-dark);
 }
