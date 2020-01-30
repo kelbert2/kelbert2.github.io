@@ -103,7 +103,7 @@ h4,
 .subsubsubtitle,
 #about .intro,
 #contact p,
-button {
+.details-button {
     /*    font-family: 'Roboto Slab', 'Ubuntu', serif;*/
     font-family: 'Montserrat', 'Ubuntu', sans-serif;
     /*    font-family: 'Source Sans Pro', 'Ubuntu', sans-serif;*/
@@ -144,7 +144,7 @@ h4,
 }
 
 .subsubsubtitle,
-button {
+.details-button {
     font-size: 1.1rem;
 }
 
@@ -871,10 +871,12 @@ section p {
     transform: skewX(-38deg);
 }
 
+/*
 .experience-header {
-    /*        background: var(--background-light);*/
-    /*    padding: 1em;*/
+            background: var(--background-light);
+        padding: 1em;
 }
+*/
 
 #experience > ul {
     padding: 0;
@@ -890,21 +892,18 @@ section p {
     top: .86em;
 }
 
-
-#experience ul li {
-    margin-bottom: .5em;
-}
-
-#experience .description {
+#experience ul.description {
     /*    background: var(--background);*/
     /*    padding: .5em;*/
     padding: 0;
     margin: 0 .5em;
 }
 
-#experience ul.description li {
+#experience ul.description li,
+.details ul li {
     background: var(--background-light);
     padding: .25em .5em;
+    margin-bottom: .5em;
 }
 
 #experience svg {
@@ -1298,89 +1297,130 @@ ul.ani-list li::after,
     position: relative;
 }
 
-.details .ani-list {
-    display: none;
+.details input {
     opacity: 0;
+    position: absolute;
+    left: 45%;
+    top: 0;
 }
 
-button {
+.details input:checked ~ .details-button::before {
+    width: 100%;
+    left: 0;
+    top: 2.5em;
+    background: var(--accent);
+
+    transition-delay: 0s;
+}
+
+.details input:checked ~ .details-button::after {
+    transform: rotate(0deg);
+}
+
+.details input ~ ul {
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+    background: var(--background);
+    padding: .5em;
+
+    transition: max-height .75s, opacity .75s, visibility 0s .3s;
+}
+
+.details input:checked ~ ul {
+    visibility: visible;
+    opacity: 1;
+    max-height: 200em;
+
+    transition: max-height .75s .35s, opacity .75s .35s, visibility 0s .35s;
+}
+
+.details input:checked ~ ul li::before {}
+
+.details-button {
+    display: block;
+
+    margin: .5em auto;
+    width: 6em;
+
     border: .25em solid var(--accent);
     padding: .25em;
+
     text-align: center;
     background: transparent;
     color: var(--accent);
+
     transition: all .3s;
-}
-
-button:hover,
-button:focus {
-    background: var(--accent);
-    color: var(--background-dark);
-    letter-spacing: .25em;
-}
-
-.details-button {
-    margin: auto;
-    width: 6em;
-}
-
-.details-button:hover {
-    width: 8em;
-}
-
-.details-button:active {
-    width: 6em;
-    background: var(--accent-dark);
-    border: none;
-    color: var(--background-dark);
 }
 
 .details-button::after,
 .details-button::before {
     display: inline-block;
     content: '';
+
+    background: var(--accent);
+
     height: .25em;
     width: .75em;
-    background: var(--accent);
-}
 
-.details-button:hover::after,
-.details-button:hover::before {
-    background: var(--background-dark);
-}
-
-.details-button:focus::after,
-.details-button:focus::before .details-button:active::after,
-.details-button:active::before {
-    background: var(--background-dark);
-}
-
-.details-button:active::before {
-    top: .77em;
-    left: 4.55em;
-
+    transform-origin: center center;
+    transition: all .3s;
 }
 
 .details-button::before {
     position: absolute;
-    left: 4.59em;
+    left: calc(50% + 1.6em);
     top: .98em;
 
-    background: var(--contrast);
-    transform-origin: center center;
-    transform: rotate(90deg);
-
-    transition: all .3s;
-}
-
-.details-button:hover::before,
-.details-button:focus::before {
-    left: 6.43em;
+    transition-delay: .5s;
 }
 
 .details-button::after {
     margin: .25em;
     margin-right: 0;
+    transform: rotate(90deg);
+}
+
+.details-button:hover,
+.details-button:focus,
+.details-button:active {
+    color: var(--background-dark);
+    letter-spacing: .15em;
+}
+
+.details-button:hover,
+.details-button:focus {
+    width: 7.5em;
+    background: var(--accent);
+}
+
+.details-button:hover::after,
+.details-button:hover::before,
+.details-button:focus::after,
+.details-button:focus::before {
+    background: var(--background-dark);
+}
+
+.details-button:hover::before,
+.details-button:focus::before {
+    left: calc(50% + 2.1em);
+}
+
+.details-button:active {
+    width: 7em;
+    font-size: .9em;
+    background: var(--accent-dark);
+    border-color: var(--accent-dark);
+}
+
+.details-button:active::after,
+.details-button:active::before {
+    background: var(--background-dark);
+}
+
+.details-button:active::before {
+    left: calc(50% + 2.1em);
+    top: 1em;
 }
 
 #projects .technology {
