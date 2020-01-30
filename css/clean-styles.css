@@ -255,35 +255,24 @@ a:visited.ani-link {
     margin-left: calc(-5px + var(--line-thickness) / 2);
 }
 
-.logo-link-set svg,
-.logo-link-set li a .ani-link,
 #experience .logo-stack svg,
 #experience .logo-stack .svg-label {
     vertical-align: middle;
     display: inline-block;
 }
 
+/*
 .logo-stack:hover .ani-link::before {
     width: 100%;
 }
-
-.logo-link-set li a .ani-link {
-    margin-top: 2px;
-    /*    to keep centered against icon*/
-    /*    border: 1px solid black;*/
-}
-
-.logo-link-set svg {
-    height: 15px;
-    width: 15px;
-    margin: 0 15px;
-    /*    border: 1px solid black;*/
+*/
+.logo-link-set {
+    fill: var(--accent);
 }
 
 .logo-stack .svg-label :not(strong) {
     visibility: hidden;
     opacity: 0;
-    font-size: 10px;
     /*    position: absolute;*/
     /*        left: 50%;*/
     /*        margin: -50%;*/
@@ -1459,4 +1448,18 @@ ul.ani-list li::after,
     bottom: .24em;
     left: .45em;
     border-radius: .3em;
+}
+
+.download-svg,
+.email-svg,
+.fingerprint-svg {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 20;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.download-svg {
+    stroke-width: 40;
 }
