@@ -266,25 +266,63 @@ a:visited.ani-link {
     width: 100%;
 }
 */
-.logo-link-set {
+.logo-link-set li a {
     fill: var(--accent);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
 }
 
-.logo-stack .svg-label :not(strong) {
+.logo-link-set svg {
+    margin: 0;
+}
+
+.logo-link-set .svg-label em {
+    position: absolute;
+    max-width: 0;
+    font-size: .8em;
     visibility: hidden;
     opacity: 0;
+
+    padding: 0 .25em;
+    background-clip: padding-box;
+
+    color: var(--background-dark);
+    -webkit-text-fill-color: var(--background-dark);
     /*    position: absolute;*/
     /*        left: 50%;*/
     /*        margin: -50%;*/
     /*    left: 0;*/
-    top: 0;
+    bottom: -1.25em;
 
-    transition: visibility .1s, opacity .4s;
+    transform-origin: bottom left;
+
+    transition: max-width 1s, visibility .1s, opacity .4s;
+}
+
+.logo-link-set .github .svg-label em {
+    right: calc(50% - 2.3em);
+    /*    width: 4.625em; */
+}
+
+.logo-link-set .email .svg-label em {
+    right: calc(50% - 6.75em);
+    /*    width: 13.5em; */
+}
+
+.logo-link-set .linkedin .svg-label em {
+    right: calc(50% - 2.12em);
+    /*    width: 4.25em; */
+
 }
 
 .logo-stack:hover .svg-label em {
     visibility: visible;
     opacity: 1;
+    background: var(--accent-gradient);
+    max-width: 14em;
 }
 
 
@@ -873,7 +911,8 @@ section p {
 
 #experience > ul > li {
     background: var(--background);
-    padding: .25em;
+    padding: .75em;
+    margin: .75em 0;
 }
 
 #experience > ul li::after {
@@ -885,14 +924,18 @@ section p {
     /*    background: var(--background);*/
     /*    padding: .5em;*/
     padding: 0;
-    margin: 0 .5em;
+    /*    margin: 0 .5em;*/
 }
 
 #experience ul.description li,
 .details ul li {
     background: var(--background-light);
     padding: .25em .5em;
-    margin-bottom: .5em;
+}
+
+#experience ul.description li + li,
+.details ul li + li {
+    margin: .5em 0 0;
 }
 
 #experience svg {
@@ -915,7 +958,7 @@ section p {
 .experience-info {
     display: flex;
     justify-content: space-between;
-    margin: .75em 1em;
+    margin: .75em 1.75em;
     font-style: italic;
 }
 
@@ -954,6 +997,15 @@ section p {
     position: absolute;
     top: .23em;
     left: 1.97em;
+}
+
+ul.logo-link-set {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 9em);
+    grid-template-rows: repeat(auto-fit, minmax(6em, 1fr));
+    align-items: baseline;
+    justify-content: center;
+    padding-left: 0;
 }
 
 #skills ul,
@@ -1132,6 +1184,12 @@ ul.ani-list li::after,
 #education div.educational-info {
     background: var(--background-dark);
     margin: var(--indent);
+    max-width: 22.5em;
+}
+
+#education .educational-info .degree em {
+    font-style: normal;
+    font-weight: bold;
 }
 
 .degree li {
@@ -1298,8 +1356,6 @@ ul.ani-list li::after,
     left: 0;
     top: 2.5em;
     background: var(--accent);
-
-    transition-delay: 0s;
 }
 
 .details input:checked ~ .details-button::after {
@@ -1324,7 +1380,10 @@ ul.ani-list li::after,
     transition: max-height .75s .35s, opacity .75s .35s, visibility 0s .35s;
 }
 
-.details input:checked ~ ul li::before {}
+.details input ~ ul li::after {
+    top: .9em;
+    left: .4em;
+}
 
 .details-button {
     display: block;
@@ -1361,8 +1420,14 @@ ul.ani-list li::after,
     left: calc(50% + 1.6em);
     top: .98em;
 
-    transition-delay: .5s;
 }
+
+/*
+input:checked ~ .details-button:active::before {
+    transition-delay: .5s;
+    trying to add a delay only between checked state to unchecked state, but seems to be effecting hover and active
+}
+*/
 
 .details-button::after {
     margin: .25em;
@@ -1431,23 +1496,35 @@ ul.ani-list li::after,
     text-align: center;
     text-align-last: center;
     text-indent: 0;
-
 }
 
 .touch {
     position: relative;
 }
 
+.touch::after,
+.fingerprint-svg {
+    position: absolute;
+
+    width: .65em;
+
+    bottom: .23em;
+    left: .43em;
+}
+
 .touch::after {
     display: block;
     content: '';
-    position: absolute;
-    height: .6em;
-    width: .6em;
-    background: var(--accent);
-    bottom: .24em;
-    left: .45em;
+    height: .65em;
+
     border-radius: .3em;
+    background: var(--background-dark);
+}
+
+.fingerprint-svg {
+    height: .7em;
+    z-index: 3;
+    stroke-width: 20;
 }
 
 .download-svg,
@@ -1455,11 +1532,14 @@ ul.ani-list li::after,
 .fingerprint-svg {
     fill: none;
     stroke: var(--accent);
-    stroke-width: 20;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
 .download-svg {
     stroke-width: 40;
+}
+
+.email-svg {
+    stroke-width: 33;
 }
