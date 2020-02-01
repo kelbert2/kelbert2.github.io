@@ -103,18 +103,16 @@
         0 0 16px 8px rgba(0, 0, 0, 0.4),
         0 0 32px 16px rgba(0, 0, 0, 0.4);
 
-    --section-title-height: 2em;
-
-    --line-thickness: 2px;
-
     --accent-gradient: linear-gradient(to right, #51fb8a, #fc8936);
 
-    --header-height: 3em;
+    --header-height: 4.5em;
 
-    --indent: 1em;
+    --indent: 1.5em;
 
     --fill-color: hsla(0, 0%, 100%, .3);
     /*    TODO: header height based on viewport size */
+
+    --multiplier: 1.5;
 }
 
 @viewport {
@@ -137,7 +135,7 @@ html {
 
 html,
 .content {
-    font-size: .9rem;
+    font-size: calc(var(--multiplier) * .9rem);
     /*        font-family: 'Open Sans', 'Roboto', sans-serif;*/
     font-family: 'Source Sans Pro', 'Roboto', sans-serif;
     /*    font-family: 'Montserrat', 'Roboto', sans-serif;*/
@@ -148,7 +146,7 @@ body {
     margin: 0;
     padding: 0;
 
-    max-width: 50em;
+    max-width: calc(var(--multiplier) * 50em);
     margin: auto;
 }
 
@@ -177,11 +175,11 @@ h1,
 h2,
 h3,
 h4 {
-    margin: .45em;
+    margin: calc(var(--multiplier) * .45em);
 }
 
 h1 {
-    font-size: 1.5em;
+    font-size: calc(var(--multiplier) * 1.5em);
     text-align: left;
     font-weight: 400;
 }
@@ -191,7 +189,7 @@ h2,
 #contact p {
     /*    margin: 0 .5em;*/
     color: var(--accent-dark);
-    font-size: 2em;
+    font-size: calc(var(--multiplier) * 2em);
     font-size: 4rem;
     /*    text-transform: uppercase;*/
 }
@@ -295,11 +293,11 @@ a.logo-stack:visited > .ani-link {
     content: '';
     display: inline-block;
     position: absolute;
-    height: 2px;
+    height: 4px;
     width: 0;
     background: var(--accent-gradient);
-    border-radius: 2px;
-    bottom: -2px;
+    border-radius: 4px;
+    bottom: -4px;
     left: 0;
 
     transition: width .3s;
@@ -319,8 +317,9 @@ a.logo-stack:visited > .ani-link {
 
 .logo-stack svg {
     width: 3em;
-    margin-right: 10px;
-    margin-left: calc(-5px + var(--line-thickness) / 2);
+    margin-right: var(--indent);
+    /* 10px
+    margin-left: calc(-5px + var(--line-thickness) / 2); */
 }
 
 #experience .logo-stack svg,
@@ -852,6 +851,15 @@ section::before {
     z-index: -1;
 }
 
+section::before {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: var(--header-height);
+    top: 0;
+}
+
 section p {
     text-indent: 20px;
 }
@@ -879,7 +887,7 @@ section p {
     position: absolute;
 
     bottom: .25em;
-    left: 2.24em;
+    left: 2.15em;
 
     background: var(--on-background);
 
@@ -895,7 +903,7 @@ section p {
     position: absolute;
 
     top: .58em;
-    left: 2.45em;
+    left: 2.365em;
 
     background: var(--on-background);
 
