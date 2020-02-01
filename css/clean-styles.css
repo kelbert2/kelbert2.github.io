@@ -192,7 +192,8 @@ a.ani-link {
     /*    way to get different color for underlines */
 }
 
-a:visited.ani-link {
+a:visited.ani-link,
+a.logo-stack:visited > .ani-link {
     /*    color: var(--accent-dark);*/
 
     background: var(--accent-dark);
@@ -209,7 +210,9 @@ a:visited.ani-link {
 }
 
 .ani-link:hover,
-.ani-link:focus {
+.ani-link:focus,
+.logo-stack:hover > .ani-link,
+.logo-stack:focus > .ani-link {
     /*    background: -webkit-gradient(linear, left top, right top, from(#ff8a00), to(#e52e71));*/
     background: var(--accent-gradient);
     /*    background-clip: border-box;*/
@@ -240,7 +243,9 @@ a:visited.ani-link {
 }
 
 .ani-link:hover::before,
-.ani-link:focus::before {
+.ani-link:focus::before,
+.logo-stack:hover > .ani-link::before,
+.logo-stack:hover > .ani-link::before {
     width: 100%;
 }
 
@@ -266,7 +271,8 @@ a:visited.ani-link {
     width: 100%;
 }
 */
-.logo-link-set li a {
+.logo-link-set li a,
+.logo-link-set .svg-label {
     fill: var(--accent);
     display: flex;
     flex-direction: column;
@@ -280,51 +286,47 @@ a:visited.ani-link {
 }
 
 .logo-link-set .svg-label em {
-    position: absolute;
+    display: block;
     max-width: 0;
+
     font-size: .8em;
     visibility: hidden;
     opacity: 0;
 
     padding: 0 .25em;
+    background: var(--accent-gradient);
     background-clip: padding-box;
 
     color: var(--background-dark);
     -webkit-text-fill-color: var(--background-dark);
-    /*    position: absolute;*/
-    /*        left: 50%;*/
-    /*        margin: -50%;*/
-    /*    left: 0;*/
-    bottom: -1.25em;
-
-    transform-origin: bottom left;
 
     transition: max-width 1s, visibility .1s, opacity .4s;
 }
 
-.logo-link-set .github .svg-label em {
-    right: calc(50% - 2.3em);
-    /*    width: 4.625em; */
-}
-
-.logo-link-set .email .svg-label em {
-    right: calc(50% - 6.75em);
-    /*    width: 13.5em; */
-}
-
-.logo-link-set .linkedin .svg-label em {
-    right: calc(50% - 2.12em);
-    /*    width: 4.25em; */
-
-}
-
-.logo-stack:hover .svg-label em {
+.logo-link-set .logo-stack:hover .svg-label em {
     visibility: visible;
     opacity: 1;
-    background: var(--accent-gradient);
+
     max-width: 14em;
 }
 
+.logo-link-set .logo-stack svg {
+    transition: .3s;
+}
+
+.logo-link-set .logo-stack.resume:hover svg,
+.logo-link-set .logo-stack.email:hover svg,
+.logo-link-set .logo-stack.resume:focus svg,
+.logo-link-set .logo-stack.email:focus svg {
+    stroke: var(--contrast);
+}
+
+.logo-link-set .logo-stack.github:hover svg,
+.logo-link-set .logo-stack.linkedin:hover svg,
+.logo-link-set .logo-stack.github:focus svg,
+.logo-link-set .logo-stack.linkedin:focus svg {
+    fill: var(--contrast);
+}
 
 .tooltip {
     position: relative;
