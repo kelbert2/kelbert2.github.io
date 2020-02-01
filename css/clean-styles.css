@@ -69,7 +69,8 @@ html {
     color: var(--on-background);
     background: var(--background-dark);
 
-    height: 100%;
+    height: 100vh;
+    overflow-x: hidden;
 }
 
 html,
@@ -1010,21 +1011,6 @@ ul.logo-link-set {
     padding-left: 0;
 }
 
-#skills ul,
-#education ul.ani-list {
-    display: grid;
-    /*    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));*/
-
-    grid-template-columns: repeat(auto-fit, minmax(8em, 10em));
-    grid-template-rows: repeat(auto-fit, minmax(1.75em, 1fr));
-
-    /*    grid-auto-flow: column;*/
-}
-
-#education ul.ani-list {
-    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
-}
-
 ul.ani-list li,
 .description li {
     position: relative;
@@ -1133,6 +1119,16 @@ ul.ani-list li::after,
 
 #skills h3 ~ h3 {
     margin-top: 1em;
+}
+
+#skills ul {
+    display: grid;
+    /*    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));*/
+
+    grid-template-columns: repeat(auto-fit, minmax(8em, 10em));
+    grid-template-rows: repeat(auto-fit, 1.75em));
+
+    /*    grid-auto-flow: column;*/
 }
 
 #education {
@@ -1273,6 +1269,11 @@ ul.ani-list li::after,
     margin: 0;
 }
 
+#education ul.ani-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+}
+
 .ani-link.project {
     position: relative;
     display: inline-block;
@@ -1336,10 +1337,33 @@ ul.ani-list li::after,
     top: .31em;
 }
 
+#projects > ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+}
+
+#projects > ul > li {
+    max-width: 23em;
+    margin: .25em 1em;
+}
+
 #projects .subtitle {
     background: var(--accent);
     color: var(--background-dark);
     padding: .25em;
+    position: relative;
+}
+
+#projects .subtitle::after {
+    display: inline-block;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -.5em;
+    background: var(--accent);
+    height: 100%;
+    width: .5em;
 }
 
 .details {
