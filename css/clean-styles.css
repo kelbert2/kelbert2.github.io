@@ -1,7 +1,9 @@
 /*@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Condensed:400,600');*/
+/*
 @import url('https://fonts.googleapis.com/css?family=Bitter:700|Montserrat:400,700');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900&display=swap');
+*/
 
 :root {
     /*    --contrast: #f5c5a3;*/
@@ -96,10 +98,10 @@
         0 4px 8px 4px hsla(140, 95, 65, .2),
         0 6px 12px 8px hsla(140, 95, 65, .2);
     /*    Best with .4 opacity black */
-    --glow-dark: 0 0 4px 2px rgba(0, 0, 0, 0.3),
-        0 0 8px 4px rgba(0, 0, 0, 0.2),
-        0 0 16px 8px rgba(0, 0, 0, 0.2),
-        0 0 32px 16px rgba(0, 0, 0, 0.3);
+    --glow-dark: 0 0 4px 2px rgba(0, 0, 0, 0.4),
+        0 0 8px 4px rgba(0, 0, 0, 0.4),
+        0 0 16px 8px rgba(0, 0, 0, 0.4),
+        0 0 32px 16px rgba(0, 0, 0, 0.4);
 
     --section-title-height: 2em;
 
@@ -862,6 +864,9 @@ section p {
 #about .intro {
     font-size: 5rem;
     margin: 0;
+    position: relative;
+    z-index: 1;
+    text-shadow: var(--text-shadow);
 }
 
 #about .intro:nth-child(3) {
@@ -896,7 +901,7 @@ section p {
 
     width: .165em;
     height: .35em;
-    height: 2em;
+    height: 7em;
 
     transform-origin: top right;
     transform: rotate(-38deg) skewY(-10deg);
@@ -938,7 +943,6 @@ section p {
 */
 
 .about-description {
-    background: var(--background-light);
     padding: 1em;
     margin-bottom: 0;
 
@@ -963,8 +967,6 @@ section p {
     display: block;
     content: '';
 
-
-
     position: absolute;
 }
 
@@ -976,7 +978,7 @@ section p {
     /*    top: 0.44em;*/
 
     height: .55em;
-    height: 3em;
+    height: 9em;
     width: .16em;
 
 
@@ -995,10 +997,9 @@ section p {
     width: .153em;
     height: .15em;
 
-    height: 23 em;
+    height: 13em;
     background: var(--accent-dark);
     z-index: -1;
-
 }
 
 
@@ -1019,11 +1020,21 @@ section p {
     text-shadow: var(--text-shadow);
 }
 
+#experience > ul > li:nth-child(1) {
+    position: relative;
+    z-index: 1;
+}
+
 #experience > ul > li {
     background: var(--background);
     padding: .75em;
     margin: .75em 0;
-    box-shadow: var(--shadow-angled);
+}
+
+#education > div,
+#experience > ul > li,
+#skills ul::after {
+    box-shadow: var(--shadow-angled-deep);
 }
 
 #experience > ul li::after {
@@ -1087,6 +1098,7 @@ section p {
 #skills h2 {
     margin-bottom: 0em;
     position: relative;
+    z-index: -1;
 }
 
 #skills h2::before,
@@ -1098,21 +1110,21 @@ section p {
     position: absolute;
 }
 
-#skills h2::after {
-    background: var(--accent-dark);
-    bottom: .25em;
-    left: 1.67em;
-
-    height: 1.5em;
-}
-
 #skills h2::before {
     background: var(--accent);
     z-index: 0;
     top: .23em;
     left: 1.97em;
 
-    height: 10em;
+    height: 6em;
+}
+
+#skills h2::after {
+    background: var(--accent-dark);
+    bottom: .25em;
+    left: 1.67em;
+
+    height: 6em;
 }
 
 #skills h3 {
@@ -1307,7 +1319,7 @@ ul.ani-list li::after,
     bottom: .25em;
     height: .75em;
 
-    height: 2em;
+    height: 4em;
     z-index: 1;
     box-shadow: var(--shadow-around);
 }
@@ -1334,11 +1346,15 @@ ul.ani-list li::after,
     background: var(--background-light);
 }
 
+.about-description,
 #education div.educational-info {
-    background: rgba(0, 0, 0, .6);
+    background: rgba(0, 0, 0, .8);
+    box-shadow: var(--glow-dark);
+}
+
+#education div.educational-info {
     margin: var(--indent);
     max-width: 22.5em;
-    box-shadow: var(--glow-dark);
 }
 
 #education .educational-info .degree em {
