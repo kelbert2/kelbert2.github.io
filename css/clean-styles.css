@@ -4,17 +4,28 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900&display=swap');
 
 :root {
-    --contrast: #f5c5a3;
-    --contrast-light: #fcde9c;
+    /*    --contrast: #f5c5a3;*/
+    /*    --contrast: #ffa666;*/
+    --contrast: #e99b63;
+    /*    hsl(25, 75%, 65%); */
+    --contrast-bright: #fc8936;
+    /*    hsl(25, 97%, 60%); */
+    /*    --contrast-light: #fcde9c;*/
     /*    hsl(25, 80%, 80%);*/
-    --accent-light: #d0ffb7;
+    /*    --accent-light: #d0ffb7;*/
     /*    --accent: #a3f5be;*/
     /*    hsl(140, 80%, 80%);*/
-    --accent: #8bf4ae;
+    /*    --accent: #8bf4ae;*/
+    /*    hsl(140, 83, 75); */
+    --accent: #71f49d;
+    /*    hsl(140, 85, 70); */
+    --accent-bright: #51fb8a;
+    /*    hsl(140, 95, 65); */
 
     /*    --accent-dark: #6BD1B8;*/
     /*    hsl(165, 53%, 62%);*/
-    --accent-dark: #55D1B2;
+    /*    --accent-dark: #55D1B2;*/
+    --accent-dark: #4ae8c1;
     --background-dark: #0b0b0f;
     /*    hsl(240, 15%, 10%);*/
     --background: #21212C;
@@ -41,11 +52,11 @@
         0 6px 8px rgba(0, 0, 0, 0.11),
         0 8px 16px rgba(0, 0, 0, 0.11);
 
-    --glow: 0 4px 3px rgba(255, 150, 75, .4);
+    --glow: 0 4px 3px hsl(25, 100%, 70%, .4);
     --section-title-height: 2em;
     --line-thickness: 2px;
 
-    --accent-gradient: linear-gradient(to right, #8bf4ae, orange);
+    --accent-gradient: linear-gradient(to right, #51fb8a, #fc8936);
 
     --header-height: 3em;
 
