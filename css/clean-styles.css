@@ -105,9 +105,9 @@
 
     --accent-gradient: linear-gradient(to right, #51fb8a, #fc8936);
 
-    --header-height: 4.5em;
+    --header-height: 3em;
 
-    --indent: 1.5em;
+    --indent: 1em;
 
     --fill-color: hsla(0, 0%, 100%, .3);
     /*    TODO: header height based on viewport size */
@@ -179,7 +179,7 @@ h4 {
 }
 
 h1 {
-    font-size: calc(var(--multiplier) * 1.5em);
+    font-size: 1.5em;
     text-align: left;
     font-weight: 400;
 }
@@ -499,6 +499,7 @@ a.logo-stack:visited > .ani-link {
     right: 1.5rem;
     max-width: 15em;
     visibility: hidden;
+    font-size: .9rem;
 
     color: var(--background-dark);
     opacity: 0;
