@@ -105,7 +105,7 @@
 
     --accent-gradient: linear-gradient(to right, #51fb8a, #fc8936);
 
-    --header-height: 3em;
+    --header-height: 3.125em;
 
     --indent: 1em;
 
@@ -584,6 +584,29 @@ header div {
 
 #header-contact {
     display: none;
+}
+
+#header-contact::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 3px;
+    height: 0;
+    left: .25em;
+    transition: height .3s;
+    background: var(--accent);
+}
+
+@media(min-width: 660px) {
+    #header-contact {
+        display: inline-block;
+        position: relative;
+        margin: .25em;
+    }
+
+    #header-contact::before {
+        height: 100%;
+    }
 }
 
 header .logo-stack,
