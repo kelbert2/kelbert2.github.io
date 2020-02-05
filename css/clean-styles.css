@@ -87,10 +87,11 @@
         inset 0 6px 8px rgba(0, 0, 0, 0.11),
         inset 0 8px 16px rgba(0, 0, 0, 0.11);
 */
-    --text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2),
-        1px 1px 2px rgba(0, 0, 0, 0.2),
-        2px 2px 3px rgba(0, 0, 0, 0.2),
-        4px 4px 4px rgba(0, 0, 0, 0.2);
+    --text-shadow: -1px -1px 2px rgba(0, 0, 0, 0.25),
+        0 0 2px rgba(0, 0, 0, 0.25),
+        1px 1px 4px rgba(0, 0, 0, 0.35),
+        2px 2px 6px rgba(0, 0, 0, 0.35),
+        4px 4px 8px rgba(0, 0, 0, .35);
 
 
     --glow-contrast: 0 1px 2px 1px hsla(140, 95, 65, .2),
@@ -427,14 +428,6 @@ a.logo-stack:visited > .ani-link {
     transition: all .3s;
 }
 
-@media (min-width: 400px) {
-    .tooltip-icon {
-        height: 1.125em;
-        width: 1.125em;
-        margin: 0 .25em;
-    }
-}
-
 .tooltip:hover .tooltip-icon {
     margin: -.25em .325rem;
     width: 1em;
@@ -597,7 +590,7 @@ header div {
     background: var(--accent);
 }
 
-@media(min-width: 660px) {
+@media(min-width: 42em) {
     #header-contact {
         display: inline-block;
         position: relative;
@@ -946,7 +939,7 @@ section p {
     transform: rotate(-38deg) skewY(-10deg);
 }
 
-@media (min-width: 400px) {
+@media (min-width: 31em) {
     #about .intro {
         font-size: 5rem;
     }
@@ -1058,8 +1051,10 @@ section p {
     padding-top: 0;
 }
 
-@media (min-width: 400px) {
-    #experience h2 {
+@media (min-width: 30em) {
+
+    #experience h2,
+    #education h2 {
         margin: .45em .1em;
         font-size: .9em;
     }
@@ -1095,6 +1090,18 @@ section p {
     background: var(--background);
     padding: .75em;
     margin: .75em 0;
+}
+
+@media (min-width: 30em) {
+    .tooltip-icon {
+        height: 1.125em;
+        width: 1.125em;
+        margin: 0 .25em;
+    }
+
+    #experience > ul > li {
+        padding: .5em;
+    }
 }
 
 #education > div,
@@ -1185,7 +1192,7 @@ section p {
     height: 7em;
 }
 
-@media(min-width: 900px) {
+@media(min-width: 56em) {
     #skills h2::before {
         height: 6em;
     }
@@ -1207,10 +1214,7 @@ section p {
 #skills h3,
 #education h4,
 #education h3 {
-    text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2),
-        1px 1px 2px rgba(0, 0, 0, 0.2),
-        2px 2px 3px rgba(0, 0, 0, 0.2),
-        4px 4px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: var(--text-shadow);
 }
 
 #skills ul {
@@ -1294,6 +1298,10 @@ ul.ani-list li::after,
     right: -6em;
 }
 */
+#skills {
+    max-width: 41em;
+    margin: auto;
+}
 
 #skills ul:nth-child(odd) {
     position: relative;
@@ -1303,9 +1311,7 @@ ul.ani-list li::after,
     display: block;
     content: '';
     height: calc(100% + 3em);
-    width: calc(100% - 1em);
-    top: -2em;
-    left: 0em;
+    width: calc(100%);
     position: absolute;
     z-index: -1;
     background: var(--background);
@@ -1313,13 +1319,17 @@ ul.ani-list li::after,
 
 #skills ul:nth-child(5)::after,
 #skills ul:nth-child(9)::after {
-    border-left: 1em solid var(--background-dark);
+    /*    border-left: 1em solid var(--background-dark);*/
+    top: -1.95em;
+    left: .5em;
 }
 
 #skills ul:nth-child(3)::after,
 #skills ul:nth-child(7)::after {
     background: var(--background-light);
-    border-right: 1em solid var(--background-dark);
+    /*    border-right: 1em solid var(--background-dark);*/
+    left: -.5em;
+    top: -2.1em;
 }
 
 #skills h2,
@@ -1344,7 +1354,7 @@ ul.ani-list li::after,
     /*    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));*/
 
     grid-template-columns: repeat(auto-fit, minmax(8em, 10em));
-    grid-template-rows: repeat(auto-fit, 1.75em));
+    grid-template-rows: repeat(auto-fit, 1.75em);
 
     /*    grid-auto-flow: column;*/
 }
@@ -1391,7 +1401,7 @@ ul.ani-list li::after,
     bottom: .25em;
     height: .75em;
 
-    height: 4em;
+    height: 4.5em;
     z-index: 1;
     box-shadow: var(--shadow-around);
 }
@@ -1597,7 +1607,7 @@ ul.ani-list li::after,
 }
 
 #projects > ul > li {
-    max-width: 23em;
+    max-width: 23rem;
     margin: .25em auto;
 }
 
