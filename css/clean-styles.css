@@ -111,8 +111,6 @@
 
     --fill-color: hsla(0, 0%, 100%, .3);
     /*    TODO: header height based on viewport size */
-
-    --multiplier: 1.5;
 }
 
 @viewport {
@@ -135,7 +133,7 @@ html {
 
 html,
 .content {
-    font-size: calc(var(--multiplier) * .9rem);
+    font-size: 1.35em;
     /*        font-family: 'Open Sans', 'Roboto', sans-serif;*/
     font-family: 'Source Sans Pro', 'Roboto', sans-serif;
     /*    font-family: 'Montserrat', 'Roboto', sans-serif;*/
@@ -146,7 +144,7 @@ body {
     margin: 0;
     padding: 0;
 
-    max-width: calc(var(--multiplier) * 50em);
+    max-width: 50em;
     margin: auto;
 }
 
@@ -272,8 +270,8 @@ a.logo-stack:visited > .ani-link {
 
 .ani-link:hover,
 .ani-link:focus,
-.logo-stack:hover > .ani-link,
-.logo-stack:focus > .ani-link {
+.logo-stack:hover .ani-link,
+.logo-stack:focus .ani-link {
     /*    background: -webkit-gradient(linear, left top, right top, from(#ff8a00), to(#e52e71));*/
     background: var(--accent-gradient);
     /*    background-clip: border-box;*/
@@ -305,8 +303,8 @@ a.logo-stack:visited > .ani-link {
 
 .ani-link:hover::before,
 .ani-link:focus::before,
-.logo-stack:hover > .ani-link::before,
-.logo-stack:hover > .ani-link::before {
+.logo-stack:hover .ani-link::before,
+.logo-stack:hover .ani-link::before {
     width: 100%;
 }
 
@@ -402,10 +400,10 @@ a.logo-stack:visited > .ani-link {
     position: relative;
 
     /*            text-align: center;*/
-    vertical-align: baseline;
-    height: 1.125em;
-    width: 1.125em;
-    margin: -.25em .25em;
+    vertical-align: middle;
+    height: .75em;
+    width: .75em;
+    margin: 0 .125em;
     border-radius: 1em;
 
     /*
@@ -427,6 +425,14 @@ a.logo-stack:visited > .ani-link {
     -webkit-text-fill-color: var(--on-background);
 */
     transition: all .3s;
+}
+
+@media (min-width: 400px) {
+    .tooltip-icon {
+        height: 1.125em;
+        width: 1.125em;
+        margin: 0 .25em;
+    }
 }
 
 .tooltip:hover .tooltip-icon {
@@ -541,7 +547,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: var(--header-height);
     z-index: 2;
 
@@ -871,15 +877,17 @@ section p {
 }
 
 #about .intro {
-    font-size: 5rem;
+    font-size: 4em;
     margin: 0;
     position: relative;
     z-index: 1;
     text-shadow: var(--text-shadow);
 }
 
+
 #about .intro:nth-child(3) {
     position: relative;
+    white-space: nowrap;
 }
 
 #about .intro:nth-child(3)::before {
@@ -888,13 +896,12 @@ section p {
     position: absolute;
 
     bottom: .25em;
-    left: 2.15em;
-
-    background: var(--on-background);
-
-    width: .18em;
+    left: 2.2em;
+    width: .16em;
     height: .71em;
     height: 3em;
+
+    background: var(--on-background);
     box-shadow: var(--shadow-around);
 }
 
@@ -904,18 +911,31 @@ section p {
     position: absolute;
 
     top: .58em;
-    left: 2.365em;
-
-    background: var(--on-background);
-
+    left: 2.41em;
     width: .165em;
     height: .35em;
     height: 7em;
 
+    background: var(--on-background);
+    box-shadow: var(--shadow-inset-top);
+
     transform-origin: top right;
     transform: rotate(-38deg) skewY(-10deg);
+}
 
-    box-shadow: var(--shadow-inset-top);
+@media (min-width: 400px) {
+    #about .intro {
+        font-size: 5rem;
+    }
+
+    #about .intro:nth-child(3)::before {
+        left: 2.15em;
+        width: .18em;
+    }
+
+    #about .intro:nth-child(3)::after {
+        left: 2.365em;
+    }
 }
 
 /*
@@ -959,16 +979,15 @@ section p {
     z-index: 1;
 }
 
-#about p.about-description + p.about-description {
-    margin-top: 0;
-    padding-top: 0;
-}
-
 #experience h2,
 #education h2 {
     position: relative;
     margin: .45em .1em;
     font-size: .9em;
+}
+
+#experience h2 {
+    font-size: .75em;
 }
 
 #experience h2::after,
@@ -980,7 +999,7 @@ section p {
 }
 
 #experience h2::after {
-    bottom: .25em;
+    bottom: .26em;
 
     left: .67em;
     background: var(--accent);
@@ -988,9 +1007,9 @@ section p {
 
     height: .55em;
     height: 9em;
-    width: .16em;
+    width: .17em;
 
-
+    /*TODO: add inset transparent to fade into on far end*/
     /*    top: 80%;*/
     transform-origin: bottom left;
     transform: skewX(-37.5deg);
@@ -1003,14 +1022,29 @@ section p {
 #experience h2::before {
     left: 4.405em;
     top: .8em;
-    width: .153em;
+    width: .16em;
     height: .15em;
 
-    height: 13em;
+    height: 15.5em;
     background: var(--accent-dark);
     z-index: -1;
 }
 
+#about p.about-description + p.about-description {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+@media (min-width: 400px) {
+    #experience h2 {
+        margin: .45em .1em;
+        font-size: .9em;
+    }
+
+    #experience h2::before {
+        width: .155em;
+    }
+}
 
 /*
 .experience-header {
@@ -1125,7 +1159,13 @@ section p {
     top: .23em;
     left: 1.97em;
 
-    height: 6em;
+    height: 7em;
+}
+
+@media(min-width: 900px) {
+    #skills h2::before {
+        height: 6em;
+    }
 }
 
 #skills h2::after {
@@ -1133,7 +1173,7 @@ section p {
     bottom: .25em;
     left: 1.67em;
 
-    height: 6em;
+    height: 8em;
 }
 
 #skills h3 {
@@ -1339,7 +1379,7 @@ ul.ani-list li::after,
     top: .7em;
 
     height: .26em;
-    height: 22em;
+    height: 17em;
 }
 
 #education > div {
@@ -1520,7 +1560,7 @@ ul.ani-list li::after,
     top: .5em;
 
     height: .25em;
-    height: 2em;
+    height: 11em;
     z-index: -1;
 
     transform-origin: top center;
