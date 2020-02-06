@@ -174,7 +174,7 @@ h1,
 h2,
 h3,
 h4 {
-    margin: calc(var(--multiplier) * .45em);
+    margin: .25em;
 }
 
 h1 {
@@ -188,7 +188,7 @@ h2,
 #contact p {
     /*    margin: 0 .5em;*/
     color: var(--accent-dark);
-    font-size: calc(var(--multiplier) * 2em);
+    font-size: 3em;
     font-size: 4rem;
     /*    text-transform: uppercase;*/
 }
