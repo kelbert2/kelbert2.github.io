@@ -188,7 +188,6 @@ h2,
 #contact p {
     /*    margin: 0 .5em;*/
     color: var(--accent-dark);
-    font-size: 3em;
     font-size: 4rem;
     /*    text-transform: uppercase;*/
 }
@@ -1069,19 +1068,6 @@ section p {
     padding-top: 0;
 }
 
-@media (min-width: 30em) {
-
-    #experience h2,
-    #education h2 {
-        margin: .45em .1em;
-        font-size: .9em;
-    }
-
-    #experience h2::before {
-        width: .155em;
-    }
-}
-
 /*
 .experience-header {
             background: var(--background-light);
@@ -1608,6 +1594,85 @@ ul.ani-list li::after,
     transform: rotate(180deg);
 }
 
+@media (min-width: 32em) {
+
+    #experience h2,
+    #education h2,
+    #projects h2 {
+        margin: .45em .1em;
+    }
+
+    html,
+    .content {
+        font-size: 1rem;
+    }
+
+    h2,
+    .title,
+    #contact p {
+        font-size: 2.5rem;
+    }
+
+    h3,
+    .subtitle {
+        font-size: 1.5rem;
+    }
+
+    h4,
+    .subsubtitle {
+        font-size: 1rem;
+    }
+
+    #about .intro {
+        font-size: 3em;
+    }
+
+    #about .intro:nth-child(3)::before {
+        left: 2.4em;
+    }
+
+    #about .intro:nth-child(3)::after {
+        left: 2.6em;
+        top: .57em;
+        height: 8em;
+    }
+
+    #experience h2::before {
+        width: .155em;
+        height: 34em;
+    }
+
+    #experience h2::after {
+        height: 15em;
+    }
+
+    #skills h2::before {
+        left: 1.96em;
+        height: 10em;
+    }
+
+    #skills h2::after {
+        left: 1.66em;
+        height: 10em;
+    }
+
+    #education h2::before {
+        height: 6em;
+    }
+
+    #education h2::after {
+        width: .16em;
+        left: 5.11em;
+        height: 19em;
+    }
+
+    #projects h2::after {
+        left: 1.95em;
+        width: .17em;
+        height: 13em;
+    }
+}
+
 #projects > ul {
     display: flex;
     flex-wrap: wrap;
@@ -1789,7 +1854,7 @@ input:checked ~ .details-button:active::before {
 
 #contact p {
     margin: auto;
-    padding: 0 1em;
+    /*    padding: 0 var(--indent);*/
     text-align: center;
     text-align-last: center;
     text-indent: 0;
