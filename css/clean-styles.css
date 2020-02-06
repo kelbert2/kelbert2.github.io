@@ -134,7 +134,7 @@ html {
 
 html,
 .content {
-    font-size: 1.35em;
+    font-size: .9rem;
     /*        font-family: 'Open Sans', 'Roboto', sans-serif;*/
     font-family: 'Source Sans Pro', 'Roboto', sans-serif;
     /*    font-family: 'Montserrat', 'Roboto', sans-serif;*/
@@ -188,23 +188,23 @@ h2,
 #contact p {
     /*    margin: 0 .5em;*/
     color: var(--accent-dark);
-    font-size: 4rem;
+    font-size: 2.5rem;
     /*    text-transform: uppercase;*/
 }
 
 h3,
 .subtitle {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 h4,
 .subsubtitle {
-    font-size: 1.4rem;
+    font-size: 1rem;
 }
 
 .subsubsubtitle,
 .details-button {
-    font-size: 1.1rem;
+    font-size: .95rem;
 }
 
 ul {
@@ -910,7 +910,7 @@ section p {
 }
 
 #about .intro {
-    font-size: 4em;
+    font-size: 3em;
     margin: 0;
     position: relative;
     z-index: 1;
@@ -929,9 +929,10 @@ section p {
     position: absolute;
 
     bottom: .25em;
-    left: 2.2em;
-    width: .16em;
+    left: 2.45em;
+    width: .17em;
     height: .71em;
+
     height: 3em;
 
     background: var(--on-background);
@@ -943,32 +944,19 @@ section p {
     content: '';
     position: absolute;
 
-    top: .58em;
-    left: 2.41em;
+
+    top: .565em;
+    left: 2.65em;
     width: .165em;
+
     height: .35em;
-    height: 7em;
+    height: 8em;
 
     background: var(--on-background);
     box-shadow: var(--shadow-inset-top);
 
     transform-origin: top right;
     transform: rotate(-38deg) skewY(-10deg);
-}
-
-@media (min-width: 31em) {
-    #about .intro {
-        font-size: 5rem;
-    }
-
-    #about .intro:nth-child(3)::before {
-        left: 2.15em;
-        width: .18em;
-    }
-
-    #about .intro:nth-child(3)::after {
-        left: 2.365em;
-    }
 }
 
 /*
@@ -1031,15 +1019,24 @@ section p {
     position: absolute;
 }
 
+#experience h2::before {
+    left: 4.4em;
+    top: .8em;
+    width: .155em;
+    height: .15em;
+
+    height: 34em;
+    background: var(--accent-dark);
+    z-index: -1;
+}
+
 #experience h2::after {
     bottom: .26em;
 
     left: .67em;
     background: var(--accent);
     /*    top: 0.44em;*/
-
-    height: .55em;
-    height: 9em;
+    height: 15em;
     width: .17em;
 
     /*TODO: add inset transparent to fade into on far end*/
@@ -1050,17 +1047,6 @@ section p {
         2px 2px 4px 2px rgba(0, 0, 0, 0.2),
         4px 4px 8px 4px rgba(0, 0, 0, 0.2),
         6px 6px 12px 8px rgba(0, 0, 0, 0.2);
-}
-
-#experience h2::before {
-    left: 4.405em;
-    top: .8em;
-    width: .16em;
-    height: .15em;
-
-    height: 15.5em;
-    background: var(--accent-dark);
-    z-index: -1;
 }
 
 #about p.about-description + p.about-description {
@@ -1168,8 +1154,7 @@ section p {
 
 .job-title {
     font-weight: bold;
-
-    margin-left: 5em;
+    margin: .5em 0 0 5em;
 }
 
 #skills h2 {
@@ -1191,23 +1176,15 @@ section p {
     background: var(--accent);
     z-index: 0;
     top: .23em;
-    left: 1.97em;
-
-    height: 7em;
-}
-
-@media(min-width: 56em) {
-    #skills h2::before {
-        height: 6em;
-    }
+    left: 1.965em;
+    height: 10.25em;
 }
 
 #skills h2::after {
     background: var(--accent-dark);
     bottom: .25em;
-    left: 1.67em;
-
-    height: 8em;
+    left: 1.66em;
+    height: 10em;
 }
 
 #skills h3 {
@@ -1384,29 +1361,28 @@ ul.ani-list li::after,
     display: block;
     content: '';
     position: absolute;
-    width: .15em;
-
+    width: .165em;
 }
 
 #education h2::before {
-    background: var(--accent);
     left: 1.13em;
-    width: .16em;
     bottom: .25em;
     height: .75em;
 
-    height: 4.5em;
+    height: 6em;
     z-index: 1;
+    background: var(--accent);
     box-shadow: var(--shadow-around);
 }
 
 #education h2::after {
     background: var(--accent-dark);
-    left: 5.119em;
-    top: .7em;
 
+    top: .7em;
+    left: 5.11em;
     height: .26em;
-    height: 17em;
+
+    height: 19em;
 }
 
 #education > div {
@@ -1581,26 +1557,20 @@ ul.ani-list li::after,
     content: '';
     position: absolute;
     background: var(--accent-dark);
-    width: .165em;
 
     left: 1.95em;
     top: .5em;
+    width: .18em;
 
     height: .25em;
-    height: 11em;
+    height: 15em;
     z-index: -1;
 
     transform-origin: top center;
     transform: rotate(180deg);
 }
 
-@media (min-width: 32em) {
-
-    #experience h2,
-    #education h2,
-    #projects h2 {
-        margin: .45em .1em;
-    }
+@media (min-width: 31em) {
 
     html,
     .content {
@@ -1610,66 +1580,72 @@ ul.ani-list li::after,
     h2,
     .title,
     #contact p {
-        font-size: 2.5rem;
+        font-size: 4rem;
     }
 
     h3,
     .subtitle {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     h4,
     .subsubtitle {
-        font-size: 1rem;
+        font-size: 1.4rem;
+    }
+
+    .subsubsubtitle,
+    .details-button {
+        font-size: 1.1rem;
     }
 
     #about .intro {
-        font-size: 3em;
+        font-size: 5rem;
     }
 
     #about .intro:nth-child(3)::before {
-        left: 2.4em;
+        left: 2.2em;
+        width: .18em;
     }
 
     #about .intro:nth-child(3)::after {
-        left: 2.6em;
-        top: .57em;
+        top: .58em;
+        left: 2.42em;
         height: 8em;
     }
 
     #experience h2::before {
-        width: .155em;
-        height: 34em;
+        width: .16em;
+        height: 16.5em;
     }
 
     #experience h2::after {
-        height: 15em;
+        height: .55em;
+        height: 9em;
     }
 
     #skills h2::before {
-        left: 1.96em;
-        height: 10em;
+        left: 1.97em;
+        height: 6.5em;
     }
 
     #skills h2::after {
-        left: 1.66em;
-        height: 10em;
+        left: 1.67em;
+        height: 8em;
     }
 
     #education h2::before {
-        height: 6em;
+        height: 4.5em;
     }
 
     #education h2::after {
-        width: .16em;
-        left: 5.11em;
-        height: 19em;
+        left: 5.119em;
+        height: 17em;
     }
 
     #projects h2::after {
         left: 1.95em;
-        width: .17em;
-        height: 13em;
+        top: .5em;
+        height: 11em;
     }
 }
 
@@ -1871,7 +1847,7 @@ input:checked ~ .details-button:active::before {
     width: .65em;
 
     bottom: .23em;
-    left: .43em;
+    left: .42em;
 }
 
 .touch::after {
