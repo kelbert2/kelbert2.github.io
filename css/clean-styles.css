@@ -1725,8 +1725,9 @@ ul.ani-list li::after,
     transform: rotate(180deg);
 }
 
-/* Shrinks enlarges the intro when wide enough*/
-@media (min-width: 14em) {
+
+/* Shrinks Experience h2 and intro */
+@media (min-width: 19em) {
 
     html,
     .content {
@@ -1769,16 +1770,16 @@ ul.ani-list li::after,
     }
 
     #about .intro {
-        font-size: 5rem;
+        font-size: 4rem;
     }
 
     #about .intro:nth-child(3)::before {
-        left: 2.22em;
+        left: 2.28em;
     }
 
     #about .intro:nth-child(3)::after {
-        top: .57em;
-        left: 2.42em;
+        top: .58em;
+        left: 2.49em;
         height: 8em;
     }
 
@@ -1789,7 +1790,7 @@ ul.ani-list li::after,
 
     #experience h2::after {
         height: .55em;
-        height: 8em;
+        height: 10em;
     }
 
     #experience > ul > li {
@@ -1817,7 +1818,7 @@ ul.ani-list li::after,
 
     #education h2::after {
         left: 5.119em;
-        height: 17em;
+        height: 16.2em;
     }
 
     #projects h2::after {
@@ -1827,7 +1828,9 @@ ul.ani-list li::after,
     }
 }
 
-@media(min-width: 25em) {
+/* Shrinks enlarges the intro when wide enough*/
+/* Hits Experience h2 */
+@media(min-width: 26em) {
 
     h2,
     .title,
