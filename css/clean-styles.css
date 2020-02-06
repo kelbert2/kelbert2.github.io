@@ -106,7 +106,7 @@
 
     --accent-gradient: linear-gradient(to right, #51fb8a, #fc8936);
 
-    --header-height: 3.125em;
+    --header-height: 3.125rem;
 
     --indent: 1em;
 
@@ -174,7 +174,7 @@ h1,
 h2,
 h3,
 h4 {
-    margin: .25em;
+    margin: .25em .45em;
 }
 
 h1 {
@@ -210,7 +210,7 @@ h4,
 
 ul {
     list-style-type: none;
-    padding-left: 1em;
+    padding-left: var(--indent);
 }
 
 li + li {
@@ -656,6 +656,10 @@ header svg:hover {
     margin: 0;
 }
 
+#main-menu li + li {
+    margin: 0;
+}
+
 #main-menu li,
 #main-menu-close {
     border-bottom: 1px solid var(--background-light);
@@ -663,7 +667,7 @@ header svg:hover {
 
 #main-menu li a {
     display: block;
-    padding: .5em 2em;
+    padding: .5em calc(var(--indent) * 2);
     line-height: 1em;
 }
 
@@ -671,7 +675,23 @@ header svg:hover {
 #main-menu li a:focus {
     color: var(--accent);
     background: var(--background-light);
+    transition: .5s;
+}
+
+#main-menu li::after {
+    display: block;
+    content: '';
+    width: 0;
+    height: .2em;
+
+    /*    position: absolute;*/
+    background: var(--accent-gradient);
     transition: .3s;
+}
+
+#main-menu li:hover::after,
+#main-menu li:focus::after {
+    width: 100%;
 }
 
 /* Overlay */
@@ -862,25 +882,23 @@ main {
 }
 
 /* Spacing for when click */
-section::before {
-    content: '';
-    display: block;
-
-    height: var(--header-height);
-    margin: calc(-1*var(--header-height)) 0 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
+section {
+    position: relative;
 }
 
 section::before {
-    display: block;
     content: '';
-    position: absolute;
-    width: 100%;
-    height: var(--header-height);
+    display: block;
+
+    visibility: none;
+    /*    position: absolute;*/
     top: 0;
+    left: 0;
+
+    height: var(--header-height);
+    margin: calc(-1 * var(--header-height)) 0 0;
+
+    z-index: -3;
 }
 
 section p {
@@ -988,7 +1006,7 @@ section p {
 */
 
 .about-description {
-    padding: 1em;
+    padding: var(--indent);
     margin-bottom: 0;
 
     position: relative;
@@ -1275,16 +1293,6 @@ ul.ani-list li::after,
 }
 */
 
-#skills::before,
-#skills::after {
-    display: block;
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 5em;
-    top: 0;
-}
-
 /*
 #skills::before {
     background: var(--background-light);
@@ -1416,7 +1424,7 @@ ul.ani-list li::after,
 }
 
 #education > div {
-    padding: .5em 1em;
+    padding: .5em var(--indent);
     margin: 1em 0;
 }
 
