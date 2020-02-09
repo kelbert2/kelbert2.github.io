@@ -151,6 +151,14 @@ html,
     /*    font-family: 'Montserrat', 'Roboto', sans-serif;*/
 }
 
+html,
+body,
+header,
+main {
+    overflow-x: hidden;
+    width: 100vw;
+}
+
 body {
     vertical-align: baseline;
     margin: 0;
