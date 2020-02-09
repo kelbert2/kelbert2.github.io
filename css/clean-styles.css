@@ -163,7 +163,9 @@ body {
     vertical-align: baseline;
     margin: 0;
     padding: 0;
+}
 
+section {
     max-width: 50em;
     margin: auto;
 }
