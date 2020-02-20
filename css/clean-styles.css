@@ -214,7 +214,8 @@ h2,
 }
 
 h3,
-.subtitle {
+.subtitle,
+#main-menu {
     font-size: 1.25rem;
 }
 
@@ -718,10 +719,14 @@ header svg:hover {
 /* Nav-Bar -------------------------------------------------*/
 #main-menu {
     position: fixed;
-    right: -200px;
+    right: -100em;
     top: 0;
     height: 100%;
     z-index: 3;
+    min-width: 25%;
+    max-width: 100em;
+
+    font-family: 'Montserrat', 'Ubuntu', sans-serif;
 
     -webkit-transition: right var(--main-menu-transition-time);
     transition: right var(--main-menu-transition-time);
@@ -730,7 +735,6 @@ header svg:hover {
 #main-menu:target,
 #main-menu[aria-expanded="true"] {
     right: 0;
-
     -webkit-box-shadow: var(--shadow-around);
     box-shadow: var(--shadow-around);
 }
@@ -748,13 +752,14 @@ header svg:hover {
 
 #main-menu li,
 #main-menu-close {
-    border-bottom: 1px solid var(--background-light);
+    border-bottom: 1px solid var(--accent);
+    /*    var(--background-light)*/
 }
 
 #main-menu li a {
     display: block;
     padding: .5em calc(var(--indent) * 2);
-    line-height: 1em;
+    line-height: 1.25em;
 }
 
 #main-menu li a:hover,
@@ -769,12 +774,11 @@ header svg:hover {
 #main-menu li::after {
     display: block;
     content: '';
+    /*    width: .75em;*/
     width: 0;
     height: .2em;
-
     /*    position: absolute;*/
-    background: var(--accent-gradient);
-
+    background: var(--accent);
     -webkit-transition: .3s;
     transition: .3s;
 }
@@ -782,6 +786,7 @@ header svg:hover {
 #main-menu li:hover::after,
 #main-menu li:focus::after {
     width: 100%;
+    background: var(--accent-gradient);
 }
 
 /* Overlay */
@@ -2480,7 +2485,7 @@ p:focus .touch::after,
 
 [data-aos="custom-fade-up"].aos-animate {
     -webkit-animation: customFadeUp 1s ease;
-    animation: customFadeUp 1s ease;
+    /*    animation: customFadeUp 1s ease;*/
 }
 
 @-webkit-keyframes customFadeUp {
@@ -2525,7 +2530,7 @@ p:focus .touch::after,
 
 [data-aos="custom-fade-right"].aos-animate {
     -webkit-animation: customFadeRight 2s ease;
-    animation: customFadeRight 2s ease;
+    /*    animation: customFadeRight 2s ease;*/
 }
 
 @-webkit-keyframes customFadeRight {
@@ -2570,7 +2575,7 @@ p:focus .touch::after,
 
 [data-aos="custom-fade-left"].aos-animate {
     -webkit-animation: customFadeLeft 2s ease;
-    animation: customFadeLeft 2s ease;
+    /*    animation: customFadeLeft 2s ease;*/
 }
 
 @-webkit-keyframes customFadeLeft {
@@ -2621,7 +2626,7 @@ p:focus .touch::after,
 [data-aos="custom-fade-up-short-list"].aos-animate li {
     /*    fewer than 5 li*/
     transition-property: opacity, transform;
-    animation: customFadeRight 2s ease;
+    /*    animation: customFadeRight 2s ease;*/
 }
 
 [data-aos="custom-fade-up-short-list"].aos-animate li:nth-child(2) {
