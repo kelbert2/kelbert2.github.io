@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="css/clean-styles.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Source+Sans+Pro:400,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
     <!--
@@ -97,7 +98,7 @@
             <p class="intro">Hi,
                 <!--                <em class="tooltip">short for "Hello"</em>-->
             </p>
-            <p class="intro">I'm Kris.
+            <p class="intro" data-aos="custom">I'm Kris.
                 <!--                <em class="tooltip">short for "Kristianna"</em>-->
             </p>
             <p class="about-description">I'm a hard-working software engineer that loves building things that work. But even more than that, I love understanding exactly <em>how</em> and <em>why</em> they work
@@ -113,7 +114,7 @@
 
         <section id="experience">
             <a href="#experience" class="title">
-                <h2>Experience</h2>
+                <h2 data-aos="custom">Experience</h2>
             </a>
 
             <ul>
@@ -296,9 +297,10 @@
                 </li>
             </ul>
         </section>
+
         <section id="skills">
             <a href="#skills" class="title">
-                <h2>Skills</h2>
+                <h2 data-aos="custom">Skills</h2>
             </a>
 
             <h3>Programming</h3>
@@ -314,6 +316,7 @@
             <h3>Related Technologies</h3>
             <ul class="ani-list">
                 <li>Angular</li>
+                <li>React</li>
                 <li>Knockout.js</li>
                 <li>Arduino</li>
                 <li>HTML & CSS</li>
@@ -338,9 +341,9 @@
 
         <section id="education">
             <a href="#education" class="title">
-                <h2 class="title">Education</h2>
+                <h2 data-aos="custom">Education</h2>
             </a>
-            <div class="educational-info">
+            <div class="educational-info" data-aos="custom">
                 <h3>Duke University</h3>
                 <div class="subsubtitle">Pratt School of Engineering</div>
                 <div class="experience-info">
@@ -363,7 +366,7 @@
 
                 <ul class="ani-list">
 
-                    <li>Mobile App Development<em class="skills-short"> (Swift, Objective-C)</em>
+                    <li>Mobile App Development<em class="skills-short"> (Swift, Objective-C, iOS)</em>
                         <ul class="skills">
                             <li>UI Design</li>
                             <li>Swift</li>
@@ -500,11 +503,11 @@
                 <ul class="desc-list">
                     <li>
                         <a class="subsubsubtitle ani-link" href="https://sites.duke.edu/femmes/" target="_blank">Females Excelling More in Math, Engineering, and Science</a>
-                        <p class="description">Volunteer with elementary through high-school aged girls</p>
+                        <p class="description">Volunteered with elementary through high-school aged girls</p>
                     </li>
                     <li>
                         <a class="subsubsubtitle ani-link" href="https://www.girlsengineeringchange.org/" target="_blank">Girls Engineering Change</a>
-                        <p class="description">Teach young women to solder and inspire them to pursue engineering degrees</p>
+                        <p class="description">Taught young women to solder and inspired them to pursue engineering degrees</p>
                     </li>
                     <li>
                         <a class="subsubsubtitle ani-link" href="https://www.westfieldhistoricalsociety.org/" target="_blank">Westfield Historical Society</a>
@@ -515,10 +518,10 @@
 
         <section id="projects">
             <a href="#projects" class="title">
-                <h2>Past Projects</h2>
+                <h2 data-aos="custom">Past Projects</h2>
             </a>
             <ul>
-                <li>
+                <li data-aos="fade-up">
                     <div class="subtitle" id="project-SFM">Enterprise Resource Planning System</div>
                     <div class="technology">MongoDB, Express, Angular, Node.js</div>
                     <!--                    <video></video>-->
@@ -537,7 +540,7 @@
                         </ul>
                     </div>
                 </li>
-                <li>
+                <li data-aos="fade-up">
                     <div class="subtitle" id="project-CPS">Parallelized Basal Ganglia Model for GPGPUs</div>
                     <div class="technology">C++, CUDA</div>
                     <ul class="description ani-list">
@@ -553,7 +556,7 @@
                         </ul>
                     </div>
                 </li>
-                <li>
+                <li data-aos="fade-up">
                     <div class="subtitle" id="project-MAD">A Portrait of Venice App</div>
                     <div class="technology">Swift, iOS, Mobile Development</div>
                     <!--                    <video></video>-->
@@ -571,7 +574,7 @@
                         </ul>
                     </div>
                 </li>
-                <li>
+                <li data-aos="fade-up">
                     <div class="subtitle" id="project-HCI">Duke Mental Health Screening</div>
                     <div class="technology">Vue.js, Bootstrap, HTML</div>
                     <!--                    <video></video>-->
@@ -595,7 +598,7 @@
                         </ul>
                     </div>
                 </li>
-                <li>
+                <li data-aos="fade-up">
                     <div class="subtitle" id="project-DS">Processor</div>
                     <div class="technology">Verilog, MiPs</div>
                     <ul class="skills">
@@ -639,7 +642,7 @@
             <a href="#contact" class="title">
                 <h2 class="title">Contact</h2>
             </a>
-            <p>Let's get in <span class="touch">touch!
+            <p>Let's get in <span class="touch" data-aos="custom">touch!
                     <span class="fingerprint">
                         <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 417.799 575.526" preserveAspectRatio="xMidYMid meet" class="fingerprint-svg">
                             <path d="M209.032 320.043a200 250 0 01-4.133 50.56M160.035 320.043A151.002 188.753 0 0170.45 492.478M258.03 320.043a248.998 311.247 0 01-92.299 241.885M109.833 320.043a99.2 123.999 0 0193.103-123.764 99.2 123.999 0 01104.546 108.553" />
@@ -695,4 +698,9 @@
     <!--    <footer>-->
     <!--        <span class="line line-bottom"></span>-->
     <!--    </footer>-->
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body></html>
