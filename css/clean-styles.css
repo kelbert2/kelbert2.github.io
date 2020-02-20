@@ -2478,13 +2478,11 @@ p:focus .touch::after,
 [data-aos="custom-fade-right"],
 [data-aos="custom-fade-left"] {
     -webkit-transition-property: opacity, -webkit-transform;
-    transition-property: opacity, -webkit-transform;
     transition-property: opacity, transform;
-    transition-property: opacity, transform, -webkit-transform;
 }
 
 [data-aos="custom-fade-up"].aos-animate {
-    -webkit-animation: customFadeUp 1s ease;
+    /*    -webkit-animation: customFadeUp 1s ease;*/
     /*    animation: customFadeUp 1s ease;*/
 }
 
@@ -2529,7 +2527,7 @@ p:focus .touch::after,
 }
 
 [data-aos="custom-fade-right"].aos-animate {
-    -webkit-animation: customFadeRight 2s ease;
+    /*    -webkit-animation: customFadeRight 2s ease;*/
     /*    animation: customFadeRight 2s ease;*/
 }
 
@@ -2574,7 +2572,7 @@ p:focus .touch::after,
 }
 
 [data-aos="custom-fade-left"].aos-animate {
-    -webkit-animation: customFadeLeft 2s ease;
+    /*    -webkit-animation: customFadeLeft 2s ease;*/
     /*    animation: customFadeLeft 2s ease;*/
 }
 
