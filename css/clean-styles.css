@@ -1185,8 +1185,8 @@ section p {
     background: var(--accent-dark);
     z-index: -1;
 
-    -webkit-transition: 1s height 8s;
-    transition: 1s height 8s;
+    -webkit-transition: .3s height 8s;
+    transition: .3s height 8s;
 }
 
 #experience h2.aos-animate::before {
@@ -1628,6 +1628,7 @@ ul.ani-list li::after,
     box-shadow: var(--glow-dark);
 }
 
+/*
 #education div.educational-info {
     margin: var(--indent);
     max-width: 22.5em;
@@ -1637,6 +1638,7 @@ ul.ani-list li::after,
 #education div.educational-info.aos-animate {
     max-height: 100%;
 }
+*/
 
 #education .educational-info .degree em {
     font-style: normal;
@@ -1831,172 +1833,6 @@ ul.ani-list li::after,
 #projects h2.aos-animate::after {
     height: .25em;
 }
-
-
-/* Shrinks Experience h2 and intro */
-
-/*
-@media (min-width: 19em) {
-
-    html,
-    .content {
-        font-size: 1rem;
-    }
-
-    h2,
-    .title,
-    #contact p {
-        font-size: 3.5rem;
-    }
-
-    h3,
-    .subtitle {
-        font-size: 1.5rem;
-    }
-
-    h4,
-    .subsubtitle {
-        font-size: 1.2rem;
-    }
-
-    .subsubsubtitle,
-    .details-button {
-        font-size: 1rem;
-    }
-
-    .tooltip-icon {
-        height: 1.125em;
-        width: 1.125em;
-        margin: 0 .25em;
-    }
-
-    .tooltip:hover .tooltip-icon {
-        margin: -.25em .325rem;
-    }
-
-    .tooltip.subtitle:hover .tooltip-icon {
-        margin: -.25em .5rem;
-    }
-
-    #about .intro {
-        font-size: 4rem;
-    }
-
-    #about .intro:nth-child(3)::before {
-        left: 2.28em;
-    }
-
-    #about .intro:nth-child(3)::after {
-        top: .58em;
-        left: 2.49em;
-        height: 8em;
-    }
-
-    #experience h2::before {
-        width: .16em;
-        height: 18em;
-    }
-
-    #experience h2::after {
-                height: .55em;
-        height: 10em;
-    }
-
-    #experience h2.aos-animate::after {
-        height: .55em;
-    }
-
-    #experience > ul > li {
-        padding: .5em;
-    }
-
-    #experience h2,
-    #education h2 {
-        font-size: .9em;
-    }
-
-    #skills h2::before {
-        left: 1.97em;
-        height: 6.5em;
-    }
-
-    #skills h2::after {
-        left: 1.67em;
-        height: 8em;
-    }
-
-    #education h2::before {
-        height: 4.5em;
-    }
-
-    #education h2::after {
-        left: 5.119em;
-        height: 16.2em;
-    }
-
-    #projects h2::after {
-        left: 1.95em;
-        top: .5em;
-        height: 11em;
-    }
-}
-*/
-
-/* Shrinks enlarges the intro when wide enough*/
-/* Hits Experience h2 */
-/*
-@media(min-width: 26em) {
-
-    h2,
-    .title,
-    #contact p {
-        font-size: 4rem;
-    }
-
-    h3,
-    .subtitle {
-        font-size: 2rem;
-    }
-
-    h4,
-    .subsubtitle {
-        font-size: 1.4rem;
-    }
-
-    .subsubsubtitle,
-    .details-button {
-        font-size: 1.1rem;
-    }
-
-    #about .intro {
-        font-size: 5rem;
-    }
-
-    #about .intro:nth-child(3)::before {
-        left: 2.22em;
-        width: .18em;
-
-    }
-
-    #about .intro:nth-child(3)::after {
-        top: .57em;
-
-        left: 2.42em;
-        height: 8em;
-    }
-
-    #experience h2,
-    #education h2 {
-        font-size: 1em;
-        margin-left: .5em;
-    }
-
-    #experience h2::before {
-        height: 16.5em;
-    }
-}
-*/
-
 
 #projects > ul {
     display: -webkit-box;
@@ -2353,6 +2189,445 @@ p:focus .touch::after,
     stroke-width: 33;
 }
 
+
+/* Shrinks with Experience h2 and intro */
+
+@media (min-width: 19em) {
+
+    html,
+    .content {
+        font-size: 1rem;
+    }
+
+    h2,
+    .title,
+    #contact p {
+        font-size: 3.5rem;
+    }
+
+    h3,
+    .subtitle {
+        font-size: 1.5rem;
+    }
+
+    h4,
+    .subsubtitle {
+        font-size: 1.2rem;
+    }
+
+    .subsubsubtitle,
+    .details-button {
+        font-size: 1rem;
+    }
+
+    .tooltip-icon {
+        height: 1.125em;
+        width: 1.125em;
+        margin: 0 .25em;
+    }
+
+    .tooltip:hover .tooltip-icon {
+        margin: -.25em .325rem;
+    }
+
+    .tooltip.subtitle:hover .tooltip-icon {
+        margin: -.25em .5rem;
+    }
+
+    #about .intro {
+        font-size: 4rem;
+    }
+
+    #about .intro:nth-child(3)::before {
+        left: 2.28em;
+    }
+
+    #about .intro:nth-child(3)::after {
+        top: .58em;
+        left: 2.49em;
+        /*        height: 8em;*/
+    }
+
+    #about .intro:nth-child(3).aos-animate::after {
+        height: 8em;
+    }
+
+    #experience h2::before {
+        width: .16em;
+        /*        height: 18em;*/
+    }
+
+    #experience h2.aos-animate::before {
+        height: 18em;
+    }
+
+    #experience h2::after {
+        /*        height: .55em;*/
+        height: 10em;
+    }
+
+    #experience h2.aos-animate::after {
+        height: .55em;
+    }
+
+    #experience > ul > li {
+        padding: .5em;
+    }
+
+    #experience h2,
+    #education h2 {
+        font-size: .9em;
+    }
+
+    #skills h2::before {
+        left: 1.97em;
+        /*        height: 6.5em;*/
+    }
+
+    #skills h2.aos-animate::before {
+        height: 6.5em;
+    }
+
+    #skills h2::after {
+        left: 1.67em;
+        height: 8em;
+    }
+
+    #education h2::before {
+        height: 4.5em;
+    }
+
+    #education h2::after {
+        left: 5.119em;
+        /*        height: 16.2em;*/
+    }
+
+    #education h2.aos-animate::after {
+        height: 16.2em;
+    }
+
+    #projects h2::after {
+        left: 1.95em;
+        top: .5em;
+        height: 11em;
+    }
+
+    .touch::after,
+    .touch::before,
+    .fingerprint-svg {
+        position: absolute;
+        width: .65em;
+
+        bottom: 0.2em;
+        left: -4.1em;
+    }
+
+    @-webkit-keyframes expandPulseTouch {
+        from {
+            width: .65em;
+            height: .65em;
+            bottom: 0.2em;
+            left: -4.1em;
+            opacity: 1;
+        }
+
+        to {
+            width: 2.6em;
+            height: 2.6em;
+            bottom: -.73em;
+            left: -5.05em;
+            opacity: 0;
+        }
+    }
+
+    @keyframes expandPulseTouch {
+        from {
+            width: .65em;
+            height: .65em;
+            bottom: 0.2em;
+            left: -4.1em;
+            opacity: 1;
+        }
+
+        to {
+            width: 2.6em;
+            height: 2.6em;
+            bottom: -.73em;
+            left: -5.05em;
+            opacity: 0;
+        }
+    }
+}
+
+/* Shrinks enlarges the intro when wide enough*/
+/* Hits Experience h2 */
+
+@media(min-width: 26em) {
+
+    h2,
+    .title,
+    #contact p {
+        font-size: 4rem;
+    }
+
+    h3,
+    .subtitle {
+        font-size: 2rem;
+    }
+
+    h4,
+    .subsubtitle {
+        font-size: 1.4rem;
+    }
+
+    .subsubsubtitle,
+    .details-button {
+        font-size: 1.1rem;
+    }
+
+    #about .intro {
+        font-size: 5rem;
+    }
+
+    #about .intro:nth-child(3)::before {
+        left: 2.22em;
+        width: .18em;
+    }
+
+    #about .intro:nth-child(3)::after {
+        top: .57em;
+
+        left: 2.42em;
+        /*        height: 8em;*/
+    }
+
+    #about .intro.aos-animate:nth-child(3)::after {
+        height: 8em;
+    }
+
+    #experience h2,
+    #education h2 {
+        font-size: 1em;
+        margin-left: .5em;
+    }
+
+    #experience h2.aos-animate::before {
+        height: 16.5em;
+    }
+}
+
+@media (min-width: 37.62em) {
+
+    .touch::after,
+    .touch::before,
+    .fingerprint-svg {
+        position: absolute;
+        width: .65em;
+
+        bottom: .23em;
+        left: .42em;
+    }
+
+    @-webkit-keyframes expandPulseTouch {
+        from {
+            width: .65em;
+            height: .65em;
+            bottom: .23em;
+            left: .42em;
+            opacity: 1;
+        }
+
+        to {
+            width: 2.6em;
+            height: 2.6em;
+            bottom: -.73em;
+            left: -.52em;
+            opacity: 0;
+        }
+    }
+
+    @keyframes expandPulseTouch {
+        from {
+            width: .65em;
+            height: .65em;
+            bottom: .23em;
+            left: .42em;
+            opacity: 1;
+        }
+
+        to {
+            width: 2.6em;
+            height: 2.6em;
+            bottom: -.73em;
+            left: -.52em;
+            opacity: 0;
+        }
+    }
+}
+
 [data-aos="custom"] {
     transition: 3s;
+}
+
+[data-aos="custom-fade-up"],
+[data-aos="custom-fade-right"],
+[data-aos="custom-fade-left"] {
+    -webkit-transition-property: opacity, -webkit-transform;
+    transition-property: opacity, -webkit-transform;
+    transition-property: opacity, transform;
+    transition-property: opacity, transform, -webkit-transform;
+}
+
+[data-aos="custom-fade-up"].aos-animate {
+    -webkit-animation: customFadeUp 1s ease;
+    animation: customFadeUp 1s ease;
+}
+
+@-webkit-keyframes customFadeUp {
+    0% {
+        opacity: .5;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    15% {
+        opacity: 0.25;
+        -webkit-transform: translateY(2em);
+        transform: translateY(2em);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes customFadeUp {
+    0% {
+        opacity: .5;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    15% {
+        opacity: 0.25;
+        -webkit-transform: translateY(2em);
+        transform: translateY(2em);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+[data-aos="custom-fade-right"].aos-animate {
+    -webkit-animation: customFadeRight 2s ease;
+    animation: customFadeRight 2s ease;
+}
+
+@-webkit-keyframes customFadeRight {
+    0% {
+        opacity: .5;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    15% {
+        opacity: 0.25;
+        -webkit-transform: translateX(-1em);
+        transform: translateX(-1em);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+@keyframes customFadeRight {
+    0% {
+        opacity: .5;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    15% {
+        opacity: 0.25;
+        -webkit-transform: translateX(-1em);
+        transform: translateX(-1em);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+[data-aos="custom-fade-left"].aos-animate {
+    -webkit-animation: customFadeLeft 2s ease;
+    animation: customFadeLeft 2s ease;
+}
+
+@-webkit-keyframes customFadeLeft {
+    0% {
+        opacity: .5;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    15% {
+        opacity: 0.25;
+        -webkit-transform: translateX(1em);
+        transform: translateX(1em);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+@keyframes customFadeLeft {
+    0% {
+        opacity: .5;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    15% {
+        opacity: 0.25;
+        -webkit-transform: translateX(1em);
+        transform: translateX(1em);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+[data-aos="custom-fade-up-short-list"] li {
+    /*    fewer than 5 li*/
+    transition-property: opacity, transform;
+}
+
+[data-aos="custom-fade-up-short-list"].aos-animate li {
+    /*    fewer than 5 li*/
+    transition-property: opacity, transform;
+    animation: customFadeRight 2s ease;
+}
+
+[data-aos="custom-fade-up-short-list"].aos-animate li:nth-child(2) {
+    animation-delay: .3s;
+}
+
+[data-aos="custom-fade-up-short-list"].aos-animate li:nth-child(3) {
+    animation-delay: .6s;
 }
