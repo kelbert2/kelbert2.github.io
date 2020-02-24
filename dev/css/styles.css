@@ -1810,7 +1810,7 @@ ul.ani-list li::after,
     position: relative;
 }
 
-/* TODO : add psuedo element in front of sections so when click on they won't get cut off by the header 
+/* TODO : add psuedo element in front of sections so when click on they won't get cut off by the header
 */
 /* Using the t in past and referencing left and top in order to maintain location even if "Past Projects" splits into two lines*/
 #projects h2::after {

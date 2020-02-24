@@ -1,0 +1,96 @@
+* {
+    background: rgba(50, 200, 150, .2);
+    box-sizing: border-box;
+}
+
+header {
+    z-index: 1;
+    position: fixed;
+
+    top: 0;
+    background: white;
+    width: 100%;
+    height: 100px;
+}
+
+main {
+    position: relative;
+}
+
+/*    can make position absolute and it will overlay #untoggle::after, but then can't make full screen height because everything will be % relevant to the header */
+/*
+
+nav {
+    display: none;
+    right: 0;
+    top: 0;
+    background: aliceblue;
+    position: absolute;
+    height: 200px;
+}
+
+nav:target {
+    display: block;
+}
+
+nav:target #untoggle::after {
+    content: '';
+    display: block;
+    background: black;
+        opacity: .75;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+*/
+
+/**
+Alternate
+**/
+/*
+nav fixed with ::after fixed makes the aliceblue go behind ::after, but all of the internals are above
+*/
+/* making #untoggle fixed creates a new stacking context that would mess everything pu */
+nav {
+    display: none;
+    right: 0;
+    top: 0;
+    background: aliceblue;
+    position: fixed;
+    height: 100%;
+    width: 40%;
+}
+
+nav:target {
+    display: block;
+}
+
+nav:target ul {
+    background: white;
+    width: 100%;
+    height: 100%;
+    padding: 1.5em;
+    margin: 0;
+}
+
+nav:target #untoggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+nav:target #untoggle::after {
+    content: '';
+    display: block;
+    background: black;
+    opacity: .75;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}

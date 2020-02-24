@@ -1,0 +1,462 @@
+{
+    // IE8 + ,
+    Firefox 3 + ,
+    // Opera 9.25 + ,
+    Safari 3 + ,
+    Chrome
+}
+
+    {
+    Firefox 4.0 + ,
+    Opera 10.6 + ,
+    Safari 3 + ,
+    Chrome
+}
+
+    {
+    // Firefox 1.0 + ,
+    Opera 10.5 + ,
+    Safari 3 + ,
+    Chrome
+}
+
+    {
+    Firefox 3.5 + ,
+    Opera 10.5 + ,
+    Safari 3 + ,
+    Chrome
+}
+
+
+/*
+.main-nav nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+*/
+
+/* TODO: add menu icon to appear when screen size too small */
+/* For mobile, have icon float at bottom */
+#main-menu-toggle {
+    position: fixed;
+    left: 0;
+    top: 0;
+    /*    z-index: 8;*/
+}
+
+#main-menu-toggle::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--accent_light);
+    /*    top: 15px;*/
+    /*    position: absolute;*/
+    transform: translate(-75%, -25%);
+    z-index: 9;
+    float: left;
+    padding: 10px;
+}
+
+/* TODO: work with z-index and opacity to make -close appear over it, then switch out on focus/movement of menu */
+.menu-toggle,
+.menu-close {
+    background-color: var(--accent_light);
+    border-radius: 50%;
+    padding: 10px;
+
+    /*     https://medium.com/@heyoka/responsive-pure-css-off-canvas-hamburger-menu-aebc8d11d793 */
+    display: inline-block;
+    margin: .75em 10px;
+    /*    line-height: 1em;*/
+    /*    font-size: 1em;*/
+}
+
+.menu-toggle,
+.menu-close {
+    width: 20px;
+    height: 20px;
+    /* TODO: fix .menu-close position when scroll sidebar */
+}
+
+/*    margin: 5px;*/
+
+.menu-toggle span,
+.menu-toggle span::before,
+.menu-toggle span::after {
+    z-index: 3;
+    position: relative;
+    /*    setting position helps with the z-index order that gets funky with the transforms, specifically with #main-menu-toggle::before */
+}
+
+.menu-toggle span,
+.menu-toggle span::before,
+.menu-toggle span::after,
+.menu-close span,
+.menu-close span::before,
+.menu-close span::after {
+    width: 100%;
+    height: calc(.15 * 20px);
+    margin: 17% 0;
+    border-radius: 10px;
+    content: '';
+    display: block;
+
+    background-color: var(--dark);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.menu-toggle:focus span,
+.menu-toggle:focus span::before,
+.menu-toggle:focus span::after,
+.menu-close:focus span,
+.menu-close:focus span::before,
+.menu-close:focus span::after {
+    background-color: var(--darker);
+}
+
+/* TODO: In JavaScript, add a .closed class dynamically so not just relying on :targetting */
+
+.menu-toggle span::before,
+.menu-toggle span::after,
+.menu-close:hover span::before,
+.menu-close:focus span::before,
+.menu-close:hover span::after,
+.menu-close:focus span::after {
+    opacity: 1;
+    /*    FUTURE: opacity should only be relevant for .menu-close befores */
+    -webkit-transform: translateY(200%);
+    transform: translateY(200%);
+}
+
+.menu-toggle:hover span,
+.menu-toggle:focus span {
+    transform: translate(0%, 225%) rotate(-45deg);
+}
+
+.menu-toggle:hover span::before,
+.menu-toggle:focus span::before,
+.menu-close span::before {
+    opacity: 0;
+    transform: translate(0%, 0%) rotate(45deg);
+}
+
+.menu-toggle:hover span::after,
+.menu-toggle:focus span::after,
+.menu-close span::after {
+    /*    -webkit-transform: translate(0%, 0%) rotate(45deg);*/
+    transform: translate(0%, -225%) rotate(90deg);
+}
+
+.menu-close span {
+    transform: translate(0%, 225%) rotate(-45deg);
+}
+
+.menu-close:hover span,
+.menu-close:focus span {
+    transform: translate(0%, 0%) rotate(0);
+}
+
+/* FUTURE: rename nav bar or the like to avoid confusion with icons */
+#main-menu {
+    /*    width: 0;
+    transition: width 0.3s ease;
+*/
+
+    /* https://medium.com/@heyoka/responsive-pure-css-off-canvas-hamburger-menu-aebc8d11d793 */
+    /*    position: absolute;*/
+    display: none;
+    /*    left: -200px;*/
+    top: 0;
+    left: 0;
+    /*    transform: translateX(-200px);*/
+    height: 100%;
+    /*    FIX: scroll in y despite no content to scroll to although do have an odd horizontal line that scrolls with the backdrop */
+    overflow-y: auto;
+    /*    FUTURE: try to change scrollbar color or visibility bvecause it does not look hot here*/
+    overflow-x: visible;
+    /*     need visible to show overlay */
+    /*    FUTURE: what would overflow-x: visible accomplish here? */
+    /*
+    transition: left 0.3s,
+        box-shadow 0.3s;
+*/
+    /*    transition: 0.5s;*/
+    background: var(--main_dark);
+    /*    z-index: 998;*/
+    /*    position: relative;*/
+}
+
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: 0;*/
+
+/* TODO: make these ID selections if this works */
+/* when someone clicks a link #main-menu*/
+/*  [aria-expanded] will be used if/when JavaScript is added to improve interaction, though it's completely optional. */
+/* https://medium.com/@heyoka/responsive-pure-css-off-canvas-hamburger-menu-aebc8d11d793 */
+#main-menu:target,
+#main-menu[aria-expanded="true"] {
+    /*    width: 30%;*/
+    display: block;
+    /*    left: 0;*/
+    /*    transform: translateX(0);*/
+    /* Hide shadow w/ -8px while 'closed' */
+    /*    box-shadow: -8px 0 8px rgba(0, 0, 0, .5);*/
+    /*    outline: none;*/
+    box-shadow: 3px 0 12px rgba(0, 0, 0, .25);
+}
+
+#main-menu:target .menu-close,
+#main-menu[aria-expanded="true"] .menu-close {
+    /*    z-index: 1000;*/
+}
+
+/*
+.main-menu:target ul,
+.main-menu[aria-expanded="true"] ul {
+    position: relative;
+    z-index: 1000;
+}
+*/
+
+/*
+ We could use `.main-menu:target:after`, but
+ it wouldn't be clickable.
+*/
+
+/*
+.main-menu:target + .backdrop,
+.main-menu[aria-expanded="true"] + .backdrop
+*/
+/*
+.main-menu:target {
+    position: fixed;
+    z-index: 50;
+}
+.main-menu:target ul {
+    position: relative;
+}
+.main-menu:target ul::after {
+    position: absolute;
+    z-index: -1;
+}
+*/
+header {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+#main-menu:target {
+    position: fixed;
+    background: aliceblue;
+    top: 0;
+    right: 0;
+}
+
+#main-menu-close::after {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+#main-menu-close::after {
+    content: '';
+    /*     add href to # so will close menu on click v*/
+    /*    position: absolute;*/
+    /*
+    bottom: 0;
+    right: 0;
+*/
+
+    /*    position: absolute;*/
+    display: block;
+    /*    left: 0;*/
+    /*    top: 0;*/
+    width: 300px;
+    height: 300px;
+    /*    z-index: 997;*/
+    /*    z-index: -1;*/
+    /*    transform: translateX(40px);*/
+
+    background: #000;
+    background: rgba(0, 0, 0, .65);
+    /*    background: rgba(0, 0, 0, .85);*/
+    /*    cursor: default;*/
+}
+
+@supports (position: fixed) {
+
+    /* .main-menu:target::after, */
+    .main-menu,
+    .main-menu:target + .backdrop,
+    .main-menu[aria-expanded="true"] + .backdrop {
+        /*        position: fixed;*/
+    }
+}
+
+.main-menu ul {
+    list-style: none;
+    /*    list-style-position: inside;*/
+    /*    margin-left: 0;*/
+    /*    padding: 2.5em 0 0;*/
+    padding: 0;
+    margin: 0;
+
+    font-family: 'Bitter', serif;
+    display: flex;
+    align-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    /*    justify-content: center;*/
+    /*    width: 100%;*/
+    /*    z-index: 999;*/
+    width: 200px;
+    /*    position: relative;*/
+}
+
+/* FUTURE: unify .main-menu li a and a as much as is sensible */
+
+.main-menu li,
+.main-menu li a {
+    width: 100%;
+    color: var(--main_light);
+    /*    z-index: 999;*/
+}
+
+.main-menu li a:hover,
+.main-menu li a:focus {
+    color: var(--accent_light);
+}
+
+.main-menu li a {
+    display: block;
+    /*    padding: .75em 15px;*/
+    line-height: 1em;
+    font-size: 1em;
+}
+
+.main-menu li {
+    /*    text-decoration: none;*/
+    border-bottom: 1px solid var(--accent_light);
+    position: relative;
+    /* so that pseudoelements are positioned relatively to their "li"s*/
+    padding: 5px 0 5px 5px;
+}
+
+/* TODO: Line isn't extending all the way */
+.main-menu li:first-child a {
+    border-top: 1px solid var(--accent_light);
+    padding-top: 5px;
+}
+
+.main-menu .menu-close {
+    /*
+    position: absolute;
+    right: 0;
+    top: 0;
+*/
+}
+
+/*
+.main-nav a,
+.main-nav label {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+*/
+
+/*
+.main-nav li {
+    transform: rotate(270deg);
+    transform-origin: center center 0;
+    padding: 10px;
+}
+*/
+
+/*
+.main-menu li a {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-flow: row nowrap;
+}
+*/
+/*        justify-content: flex-start;*/
+/*        align-content: stretch;*/
+/*    width: 100%;*/
+/*    flex-wrap: nowrap;*/
+/*    flex-shrink: 0;*/
+
+/*
+.main-menu ul li a .bullet {
+    display: block;
+    background-color: var(--dark);
+    height: 3px;
+    margin: 5px;
+    flex: 1 2 30%;
+    transition: flex-basis 2s ease-out;
+}
+*/
+/*        float: left;*/
+
+/*
+.main-menu ul li a:hover .bullet,
+.main-menu ul li a:focus .bullet {
+    flex: 1 2 80%;
+}
+
+
+.main-menu li a::after {
+    content: '';
+    display: block;
+    background: none;
+    flex: 1 3 30%;
+}
+*/
+/*    if keep at same flex-basis as the .bullet line, will center the remaining words */
+
+/*        transition: flex-basis 2s ease-in-out;*/
+
+/*
+.main-nav li:before {
+    content: '';
+    position: absolute;
+    float: left;
+    min-width: 30%;
+    border-bottom: solid 2px #000;
+   top: 50%;
+    z-index: -1;
+}
+*/
+
+/*margin-left: -20px;
+    margin-right: 10px;
+right: 100%;
+*/
+
+/*
+.main-nav label::before {
+    height: 50px;
+    width: 100px;
+    background-color: #555;
+}
+
+.main-nav a:hover,
+.main-nav label:focus {
+    color: aquamarine;
+}
+
+.main-nav a.active,
+main-nav label:checked {
+    color: salmon;
+}
+*/

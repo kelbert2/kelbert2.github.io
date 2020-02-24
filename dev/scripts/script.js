@@ -1,0 +1,1 @@
+// TODO: add a aos-out class so know when scripts are enabled and can turn elements opaque or hidden visibilty by default. Would also then need to redo some of the animate on scroll transitions to account for this - will only ever have the .aos-animate class if scripts are enabled
