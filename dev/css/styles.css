@@ -1853,6 +1853,60 @@ ul.ani-list li::after,
 #projects > ul > li {
     max-width: 23em;
     margin: .25em auto;
+
+    padding: .5em;
+}
+
+#projects img,
+#projects video {
+    max-width: 22em;
+    margin: .5em auto 0;
+
+    box-shadow: var(--shadow-angled);
+
+}
+
+#projects img + .subtitle,
+#projects video + .subtitle {
+    position: relative;
+}
+
+#projects img {
+    padding-top: 8.8px;
+    /*    For 1.6 width to height ratio*/
+}
+
+#projects img + .subtitle::before,
+#projects video + .subtitle::before {
+    display: block;
+    content: '';
+
+    position: absolute;
+    top: -.5em;
+    right: -.5em;
+    height: 0;
+    width: 0;
+
+    z-index: -1;
+
+    border-left: .5em solid var(--accent);
+    border-bottom: .5em solid var(--accent);
+    border-top: .5em solid transparent;
+
+    /*    Not working: box-shadow: inset 0 0 10px red;*/
+    /*
+    box-shadow: inset 0 1px 1px -1px rgba(0, 0, 0, 0.4),
+        inset 0 2px 4px -2px rgba(0, 0, 0, 0.4),
+        inset 0 4px 8px -4px rgba(0, 0, 0, 0.4),
+        inset 0 6px 12px -6px rgba(0, 0, 0, 0.4);
+*/
+}
+
+#projects img + .subtitle::after,
+#projects video + .subtitle::after {
+    box-shadow: 2px -1px 1px 1px rgba(0, 0, 0, 0.2),
+        4px -2px 3px 2px rgba(0, 0, 0, 0.2),
+        8px -4px 4px 3px rgba(0, 0, 0, 0.2);
 }
 
 #projects .subtitle {
