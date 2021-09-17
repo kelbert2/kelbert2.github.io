@@ -537,7 +537,7 @@ a.logo-stack:visited > .ani-link {
 .tooltip-text {
     position: absolute;
     white-space: normal;
-    z-index: 1;
+    z-index: 3;
     top: 1.5em;
     right: 1.5rem;
     max-width: 15em;
@@ -1404,10 +1404,10 @@ section p {
     text-shadow: var(--text-shadow);
 }
 
-#skills ul {
-    z-index: 0;
+/* #skills ul { *
+    /* z-index: 0; removed for tooltip to go over next li*/
     /* TODO: box-shadow not showing up here */
-}
+/* } */
 
 ul.logo-link-set {
     display: grid;
@@ -1566,7 +1566,7 @@ ul.ani-list li::after,
 }
 */
 #education h2 {
-    z-index: -1;
+    z-index: -2;
 }
 
 #education h2::before,
@@ -1574,7 +1574,7 @@ ul.ani-list li::after,
     display: block;
     content: '';
     position: absolute;
-    width: .165em;
+    width: .16em;
 
     -webkit-transition: height 5s;
     transition: height 5s;
@@ -1586,7 +1586,7 @@ ul.ani-list li::after,
     /*    height: .75em;*/
 
     height: 6em;
-    z-index: 1;
+    z-index: 0;
     background: var(--accent);
 
     -webkit-box-shadow: var(--shadow-around);
@@ -1600,7 +1600,7 @@ ul.ani-list li::after,
 #education h2::after {
     background: var(--accent-dark);
     top: .7em;
-    left: 5.11em;
+    left: 5.118em;
     height: .26em;
     /*    height: 19em;*/
 
@@ -2357,7 +2357,7 @@ p:focus .touch::after,
     }
 
     #education h2::after {
-        left: 5.119em;
+        left: 5.118em;
         /*        height: 16.2em;*/
     }
 
